@@ -1227,7 +1227,236 @@ div#tabs li:nth-child(5) {
 }
 
 /*** ------------------------------- ***/
+/*** PAGE PROFILS -------------- ***/
+.user_profile .profile_field {
+	display: flex;
+	gap: 5px;
+}
 
+.user_profile .profile_field label {
+	min-width: 100px;
+	margin-top: 3px;
+}
+
+.user_grid {
+	display: grid;
+	grid-template-columns: 1fr 200px 1fr;
+	gap: 20px;
+}
+
+#user_infos {
+	height: 218px;
+	margin: 10px 0 12px;
+}
+
+.user_contacts {
+	gap: 5px;
+	justify-content: space-around;
+}
+
+.user_contacts #field_id:nth-of-type(2) {
+	display: none;
+}
+
+#user_infos > div {
+	background: var(--neutralDark);
+	border-radius: 5px;
+	padding: 0 5px;
+}
+
+.user_grid .bg-large {
+	width: 100%;
+}
+
+#user_aes > div {
+	background: var(--neutral);
+	border-radius: 5px;
+	min-height: 133px;
+}
+
+#user_aes label {
+	display: none;
+}
+
+#user_aes field {
+	width: -webkit-fill-available;
+}
+
+#user_aes > div {
+	background: var(--neutral);
+	border-radius: 5px;
+	min-height: 133px;
+	overflow: auto;
+	height: 133px;
+	padding: 8px 15px;
+}
+
+#user_aes field {
+	margin: 5px 0;
+}
+
+#user_img {
+	height: 72px;
+}
+
+#user_img label {
+	display: none;
+}
+
+#user_img field {
+	width: 100%;
+	height: 100%;
+}
+
+.user_profile .tabs-onglets a {
+	width: 100%;
+}
+
+.user_name h1 {
+	text-align: left;
+}
+
+.user_name {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-left: 25px;
+}
+
+#profil1 > div,
+#profil2 > div,
+#inventaire > div {
+	padding: 2px 6px;
+}
+
+#profil1 label,
+#profil2 label,
+#inventaire label {
+	display: none;
+}
+
+.ajax-profil_parent {
+	position: relative;
+}
+
+.ajax-profil_edit {
+	left: -7px !important;
+}
+
+div#bulletin label {
+    display: none;
+}
+div#bulletin {
+    display: flex;
+    justify-content: center;
+}
+
+.bulletin { display: flex; }
+.bulletin>* { width: 100%; }
+.bulletin .bg-large { width: 20px; height: 228px; writing-mode: vertical-rl; text-orientation: mixed; transform: rotate(180deg); }
+#bulletin { display: flex; justify-content: center; }
+.bulletin .profile_field { width: 100%; padding-left: 10px; }
+.bulletin field {width: 100%}
+#bulletin field>.field_uneditable:not(#bulletin field>.field_uneditable.invisible) { display: flex; justify-content: stretch; flex-direction: column; align-items: center; width: 100%; }
+#bulletin field>.field_uneditable > div {width:max-content}
+.pp_feather { display: flex; justify-content: center; align-items: center; width: 60px !important; height: 60px; outline-offset: 3px; outline: 1px solid var(--base-2); background: var(--base-2); border-radius: 50%; }
+.bulletin_pro { margin-bottom: 5px; font-family: var(--font-3); text-align: center; color: var(--co-2); font-size: var(--large-size); }
+.bulletin_note { font-size: var(--little-size) !important; letter-spacing: 0px; }
+.bulletin_note .grid-two { display: flex; flex-direction: column; gap: 0; line-height: 21px; width: -webkit-fill-available; height: 123px; }
+#bulletin h3, #bulletin h4 { background: var(--neutralDark); color: var(--contrast); letter-spacing: 0; }
+
+/*** ------------------------------- ***/
+/*** CODES POUR CHAMPS PAGES PROFILS -------------- ***/
+
+.pr_evol1 tr {
+    display: grid;
+    grid-template-columns: 10px 1fr;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.pr_evol1 tr::before {
+    content: "";
+    z-index: 1;
+    width: 10px;
+    height: 10px;
+    margin-top: 5px;
+    border-radius: 50%;
+    background: radial-gradient(var(--co-1), var(--co-2));
+    grid-row: 1;
+    grid-column: 1;
+}
+
+.pr_evol1 tr:not(.pr_evol1 tr:last-of-type)::after {
+    content: "";
+    width: 1px;
+    margin-top: 9px;
+    height: calc(100% + 17px);
+    justify-self: center;
+    background: var(--co-gradient);
+    grid-row: 1;
+    grid-column: 1;
+}
+
+/*** ------------------------------- ***/
+/*** AES POUR PAGE PROFIL -------------- ***/
+
+/*profiles*/
+.pr_1 tbody tr {
+	display: grid;
+	grid-template: 1fr / 1fr;
+	justify-items: center;
+	align-items: center;
+}
+.pr_1 td {
+	grid-row: 1;
+	grid-column: 1;
+}
+.pr_1 td:first-child img {
+	width: 52px;
+	filter: grayscale(1);
+}
+.pr_1 td:last-child img {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	z-index: 1;
+	border: 3px solid var(--white);
+	position: relative;
+}
+
+.pr_2 tr {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	width: 100%;
+}
+.pr_2 tr > * {
+	flex-shrink: 0;
+}
+.pr_2 tr::before,
+.pr_2 tr::after {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 1px;
+}
+.pr_2 tr::before {
+	background: linear-gradient(to right, transparent, var(--co-2), var(--co-1));
+}
+.pr_2 tr::after {
+	background: linear-gradient(to right, var(--co-1), var(--co-2), transparent);
+}
+
+#profil1 field {
+	width: 100%;
+}
+
+.pr_3 img {
+    	border-radius: 50%;
+    	border: 1px solid var(--co-2);
+   	padding: 2px;
+}
 
 /*** ------------------------------- ***/
 /*** LISTE DES MEMBRES -------------- ***/
@@ -6823,7 +7052,6 @@ html.js .category .forums .fs-panel.is-active{
     0 2px 12px rgba(0,0,0,.55),
     0 0 22px rgba(160,120,255,.35);
 }
-body { outline: 5px solid lime !important; }
 
 .cateFloatLine{
   opacity: 1; /* au lieu de .9 */
