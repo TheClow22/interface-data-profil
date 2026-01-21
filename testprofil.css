@@ -7129,3 +7129,20 @@ html.js .category .forums .fs-panel.is-active{
   color: var(--contrast);
 }
 .pf_awards_bd{ padding: 12px; }
+
+/* === PROFILE : ZONES IMAGE === */
+
+.pf_win_gif .pf_win_bd[data-slot="apparence"] {
+  height: 140px;
+  border-radius: 14px;
+}
+
+.pf_rel_img {
+  height: 140px;
+  border-radius: 14px;
+}
+
+.pf_astral_img {
+  height: 170px;
+  border-radius: 14px;
+}
