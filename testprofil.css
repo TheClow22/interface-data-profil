@@ -6886,3 +6886,238 @@ html.js .category .forums .fs-panel.is-active{
   opacity: 1; /* au lieu de .9 */
   filter: drop-shadow(0 2px 10px rgba(0,0,0,.35));
 }
+/***************************************************
+  PROFIL V2 — PF2
+****************************************************/
+
+/* on neutralise l’affichage brut des champs */
+#pf2_pool{
+  position:absolute;
+  left:-9999px;
+  top:-9999px;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}
+
+/* conteneur global */
+.user_profile.pf2{
+  width: 950px;
+  max-width: 100%;
+  margin: 30px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* utilitaire : blocs dans ton style */
+.user_profile.pf2 .block{
+  background: var(--neutralDark);
+  border: 1px solid var(--neutral);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* HEADER */
+.pf2_header{
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 18px;
+  align-items: center;
+}
+
+.pf2_username{
+  margin: 0;
+  font-family: var(--font-3);
+  font-size: var(--title-size);
+  letter-spacing: 1px;
+}
+
+.pf2_meta{
+  display:flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.pf2_chip{
+  background: var(--neutral);
+  border: 1px solid var(--neutralDarker);
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: var(--little-size);
+}
+
+.pf2_header_right{
+  display:flex;
+  align-items:center;
+  gap: 12px;
+}
+
+/* petit gif (APPARENCE) */
+.pf2_gif .profile_field label{display:none;}
+.pf2_gif .profile_field{
+  display:block;
+  gap:0;
+}
+.pf2_gif img{
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  outline: 1px solid var(--neutral);
+  outline-offset: 3px;
+}
+
+/* liens discrets */
+.pf2_links{
+  display:flex;
+  gap: 8px;
+}
+.pf2_links a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--neutral);
+  border: 1px solid var(--neutralDarker);
+  font-size: var(--little-size);
+}
+
+/* BODY 2 colonnes */
+.pf2_body{
+  display: grid;
+  grid-template-columns: 310px 1fr;
+  gap: 15px;
+}
+
+.pf2_left,
+.pf2_right{
+  display:flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* avatar + rang */
+.pf2_avatar{
+  padding: 12px;
+  display:flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.pf2_avatar_img img{
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+.pf2_rank{
+  text-align:center;
+  font-family: var(--font-3);
+  letter-spacing: 2px;
+  opacity: .9;
+}
+
+/* titres de blocs (tu utilisais bg-large déjà) */
+.user_profile.pf2 .bg-large{
+  background: var(--neutral);
+  color: var(--contrast);
+  padding: 10px 12px;
+  font-family: var(--font-3);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* scroll box */
+.pf2_scroll{
+  max-height: 170px;
+  overflow: auto;
+  padding: 12px;
+}
+
+/* INFOS : on affiche label + value joliment */
+#pf2_basic .profile_field{
+  display:flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--neutral);
+}
+#pf2_basic .profile_field:last-child{border-bottom:0;}
+#pf2_basic label{
+  min-width: 120px;
+  font-size: var(--little-size);
+  letter-spacing: 1px;
+  opacity: .8;
+}
+#pf2_basic field{
+  text-align:right;
+}
+
+/* AES (zone libre) */
+#pf2_aes .profile_field label{display:none;}
+#pf2_aes .profile_field{display:block;}
+
+/* ASTRAL */
+.pf2_astral_inner{
+  padding: 12px;
+  display:flex;
+  gap: 12px;
+  align-items:flex-start;
+}
+.pf2_astral_img img{
+  width: 70px;
+  height: 70px;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 1px solid var(--neutral);
+}
+.pf2_astral_row{
+  display:flex;
+  gap: 8px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--neutral);
+}
+.pf2_astral_row:last-child{border-bottom:0;}
+.pf2_astral_key{
+  width: 90px;
+  opacity: .8;
+  font-size: var(--little-size);
+}
+.pf2_astral_val{
+  font-weight: 600;
+}
+
+/* RELATIONSHIP */
+.pf2_rel_grid{
+  display:grid;
+  grid-template-columns: 120px 1fr;
+  gap: 12px;
+  padding: 12px;
+}
+.pf2_rel_img img{
+  width: 120px;
+  height: 120px;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 1px solid var(--neutral);
+}
+.pf2_rel_text .profile_field label{display:none;}
+.pf2_rel_text .profile_field{display:block;}
+.pf2_rel_status{
+  background: var(--neutral);
+  border-top: 1px solid var(--neutralDarker);
+  padding: 10px 12px;
+  text-align: center;
+  font-family: var(--font-3);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.pf2_rel_status .profile_field label{display:none;}
+
+/* RESPONSIVE */
+@media (max-width: 980px){
+  .user_profile.pf2{width: 100%;}
+  .pf2_body{grid-template-columns: 1fr;}
+}
