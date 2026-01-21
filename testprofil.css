@@ -6886,238 +6886,299 @@ html.js .category .forums .fs-panel.is-active{
   opacity: 1; /* au lieu de .9 */
   filter: drop-shadow(0 2px 10px rgba(0,0,0,.35));
 }
-/***************************************************
-  PROFIL V2 — PF2
-****************************************************/
+/* =========================================================
+   PROFIL V2 — SKIN (PF2)
+   ========================================================= */
 
-/* on neutralise l’affichage brut des champs */
-#pf2_pool{
-  position:absolute;
-  left:-9999px;
-  top:-9999px;
-  width:1px;
-  height:1px;
-  overflow:hidden;
+/* Zone globale */
+.user_profile.pf2 {
+  --pf2-bg: rgba(255,255,255,.55);
+  --pf2-card: rgba(255,255,255,.38);
+  --pf2-stroke: rgba(255,255,255,.25);
+  --pf2-text: rgba(20, 20, 25, .85);
+  --pf2-muted: rgba(20, 20, 25, .60);
+  --pf2-accent: var(--co-2, #b06bff);
+  --pf2-accent2: var(--co-1, #6aa9ff);
+  color: var(--pf2-text);
 }
 
-/* conteneur global */
-.user_profile.pf2{
-  width: 950px;
-  max-width: 100%;
-  margin: 30px auto;
+/* IMPORTANT : si tu avais du blanc sur blanc */
+.user_profile.pf2 * {
+  color: inherit;
+}
+
+/* Le “panneau” global (le grand rectangle) */
+.user_profile.pf2 .pf2_wrap,
+.user_profile.pf2 .user_grid,
+.user_profile.pf2 #pf2_wrap {
+  background: var(--pf2-bg);
+  border: 1px solid var(--pf2-stroke);
+  border-radius: 18px;
+  box-shadow: 0 10px 40px rgba(0,0,0,.18);
+  backdrop-filter: blur(10px);
+}
+
+/* Cartes / blocs */
+.user_profile.pf2 .pf2_card,
+.user_profile.pf2 #pf2_basic,
+.user_profile.pf2 #pf2_aes,
+.user_profile.pf2 #pf2_rel,
+.user_profile.pf2 #pf2_collection,
+.user_profile.pf2 #pf2_astral {
+  background: var(--pf2-card);
+  border: 1px solid var(--pf2-stroke);
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.10);
+}
+
+/* Titres de sections (INFORMATIONS / AES / CŒUR / THÈME ASTRAL / COLLECTION) */
+.user_profile.pf2 .pf2_title,
+.user_profile.pf2 .pf2_card h2,
+.user_profile.pf2 .pf2_card h3 {
+  font-family: var(--font-3, inherit);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-size: 11px;
+  color: rgba(255,255,255,.92);
+  background: linear-gradient(90deg, rgba(0,0,0,.18), rgba(0,0,0,.06));
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 999px;
+  padding: 10px 14px;
+  margin: 0 0 10px;
+}
+
+/* Header (pseudo + infos + gif) */
+.user_profile.pf2 .pf2_header,
+.user_profile.pf2 #pf2_header {
   display: flex;
-  flex-direction: column;
-  gap: 15px;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 16px;
 }
 
-/* utilitaire : blocs dans ton style */
-.user_profile.pf2 .block{
-  background: var(--neutralDark);
-  border: 1px solid var(--neutral);
-  border-radius: 10px;
-  overflow: hidden;
+/* Pseudo */
+.user_profile.pf2 .pf2_name,
+.user_profile.pf2 #pf2_name,
+.user_profile.pf2 .user_name h1 {
+  font-family: var(--font-3, inherit);
+  letter-spacing: .08em;
+  color: rgba(25,25,30,.9);
+  text-transform: uppercase;
 }
 
-/* HEADER */
-.pf2_header{
+/* Les “pastilles” inscription / dernière visite / etc. => on force la même ligne */
+.user_profile.pf2 .pf2_meta,
+.user_profile.pf2 #pf2_meta {
   display: flex;
-  justify-content: space-between;
-  gap: 15px;
-  padding: 18px;
+  flex-wrap: wrap;
+  gap: 8px;
   align-items: center;
 }
 
-.pf2_username{
-  margin: 0;
-  font-family: var(--font-3);
-  font-size: var(--title-size);
-  letter-spacing: 1px;
-}
-
-.pf2_meta{
-  display:flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 8px;
-}
-
-.pf2_chip{
-  background: var(--neutral);
-  border: 1px solid var(--neutralDarker);
-  padding: 6px 10px;
+/* Style des pastilles */
+.user_profile.pf2 .pf2_meta span,
+.user_profile.pf2 #pf2_meta span,
+.user_profile.pf2 .pf2_chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 10px;
   border-radius: 999px;
-  font-size: var(--little-size);
+  background: rgba(255,255,255,.35);
+  border: 1px solid rgba(255,255,255,.22);
+  font-size: 12px;
+  color: var(--pf2-muted);
+  white-space: nowrap; /* évite “hors ligne” en mode escalier */
 }
 
-.pf2_header_right{
-  display:flex;
-  align-items:center;
-  gap: 12px;
-}
-
-/* petit gif (APPARENCE) */
-.pf2_gif .profile_field label{display:none;}
-.pf2_gif .profile_field{
-  display:block;
-  gap:0;
-}
-.pf2_gif img{
-  width: 64px;
+/* GIF en header : tu voulais à côté du pseudo => on le met “à droite” proprement */
+.user_profile.pf2 #pf2_gif {
+  margin-left: auto;
+  width: 180px;
   height: 64px;
-  border-radius: 50%;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.22);
+  background: rgba(255,255,255,.18);
+}
+.user_profile.pf2 #pf2_gif img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  outline: 1px solid var(--neutral);
-  outline-offset: 3px;
+  display: block;
 }
 
-/* liens discrets */
-.pf2_links{
-  display:flex;
-  gap: 8px;
+/* Avatar : cadre + centrage */
+.user_profile.pf2 .pf2_avatar,
+.user_profile.pf2 #pf2_avatar {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.25);
+  background: rgba(255,255,255,.18);
 }
-.pf2_links a{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: var(--neutral);
-  border: 1px solid var(--neutralDarker);
-  font-size: var(--little-size);
+.user_profile.pf2 .pf2_avatar img,
+.user_profile.pf2 #pf2_avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-/* BODY 2 colonnes */
-.pf2_body{
+/* Champs de base (ÂGE/RACE/CAPACITÉS/...) => grille lisible */
+.user_profile.pf2 #pf2_basic .profile_field {
   display: grid;
-  grid-template-columns: 310px 1fr;
-  gap: 15px;
+  grid-template-columns: 140px 1fr;
+  gap: 12px;
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(255,255,255,.16);
+}
+.user_profile.pf2 #pf2_basic .profile_field:last-child {
+  border-bottom: 0;
 }
 
-.pf2_left,
-.pf2_right{
-  display:flex;
-  flex-direction: column;
-  gap: 15px;
+/* Label à gauche */
+.user_profile.pf2 #pf2_basic .profile_field label {
+  font-family: var(--font-3, inherit);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-size: 11px;
+  color: rgba(40,40,55,.68);
+  margin: 0;
 }
 
-/* avatar + rang */
-.pf2_avatar{
-  padding: 12px;
-  display:flex;
-  flex-direction: column;
+/* Valeur à droite */
+.user_profile.pf2 #pf2_basic .profile_field field,
+.user_profile.pf2 #pf2_basic .profile_field .field_uneditable {
+  color: rgba(20,20,25,.82);
+  font-size: 14px;
+}
+
+/* Fix “STATUT SOCIAL” qui n’a pas la même taille (on le force) */
+.user_profile.pf2 #pf2_basic .profile_field label {
+  line-height: 1.2;
+}
+
+/* AES : tu veux un rendu “bloc” plus vivant */
+.user_profile.pf2 #pf2_aes {
+  padding: 14px 16px;
+}
+.user_profile.pf2 #pf2_aes .profile_field label {
+  display: none;
+}
+.user_profile.pf2 #pf2_aes .profile_field field,
+.user_profile.pf2 #pf2_aes .profile_field .field_uneditable {
+  color: rgba(20,20,25,.80);
+  line-height: 1.55;
+}
+
+/* THÈME ASTRAL — stop le texte mangé */
+.user_profile.pf2 #pf2_astral {
+  padding: 14px 16px;
+}
+.user_profile.pf2 #pf2_astral_list {
+  display: grid;
   gap: 10px;
 }
-.pf2_avatar_img img{
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
+.user_profile.pf2 .pf2_astral_row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 12px;
+  align-items: start;
 }
-.pf2_rank{
-  text-align:center;
-  font-family: var(--font-3);
-  letter-spacing: 2px;
+.user_profile.pf2 .pf2_astral_key {
+  font-family: var(--font-3, inherit);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-size: 11px;
+  color: rgba(40,40,55,.68);
+}
+.user_profile.pf2 .pf2_astral_val {
+  color: rgba(20,20,25,.82);
+  white-space: normal;   /* autorise le retour */
+  overflow: visible;     /* plus de rognage */
+  word-break: break-word;
+}
+
+/* “CŒUR” / RELATIONSHIP — image + texte + statut plus sexy */
+.user_profile.pf2 #pf2_rel_img .profile_field,
+.user_profile.pf2 #pf2_rel_text .profile_field,
+.user_profile.pf2 #pf2_rel_status .profile_field {
+  padding: 12px 16px;
+}
+
+/* Image relation : on la cadre, et on évite “bonnyyyy” qui colle à l’image */
+.user_profile.pf2 #pf2_rel_img .profile_field {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.user_profile.pf2 #pf2_rel_img label {
+  font-family: var(--font-3, inherit);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-size: 11px;
+  color: rgba(40,40,55,.68);
+  min-width: 150px;
+}
+.user_profile.pf2 #pf2_rel_img img {
+  width: 92px;
+  height: 92px;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.28);
+  box-shadow: 0 10px 25px rgba(0,0,0,.14);
+}
+
+/* Texte relation */
+.user_profile.pf2 #pf2_rel_text label {
+  display: none;
+}
+.user_profile.pf2 #pf2_rel_text field,
+.user_profile.pf2 #pf2_rel_text .field_uneditable {
+  color: rgba(20,20,25,.78);
+  line-height: 1.55;
+}
+
+/* Statut relation : on le transforme en “bandeau” */
+.user_profile.pf2 #pf2_rel_status .profile_field {
+  padding-top: 0;
+}
+.user_profile.pf2 #pf2_rel_status label {
+  display: none;
+}
+.user_profile.pf2 #pf2_rel_status field,
+.user_profile.pf2 #pf2_rel_status .field_uneditable {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(176,107,255,.22), rgba(106,169,255,.18));
+  border: 1px solid rgba(255,255,255,.22);
+  font-family: var(--font-3, inherit);
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  font-size: 11px;
+  color: rgba(20,20,25,.85);
+}
+
+/* Option “petits cœurs” dans le bandeau statut (simple + efficace) */
+.user_profile.pf2 #pf2_rel_status field::before,
+.user_profile.pf2 #pf2_rel_status .field_uneditable::before {
+  content: "♡";
+  font-size: 14px;
+  opacity: .9;
+}
+.user_profile.pf2 #pf2_rel_status field::after,
+.user_profile.pf2 #pf2_rel_status .field_uneditable::after {
+  content: "♡";
+  font-size: 14px;
   opacity: .9;
 }
 
-/* titres de blocs (tu utilisais bg-large déjà) */
-.user_profile.pf2 .bg-large{
-  background: var(--neutral);
-  color: var(--contrast);
-  padding: 10px 12px;
-  font-family: var(--font-3);
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-/* scroll box */
-.pf2_scroll{
-  max-height: 170px;
-  overflow: auto;
-  padding: 12px;
-}
-
-/* INFOS : on affiche label + value joliment */
-#pf2_basic .profile_field{
-  display:flex;
-  justify-content: space-between;
-  gap: 10px;
-  padding: 8px 12px;
-  border-bottom: 1px solid var(--neutral);
-}
-#pf2_basic .profile_field:last-child{border-bottom:0;}
-#pf2_basic label{
-  min-width: 120px;
-  font-size: var(--little-size);
-  letter-spacing: 1px;
-  opacity: .8;
-}
-#pf2_basic field{
-  text-align:right;
-}
-
-/* AES (zone libre) */
-#pf2_aes .profile_field label{display:none;}
-#pf2_aes .profile_field{display:block;}
-
-/* ASTRAL */
-.pf2_astral_inner{
-  padding: 12px;
-  display:flex;
-  gap: 12px;
-  align-items:flex-start;
-}
-.pf2_astral_img img{
-  width: 70px;
-  height: 70px;
-  border-radius: 10px;
-  object-fit: cover;
-  border: 1px solid var(--neutral);
-}
-.pf2_astral_row{
-  display:flex;
-  gap: 8px;
-  padding: 6px 0;
-  border-bottom: 1px solid var(--neutral);
-}
-.pf2_astral_row:last-child{border-bottom:0;}
-.pf2_astral_key{
-  width: 90px;
-  opacity: .8;
-  font-size: var(--little-size);
-}
-.pf2_astral_val{
-  font-weight: 600;
-}
-
-/* RELATIONSHIP */
-.pf2_rel_grid{
-  display:grid;
-  grid-template-columns: 120px 1fr;
-  gap: 12px;
-  padding: 12px;
-}
-.pf2_rel_img img{
-  width: 120px;
-  height: 120px;
-  border-radius: 10px;
-  object-fit: cover;
-  border: 1px solid var(--neutral);
-}
-.pf2_rel_text .profile_field label{display:none;}
-.pf2_rel_text .profile_field{display:block;}
-.pf2_rel_status{
-  background: var(--neutral);
-  border-top: 1px solid var(--neutralDarker);
-  padding: 10px 12px;
-  text-align: center;
-  font-family: var(--font-3);
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-.pf2_rel_status .profile_field label{display:none;}
-
-/* RESPONSIVE */
-@media (max-width: 980px){
-  .user_profile.pf2{width: 100%;}
-  .pf2_body{grid-template-columns: 1fr;}
+/* Petits détails : scrollbar discrète si ça overflow */
+.user_profile.pf2 #pf2_basic,
+.user_profile.pf2 #pf2_aes,
+.user_profile.pf2 #pf2_astral {
+  scrollbar-width: thin;
 }
