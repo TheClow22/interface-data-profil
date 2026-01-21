@@ -7130,13 +7130,8 @@ html.js .category .forums .fs-panel.is-active{
 }
 .pf_awards_bd{ padding: 12px; }
 
-/* === PF : zones images (obligatoire pour voir un background-image) === */
 .pf_win_gif .pf_win_bd[data-slot="apparence"] { height: 140px; border-radius: 14px; }
 .pf_rel_img { height: 140px; border-radius: 14px; }
 .pf_astral_img { height: 170px; border-radius: 14px; }
 
-/* optionnel : si tu veux éviter que padding “casse” l’image */
-.pf_win_gif .pf_win_bd[data-slot="apparence"],
-.pf_rel_img,
-.pf_astral_img { padding: 0; }
 
