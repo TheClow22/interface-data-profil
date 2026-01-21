@@ -6904,3 +6904,254 @@ html.js .category .forums .fs-panel.is-active{
   opacity: 1; /* au lieu de .9 */
   filter: drop-shadow(0 2px 10px rgba(0,0,0,.35));
 }
+/* =========================
+   PROFILE - base variables
+   -> remplace par TES variables
+========================= */
+:root{
+  --c-bg: var(--bg, rgba(255,255,255,.08));
+  --c-bg2: var(--bg2, rgba(255,255,255,.12));
+  --c-txt: var(--text, #e9e9ff);
+  --c-muted: var(--text2, rgba(233,233,255,.7));
+  --c-border: var(--border, rgba(255,255,255,.18));
+  --c-accent: var(--accent, #b34bff);
+  --c-accent2: var(--accent2, #4b7bff);
+
+  --radius: 22px;
+  --radius2: 14px;
+  --shadow: 0 18px 50px rgba(0,0,0,.35);
+
+  --font-title: Matrix, serif;   /* tu m’as dit : Matrix en titres, pas partout */
+  --font-body: inherit;
+}
+
+/* Container global */
+.container.user_profile{
+  max-width: 1100px;
+  margin: 80px auto;
+  color: var(--c-txt);
+}
+
+/* Bandeau pseudo + pills */
+.profile_header{
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 18px;
+  align-items: center;
+  padding: 22px 24px;
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius);
+  background: var(--c-bg);
+  box-shadow: var(--shadow);
+}
+
+.profile_title h1{
+  margin: 0;
+  font-family: var(--font-title);
+  letter-spacing: .06em;
+  font-weight: 400;
+}
+
+.profile_pills{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.pill{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--c-border);
+  background: var(--c-bg2);
+  font-size: 12px;
+  color: var(--c-muted);
+  text-decoration: none;
+}
+
+.pill-action{
+  color: var(--c-txt);
+  border-color: rgba(179,75,255,.45);
+  background: linear-gradient(90deg, rgba(179,75,255,.22), rgba(75,123,255,.18));
+}
+
+/* Avatar : “pas une image posée comme une tortilla triste” */
+.profile_avatar{
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--c-border);
+  background: var(--c-bg);
+  position: relative;
+  box-shadow: var(--shadow);
+}
+
+.profile_avatar:before{
+  content:"";
+  position:absolute;
+  inset: 10px;
+  border-radius: calc(var(--radius) - 10px);
+  border: 1px dashed rgba(255,255,255,.22);
+  pointer-events:none;
+}
+
+.profile_avatar img{
+  display:block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* “Fenêtres” style internet/OS */
+.window{
+  border: 1px solid var(--c-border);
+  background: var(--c-bg);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.winbar{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  background: linear-gradient(90deg, rgba(179,75,255,.22), rgba(75,123,255,.16));
+  border-bottom: 1px solid var(--c-border);
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.winbar span{
+  color: var(--c-txt);
+}
+
+.windata{
+  padding: 14px;
+}
+
+/* Basic info lignes “data” */
+#user_infos .info_line{
+  display:flex;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 9px 0;
+  border-bottom: 1px dashed rgba(255,255,255,.14);
+}
+
+#user_infos .k{
+  color: var(--c-muted);
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+#user_infos .v{
+  color: var(--c-txt);
+  font-size: 13px;
+  text-align: right;
+}
+
+/* Contacts : 4 seulement, discrets */
+.user_contacts{
+  gap: 10px;
+  justify-content: flex-start;
+  padding: 6px 0 14px;
+}
+
+.user_contacts a{
+  width: 34px;
+  height: 34px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius: 12px;
+  border: 1px solid var(--c-border);
+  background: var(--c-bg2);
+}
+
+/* Relationship bloc */
+.rel_window .windata{
+  display: grid;
+  gap: 12px;
+}
+
+.rel_card{
+  display:grid;
+  gap: 10px;
+}
+
+.rel_img img{
+  width: 100%;
+  border-radius: var(--radius2);
+  border: 1px solid var(--c-border);
+  display:block;
+}
+
+.rel_txt{
+  max-height: 110px;
+  overflow:auto;
+  padding-right: 6px;
+  color: var(--c-muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.rel_status{
+  display:flex;
+  justify-content: center;
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(179,75,255,.45);
+  background: linear-gradient(90deg, rgba(179,75,255,.22), rgba(75,123,255,.18));
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
+/* Astral : on le rend “cute” mais pas énorme */
+#bulletin.astral_ready{
+  display:grid;
+  gap: 10px;
+}
+
+.astral_img img{
+  width: 100%;
+  border-radius: var(--radius2);
+  border: 1px solid var(--c-border);
+  display:block;
+}
+
+.astral_lines{
+  display:grid;
+  gap: 8px;
+}
+
+.astral_lines .line{
+  display:flex;
+  justify-content: space-between;
+  gap: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed rgba(255,255,255,.14);
+}
+
+.astral_lines .k{
+  color: var(--c-muted);
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-size: 11px;
+}
+
+.astral_lines .v{
+  color: var(--c-txt);
+  font-size: 13px;
+  text-align:right;
+}
+
+/* Cache le listing brut des champs une fois rangés */
+.user_char{ display:none; }
+
