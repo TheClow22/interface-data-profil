@@ -5621,24 +5621,6 @@ div.award {
 
 /****** ------------------------------------------------------------------------------
 ****** MEMBRES ------------------------------------------------------ ******/
-
-/*** ------------------------------- ***/
-/*** PAGE DE PROFIL ---------------- ***/
-.profile_avatar img {
-width: 200px;
-border-radius: var(--radius);
-}
-
-.profile_infos {}
-
-.profile_contact form {
-display: flex;
-}
-
-.profile_contact form > div {
-margin-left: 5px;
-}
-
 /* Suppression des cases vides de contact qui affichent " - " 
 * nth-child(n+4) supprime toutes les cases aprÃ¨s la quatriÃ¨me */
 .profile_contact form div:nth-child(n+4) {
