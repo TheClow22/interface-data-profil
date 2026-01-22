@@ -7005,7 +7005,7 @@ html.js .category .forums .fs-panel.is-active{
 .profile-avatar-inner {
   background: var(--neutral);
   border-radius: var(--radius);
-  padding: 12px;
+  padding: 15px;
 }
 
 .avatar-border-rect {
@@ -7019,8 +7019,8 @@ html.js .category .forums .fs-panel.is-active{
   background: var(--neutralDarker);
   border-radius: var(--xs-radius);
   overflow: hidden;
-  width: 200px;
-  height: 320px;
+  width: 220px;
+  height: 350px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -7028,8 +7028,11 @@ html.js .category .forums .fs-panel.is-active{
 }
 
 .avatar-wrapper-rect img {
-  width: 100%;
-  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  max-width: none;
   object-fit: cover;
   object-position: center;
 }
@@ -7228,7 +7231,7 @@ html.js .category .forums .fs-panel.is-active{
   font-size: 12px;
 }
 
-/* AES (PLEINE LARGEUR + calque opaque) */
+/* AES (2 calques seulement) */
 .aes-module .module-content {
   height: 220px;
   overflow-y: auto;
@@ -7236,28 +7239,19 @@ html.js .category .forums .fs-panel.is-active{
   line-height: 1.6;
   font-size: 12px;
   background: var(--neutral);
-  padding: 0;
+  padding: 15px;
 }
 
 #aes-block {
   width: 100%;
-  height: 100%;
 }
 
-.aes-text-content {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-.aes-text-content .field_uneditable {
+.aes-content .field_uneditable {
   width: 100%;
   display: block;
-  padding: 15px;
+  padding: 12px;
   background: var(--neutralDark);
   border-radius: 8px;
-  margin: 15px;
-  width: calc(100% - 30px);
 }
 
 /* Balises stylisées */
