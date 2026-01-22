@@ -7534,3 +7534,18 @@ html.js .category .forums .fs-panel.is-active{
   max-width: 100% !important;
   max-height: 100% !important;
 }
+/* FIX AVATAR FINAL */
+.avatar-wrapper-rect {
+  width: 220px;
+  height: 350px;
+  overflow: hidden !important;
+}
+
+.avatar-wrapper-rect img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+}
