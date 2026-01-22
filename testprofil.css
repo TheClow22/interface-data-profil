@@ -7501,3 +7501,36 @@ html.js .category .forums .fs-panel.is-active{
 .new-profile-container .ajax-profil_edit img {
   display: none !important;
 }
+/* ========================================
+   CSS CORRECTION AVATAR - Bug #3
+   ======================================== */
+
+.avatar-wrapper-rect {
+  background: var(--neutralDarker);
+  border-radius: var(--xs-radius);
+  overflow: hidden;
+  width: 220px;
+  height: 350px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.avatar-wrapper-rect img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  max-width: none;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Si debordement persiste */
+.profile-avatar-block img {
+  max-width: 100% !important;
+  max-height: 100% !important;
+}
