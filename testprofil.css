@@ -6659,7 +6659,7 @@ html.js .category .forums .fs-panel.is-active{
 }
 
 /* ========================================
-   PROFILS UTILISATEURS V4 - FINAL
+   PROFILS UTILISATEURS V5 - FINAL CLEAN
    ======================================== */
 
 .new-profile-container {
@@ -6803,7 +6803,7 @@ html.js .category .forums .fs-panel.is-active{
   gap: 15px;
 }
 
-/* Avatar (CONTAINER PLUS GRAND) */
+/* Avatar CORRIGÉ (plus de débordement) */
 .profile-avatar-block {
   background: var(--lighter);
   border: var(--border);
@@ -6829,8 +6829,8 @@ html.js .category .forums .fs-panel.is-active{
   background: var(--neutralDarker);
   border-radius: var(--xs-radius);
   overflow: hidden;
-  width: 220px;
-  height: 350px;
+  width: 200px;
+  height: 320px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -6838,11 +6838,8 @@ html.js .category .forums .fs-panel.is-active{
 }
 
 .avatar-wrapper-rect img {
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  max-width: none;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: center;
 }
@@ -6858,7 +6855,7 @@ html.js .category .forums .fs-panel.is-active{
   color: var(--contrast);
 }
 
-/* Contacts (icônes CO3) */
+/* Contacts */
 .profile-contacts {
   background: var(--lighter);
   border: var(--border);
@@ -6901,7 +6898,7 @@ html.js .category .forums .fs-panel.is-active{
   transform: scale(1.1);
 }
 
-/* Signs (UN SEUL) */
+/* Charte astrale */
 .astro-module {
   background: var(--lighter);
   border: var(--border);
@@ -7011,14 +7008,14 @@ html.js .category .forums .fs-panel.is-active{
   background: var(--neutral);
 }
 
-/* Info (labels CO2) */
+/* Info */
 .info-module .module-content {
   height: 320px;
   overflow-y: auto;
   background: var(--neutral);
 }
 
-.new-profile-container #basic-info .user_field {
+.new-profile-container #basic-info-target .user_field {
   display: grid;
   grid-template-columns: 130px 1fr;
   gap: 8px;
@@ -7028,7 +7025,7 @@ html.js .category .forums .fs-panel.is-active{
   border-radius: 5px;
 }
 
-.new-profile-container #basic-info .field_label {
+.new-profile-container #basic-info-target .field_label {
   font-size: 9px;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -7036,12 +7033,12 @@ html.js .category .forums .fs-panel.is-active{
   color: var(--co-2) !important;
 }
 
-.new-profile-container #basic-info .field_uneditable {
+.new-profile-container #basic-info-target .field_uneditable {
   color: var(--textColor);
   font-size: 12px;
 }
 
-/* AES (2 calques seulement) */
+/* Aesthetic */
 .aes-module .module-content {
   height: 220px;
   overflow-y: auto;
@@ -7052,7 +7049,7 @@ html.js .category .forums .fs-panel.is-active{
   padding: 15px;
 }
 
-#aes-block {
+#aes-content-target {
   width: 100%;
 }
 
@@ -7109,7 +7106,7 @@ html.js .category .forums .fs-panel.is-active{
   gap: 15px;
 }
 
-/* Relationship (RÉDUIT + status visible) */
+/* Relationship */
 .relationship-module {
   background: var(--lighter);
   border: var(--border);
@@ -7192,67 +7189,6 @@ html.js .category .forums .fs-panel.is-active{
   color: white !important;
 }
 
-/* ==================== ÉDITION RAPIDE (FORCER VISIBILITÉ) ==================== */
-.new-profile-container .ajax-profil_hover {
-  background: var(--neutralDark) !important;
-  padding: 2px 5px;
-  border-radius: 3px;
-  cursor: pointer;
-  transition: background .3s;
-  position: relative !important;
-}
-
-.new-profile-container .ajax-profil_edit {
-  display: inline-block !important;
-  position: relative !important;
-  margin-left: 8px !important;
-  cursor: pointer !important;
-  opacity: 1 !important;
-  font-size: 16px !important;
-  color: var(--co-1) !important;
-  font-weight: bold !important;
-  visibility: visible !important;
-  z-index: 1000 !important;
-  line-height: 1 !important;
-  vertical-align: middle !important;
-}
-
-.new-profile-container .ajax-profil_valid {
-  display: inline-block !important;
-  position: relative !important;
-  margin-left: 8px !important;
-  cursor: pointer !important;
-  font-size: 18px !important;
-  color: var(--co-3) !important;
-  font-weight: bold !important;
-  visibility: visible !important;
-  z-index: 1000 !important;
-  line-height: 1 !important;
-  vertical-align: middle !important;
-}
-
-.new-profile-container .field_editable.invisible {
-  display: none !important;
-}
-
-.new-profile-container .field_editable:not(.invisible) {
-  display: block !important;
-  width: 100%;
-}
-
-.new-profile-container .field_editable input,
-.new-profile-container .field_editable textarea,
-.new-profile-container .field_editable select {
-  width: 100%;
-  padding: 6px;
-  border: 1px solid var(--neutralDark);
-  border-radius: 5px;
-  background: var(--neutralDarker);
-  color: var(--textColor);
-  font-size: 12px;
-  font-family: var(--font);
-}
-
 /* ==================== RESPONSIVE ==================== */
 @media (max-width: 1200px) {
   .profile-grid {
@@ -7266,65 +7202,4 @@ html.js .category .forums .fs-panel.is-active{
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 15px;
   }
-}
-/* ========================================
-   CSS PROFILS CORRIGES - Bugs #3 et #2
-   ======================================== */
-
-/* FIX BUG #3 : Avatar qui deborde */
-.avatar-wrapper-rect {
-  background: var(--neutralDarker);
-  border-radius: var(--xs-radius);
-  overflow: hidden;
-  width: 220px;
-  height: 350px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.avatar-wrapper-rect img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-/* FIX BUG #2 : Crayon edition en double - styles plus specifiques */
-.new-profile-container .ajax-profil_edit {
-  display: inline-block !important;
-  position: relative !important;
-  margin-left: 8px !important;
-  cursor: pointer !important;
-  opacity: 1 !important;
-  font-size: 16px !important;
-  color: var(--co-1) !important;
-  font-weight: bold !important;
-  visibility: visible !important;
-  z-index: 1000 !important;
-  line-height: 1 !important;
-  vertical-align: middle !important;
-}
-
-/* Masquer les elements d'edition FA natifs s'ils persistent */
-.new-profile-container .ajax-profil_edit img {
-  display: none !important;
-}
-/* ========================================
-   CSS CORRECTION AVATAR - Bug #3
-   ======================================== */
-.avatar-wrapper-rect {
-  width: 220px !important;
-  height: 350px !important;
-  overflow: hidden !important;
-}
-
-.avatar-wrapper-rect img {
-  width: 100% !important;
-  height: 100% !important;
-  max-width: 100% !important;
-  max-height: 100% !important;
-  object-fit: cover !important;
-  object-position: center !important;
 }
