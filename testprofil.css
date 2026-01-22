@@ -2485,21 +2485,6 @@ div.award {
 
 /*** ------------------------------- ***/
 /*** PAGE DE PROFIL ---------------- ***/
-.profile_avatar img {
-width: 200px;
-border-radius: var(--radius);
-}
-
-.profile_infos {}
-
-.profile_contact form {
-display: flex;
-}
-
-.profile_contact form > div {
-margin-left: 5px;
-}
-
 /* Suppression des cases vides de contact qui affichent " - " 
 * nth-child(n+4) supprime toutes les cases aprÃ¨s la quatriÃ¨me */
 .profile_contact form div:nth-child(n+4) {
@@ -2528,29 +2513,6 @@ position: relative;
 .profile_admin {
 text-align: center;
 margin: 10px 0 0;
-}
-
-/* Bouton Ã©dition d'un champ de profil */
-.ajax-profil_edit {
-cursor: pointer;
-position: absolute;
-top: 0;
-left: 0px;
-}
-
-/* Bouton Ã©dition d'un champ de profil */
-.ajax-profil_edit {
-cursor: pointer;
-position: absolute;
-top: 0;
-left: -15px;
-}
-
-/* Bouton validation des modifications */
-.ajax-profil_valid {
-cursor: pointer;
-margin-left: 4px;
-vertical-align: middle;
 }
 
 /*** ------------------------------- ***/
@@ -6887,27 +6849,22 @@ html.js .category .forums .fs-panel.is-active{
 }
 
 /* ========================================
-   PROFILS UTILISATEURS V2 - COMPACT & LISIBLE
+   NOUVEAUX CODES PROFILS (REMPLACENT LYDIE)
    ======================================== */
 
-/* Conteneur principal */
 .new-profile-container {
   width: 100%;
   margin: 0 auto;
 }
 
-/* ==================== BANDEAU HEADER (style Lemon Barlow) ==================== */
+/* ==================== BANDEAU HEADER ==================== */
 .profile-header {
   position: relative;
-  background: var(--neutral);
+  background: var(--lighter);
   border: var(--border);
   border-radius: var(--radius);
-  padding: 20px;
+  padding: 15px 20px;
   margin-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
   overflow: hidden;
 }
 
@@ -6921,16 +6878,32 @@ html.js .category .forums .fs-panel.is-active{
   background: var(--co-gradient);
 }
 
-/* GIF Apparence en cercle */
+.profile-header-inner {
+  background: var(--neutral);
+  border-radius: var(--radius);
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-top-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+}
+
 .header-gif-circle {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   overflow: hidden;
   border: 3px solid transparent;
   background: var(--co-gradient);
   padding: 3px;
-  margin-bottom: 8px;
+  flex-shrink: 0;
 }
 
 .header-gif-circle img {
@@ -6941,7 +6914,6 @@ html.js .category .forums .fs-panel.is-active{
   background: var(--neutralDarker);
 }
 
-/* Pseudo (Matrix + dégradé) */
 .profile-username {
   font-family: 'Matrix', var(--font-3);
   font-size: 42px;
@@ -6954,13 +6926,11 @@ html.js .category .forums .fs-panel.is-active{
   text-shadow: none;
 }
 
-/* Stats (ligne badges) */
 .header-stats {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 5px;
 }
 
 .stat-badge {
@@ -6979,11 +6949,9 @@ html.js .category .forums .fs-panel.is-active{
   font-weight: 600;
 }
 
-/* Actions (boutons) */
 .header-actions {
   display: flex;
   gap: 8px;
-  margin-top: 5px;
 }
 
 .action-btn {
@@ -7013,7 +6981,7 @@ html.js .category .forums .fs-panel.is-active{
 /* ==================== LAYOUT 3 COLONNES ==================== */
 .profile-grid {
   display: grid;
-  grid-template-columns: 200px 1fr 260px;
+  grid-template-columns: 220px 1fr 300px;
   gap: 15px;
   align-items: start;
 }
@@ -7025,17 +6993,22 @@ html.js .category .forums .fs-panel.is-active{
   gap: 15px;
 }
 
-/* Avatar + Rang (rectangle, plus d'arche) */
 .profile-avatar-block {
-  background: var(--neutral);
+  background: var(--lighter);
   border: var(--border);
   border-radius: var(--radius);
-  padding: 12px;
+  padding: 15px;
   text-align: center;
 }
 
+.profile-avatar-inner {
+  background: var(--neutral);
+  border-radius: var(--radius);
+  padding: 12px;
+}
+
 .avatar-border-rect {
-  padding: 2px;
+  padding: 3px;
   background: var(--co-gradient);
   border-radius: var(--radius);
   margin-bottom: 10px;
@@ -7045,8 +7018,8 @@ html.js .category .forums .fs-panel.is-active{
   background: var(--neutralDarker);
   border-radius: var(--xs-radius);
   overflow: hidden;
-  width: 176px;
-  height: 280px;
+  width: 190px;
+  height: 300px;
   margin: 0 auto;
 }
 
@@ -7067,15 +7040,21 @@ html.js .category .forums .fs-panel.is-active{
   color: var(--contrast);
 }
 
-/* Contacts (4 icônes horizontales) */
 .profile-contacts {
-  background: var(--neutral);
+  background: var(--lighter);
   border: var(--border);
   border-radius: var(--radius);
   padding: 12px;
+}
+
+.profile-contacts-inner {
+  background: var(--neutral);
+  border-radius: var(--radius);
+  padding: 10px;
   display: flex;
   justify-content: space-around;
   gap: 8px;
+  width: 100%;
 }
 
 .contact-item-new {
@@ -7103,6 +7082,71 @@ html.js .category .forums .fs-panel.is-active{
   transform: scale(1.1);
 }
 
+.astro-module {
+  background: var(--lighter);
+  border: var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.astro-module-inner {
+  background: var(--neutral);
+  border-radius: var(--radius);
+  margin: 0;
+}
+
+.astro-content {
+  padding: 12px;
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 10px;
+  align-items: center;
+  background: var(--neutralDark);
+}
+
+.astro-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--co-1);
+  background: var(--neutralDarker);
+}
+
+.astro-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.astro-signs {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.astro-sign {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 9px;
+  color: var(--textColor);
+  line-height: 1.3;
+}
+
+.astro-sign .symbol {
+  color: var(--co-1);
+  font-weight: 600;
+  font-size: 10px;
+  flex-shrink: 0;
+}
+
+.astro-sign .name {
+  color: var(--co-3);
+  font-style: italic;
+  font-family: var(--font-4);
+}
+
 /* ==================== COLONNE CENTRALE ==================== */
 .profile-center {
   display: flex;
@@ -7110,11 +7154,9 @@ html.js .category .forums .fs-panel.is-active{
   gap: 15px;
 }
 
-/* Modules génériques */
 .info-module,
-.aes-module,
-.awards-module {
-  background: var(--neutral);
+.aes-module {
+  background: var(--lighter);
   border: var(--border);
   border-radius: var(--radius);
   overflow: hidden;
@@ -7125,12 +7167,13 @@ html.js .category .forums .fs-panel.is-active{
   align-items: center;
   gap: 8px;
   background: var(--co-gradient);
-  padding: 8px 15px;
-  color: white;
+  padding: 10px 15px;
+  color: white !important;
 }
 
 .module-header .cp {
   font-size: 14px;
+  color: white !important;
 }
 
 .module-header h2 {
@@ -7139,32 +7182,32 @@ html.js .category .forums .fs-panel.is-active{
   text-transform: uppercase;
   letter-spacing: 2px;
   margin: 0;
-  color: white;
+  color: white !important;
   font-weight: 600;
 }
 
 .module-content {
   padding: 15px;
-  background: var(--neutralDark); /* Sous-fond pour lisibilité */
+  background: var(--neutral);
 }
 
-/* Basic Information (hauteur fixe + scroll) */
 .info-module .module-content {
-  height: 280px;
+  height: 320px;
   overflow-y: auto;
+  background: var(--neutralDark);
 }
 
-#basic-info .user_field {
+.new-profile-container #basic-info .user_field {
   display: grid;
-  grid-template-columns: 120px 1fr;
+  grid-template-columns: 130px 1fr;
   gap: 8px;
-  padding: 6px 10px;
-  margin-bottom: 4px;
-  background: var(--lighter); /* Fond sous les lignes */
+  padding: 8px 10px;
+  margin-bottom: 5px;
+  background: var(--lighter);
   border-radius: 5px;
 }
 
-#basic-info .field_label {
+.new-profile-container #basic-info .field_label {
   font-size: 9px;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -7172,12 +7215,27 @@ html.js .category .forums .fs-panel.is-active{
   color: var(--co-1);
 }
 
-#basic-info .field_uneditable {
+.new-profile-container #basic-info .field_uneditable {
   color: var(--textColor);
   font-size: 12px;
 }
 
-/* Balises stylisées dans les profils */
+.aes-module .module-content {
+  height: 220px;
+  overflow-y: auto;
+  color: var(--textColor);
+  line-height: 1.6;
+  font-size: 12px;
+  background: var(--neutralDark);
+  padding: 15px;
+}
+
+#aes-block {
+  width: 100%;
+  min-height: 100%;
+}
+
+/* Balises stylisées dans profils */
 .new-profile-container b,
 .new-profile-container strong {
   color: var(--co-2);
@@ -7215,44 +7273,6 @@ html.js .category .forums .fs-panel.is-active{
   margin: 6px 0;
 }
 
-/* AES (Status Update) - hauteur fixe + scroll */
-.aes-module .module-content {
-  height: 200px;
-  overflow-y: auto;
-  color: var(--textColor);
-  line-height: 1.5;
-  font-size: 12px;
-}
-
-/* Collection (Awards) - BEAUCOUP PLUS PETIT */
-.awards-container {
-  padding: 10px;
-  background: var(--neutralDark);
-}
-
-.awards-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  justify-content: center;
-}
-
-.awards-list .award {
-  width: 32px;
-  height: 32px;
-  background-image: var(--award-image);
-  background-size: cover;
-  background-position: center;
-  border-radius: 50%;
-  border: 1px solid var(--neutralDark);
-  transition: all .3s;
-}
-
-.awards-list .award:hover {
-  transform: scale(1.2);
-  border-color: var(--co-1);
-}
-
 /* ==================== COLONNE DROITE ==================== */
 .profile-right {
   display: flex;
@@ -7260,28 +7280,36 @@ html.js .category .forums .fs-panel.is-active{
   gap: 15px;
 }
 
-/* Relationship (hauteur fixe = Basic Info) */
 .relationship-module {
-  background: var(--neutral);
+  background: var(--lighter);
   border: var(--border);
   border-radius: var(--radius);
   overflow: hidden;
+  position: relative;
 }
 
 .relationship-content {
-  padding: 12px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 565px;
+  background: var(--neutral);
+}
+
+.relationship-scroll-area {
+  flex: 1;
+  overflow-y: auto;
+  padding: 15px;
+  background: var(--neutralDark);
   display: flex;
   flex-direction: column;
   gap: 12px;
   align-items: center;
-  background: var(--neutralDark);
-  height: 280px;
-  overflow-y: auto;
 }
 
 .relationship-image {
-  width: 180px;
-  height: 180px;
+  width: 200px;
+  height: 200px;
   border-radius: var(--radius);
   overflow: hidden;
   border: 3px solid transparent;
@@ -7300,23 +7328,21 @@ html.js .category .forums .fs-panel.is-active{
 
 .relationship-text {
   width: 100%;
-  max-height: none;
-  text-align: justify; /* Texte justifié */
+  text-align: justify;
   color: var(--textColor);
   line-height: 1.5;
   font-size: 11px;
-  padding: 10px;
-  background: var(--lighter); /* Fond pour lisibilité */
+  padding: 12px;
+  background: var(--lighter);
   border-radius: 8px;
 }
 
-.relationship-status {
+.relationship-status-sticky {
   width: 100%;
   background: var(--co-gradient);
-  padding: 8px;
-  border-radius: 12px;
+  padding: 10px;
   text-align: center;
-  color: white;
+  color: white !important;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -7326,118 +7352,72 @@ html.js .category .forums .fs-panel.is-active{
   justify-content: center;
   gap: 6px;
   flex-shrink: 0;
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
 }
 
-.relationship-status .cp {
+.relationship-status-sticky .cp {
   font-size: 12px;
+  color: white !important;
 }
 
-/* Astrologie (hauteur fixe = AES) */
-.astro-module {
-  background: var(--neutral);
-  border: var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-
-.astro-content {
-  padding: 15px;
-  display: grid;
-  grid-template-columns: 70px 1fr;
-  gap: 12px;
-  align-items: center;
-  background: var(--neutralDark);
-  height: 200px;
-}
-
-.astro-image {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 3px solid var(--co-1);
-  background: var(--neutralDarker);
-}
-
-.astro-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.astro-signs {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.astro-sign {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 10px;
-  color: var(--textColor);
-}
-
-.astro-sign .symbol {
-  color: var(--co-1);
-  font-weight: 600;
-  font-size: 11px;
-}
-
-.astro-sign .name {
-  color: var(--co-3);
-  font-style: italic;
-  font-family: var(--font-4);
-}
-
-/* ==================== ÉDITION RAPIDE (inline edit) ==================== */
-.ajax-profil_hover {
-  background: var(--lighter);
+/* ==================== ÉDITION RAPIDE (NOUVEAU SYSTÈME) ==================== */
+.new-profile-container .ajax-profil_hover {
+  background: var(--neutralDark) !important;
   padding: 2px 5px;
   border-radius: 3px;
   cursor: pointer;
   transition: background .3s;
+  position: relative;
 }
 
-.ajax-profil_hover:hover {
-  background: var(--neutralDark);
-}
-
-.ajax-profil_edit {
-  display: inline-block;
-  margin-left: 5px;
+.new-profile-container .ajax-profil_edit {
+  display: inline-block !important;
+  margin-left: 8px;
   cursor: pointer;
-  opacity: 0.7;
-  transition: opacity .3s;
+  opacity: 1 !important;
+  font-size: 16px;
+  color: var(--co-1) !important;
+  font-weight: bold;
+  visibility: visible !important;
+  position: relative !important;
+  z-index: 100 !important;
 }
 
-.ajax-profil_edit:hover {
-  opacity: 1;
-}
-
-.ajax-profil_edit img,
-.ajax-profil_valid {
-  width: 14px;
-  height: 14px;
+.new-profile-container .ajax-profil_valid {
+  display: inline-block !important;
+  margin-left: 8px;
   cursor: pointer;
-  vertical-align: middle;
+  font-size: 18px;
+  color: var(--co-3) !important;
+  font-weight: bold;
+  visibility: visible !important;
+  position: relative !important;
+  z-index: 100 !important;
 }
 
-.field_editable.invisible {
+.new-profile-container .field_editable.invisible {
   display: none !important;
 }
 
-.field_editable input,
-.field_editable textarea,
-.field_editable select {
+.new-profile-container .field_editable:not(.invisible) {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.new-profile-container .field_editable input,
+.new-profile-container .field_editable textarea,
+.new-profile-container .field_editable select {
   width: 100%;
-  padding: 4px;
+  padding: 6px;
   border: 1px solid var(--neutralDark);
-  border-radius: 3px;
+  border-radius: 5px;
   background: var(--neutralDarker);
   color: var(--textColor);
-  font-size: 11px;
+  font-size: 12px;
+  font-family: var(--font);
 }
 
 /* ==================== RESPONSIVE ==================== */
@@ -7450,8 +7430,7 @@ html.js .category .forums .fs-panel.is-active{
   .profile-left,
   .profile-right {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 15px;
   }
 }
-
