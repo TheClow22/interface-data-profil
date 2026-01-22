@@ -7504,48 +7504,17 @@ html.js .category .forums .fs-panel.is-active{
 /* ========================================
    CSS CORRECTION AVATAR - Bug #3
    ======================================== */
-
 .avatar-wrapper-rect {
-  background: var(--neutralDarker);
-  border-radius: var(--xs-radius);
-  overflow: hidden;
-  width: 220px;
-  height: 350px;
-  margin: 0 auto;
-  position: relative;
-}
-
-.avatar-wrapper-rect img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  max-width: none;
-  object-fit: cover;
-  object-position: center;
-}
-
-/* Si debordement persiste */
-.profile-avatar-block img {
-  max-width: 100% !important;
-  max-height: 100% !important;
-}
-/* FIX AVATAR FINAL */
-.avatar-wrapper-rect {
-  width: 220px;
-  height: 350px;
+  width: 220px !important;
+  height: 350px !important;
   overflow: hidden !important;
 }
 
 .avatar-wrapper-rect img {
   width: 100% !important;
   height: 100% !important;
-  object-fit: cover !important;
-  object-position: center !important;
   max-width: 100% !important;
   max-height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
 }
