@@ -6886,3 +6886,498 @@ html.js .category .forums .fs-panel.is-active{
   filter: drop-shadow(0 2px 10px rgba(0,0,0,.35));
 }
 
+/* ========================================
+   PROFILS UTILISATEURS - NOUVEAU LAYOUT
+   ======================================== */
+
+/* Conteneur principal */
+.new-profile-container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ==================== BANDEAU HEADER ==================== */
+.profile-header {
+  background: var(--neutral);
+  border: var(--border);
+  border-radius: var(--radius);
+  padding: 30px 20px;
+  margin-bottom: 25px;
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--co-gradient);
+}
+
+.profile-header-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Pseudo principal */
+.profile-username {
+  font-family: 'Matrix', var(--font-3);
+  font-size: var(--xxl-size);
+  line-height: 1.2;
+  color: var(--contrast);
+  text-align: center;
+  margin: 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Stats + Actions (2 lignes pour lisibilité) */
+.profile-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+}
+
+.profile-stats {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.stat-item {
+  background: var(--neutralDark);
+  padding: 5px 15px;
+  border-radius: var(--radius);
+  font-size: var(--small-size);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--textColor);
+}
+
+.profile-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--co-gradient);
+  color: white !important;
+  padding: 8px 18px;
+  border-radius: var(--radius);
+  font-size: var(--small-size);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  transition: all .3s;
+}
+
+.action-btn:hover {
+  background: var(--neutralDarker);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.action-btn .cp {
+  font-size: var(--medium-size);
+}
+
+/* ==================== LAYOUT 3 COLONNES ==================== */
+.profile-grid {
+  display: grid;
+  grid-template-columns: 220px 1fr 280px;
+  gap: 20px;
+  align-items: start;
+}
+
+/* ==================== COLONNE GAUCHE ==================== */
+.profile-left {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Avatar + Rang */
+.profile-avatar-block {
+  background: var(--neutral);
+  border: var(--border);
+  border-radius: var(--radius);
+  padding: 15px;
+  text-align: center;
+}
+
+.avatar-border {
+  padding: 2px;
+  background: var(--co-gradient);
+  border-radius: 150px 150px var(--radius) var(--radius);
+  margin-bottom: 15px;
+}
+
+.avatar-wrapper {
+  background: var(--neutralDarker);
+  border-radius: 150px 150px var(--radius) var(--radius);
+  overflow: hidden;
+  width: 190px;
+  height: 300px;
+  margin: 0 auto;
+}
+
+.avatar-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-rank {
+  background: var(--neutralDark);
+  padding: 8px 12px;
+  border-radius: var(--xs-radius);
+  font-size: var(--small-size);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  color: var(--co-1);
+}
+
+/* Image Apparence */
+.profile-appearance-block {
+  background: var(--neutral);
+  border: var(--border);
+  border-radius: var(--radius);
+  padding: 10px;
+  overflow: hidden;
+}
+
+.profile-appearance-block img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: var(--xs-radius);
+}
+
+/* Contacts (4 icônes) */
+.profile-contacts {
+  background: var(--neutral);
+  border: var(--border);
+  border-radius: var(--radius);
+  padding: 15px;
+}
+
+.profile-contacts form {
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+}
+
+.contact-item a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: var(--neutralDark);
+  border-radius: 50%;
+  font-size: var(--large-size);
+  color: var(--co-1) !important;
+  transition: all .3s;
+}
+
+.contact-item a:hover {
+  background: var(--co-gradient);
+  color: white !important;
+  transform: scale(1.1);
+}
+
+/* Masquer les labels/textes des contacts */
+.contact-item img,
+.contact-item a[href*="privmsg"] span:not(.cp),
+.contact-item a[href*="email"] span:not(.cp) {
+  display: none;
+}
+
+/* ==================== COLONNE CENTRALE ==================== */
+.profile-center {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Modules génériques */
+.info-module,
+.aes-module,
+.awards-module {
+  background: var(--neutral);
+  border: var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.module-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--co-gradient);
+  padding: 12px 20px;
+  color: white;
+}
+
+.module-header .cp {
+  font-size: var(--large-size);
+}
+
+.module-header h2 {
+  font-family: var(--font-3);
+  font-size: var(--medium-size);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0;
+  color: white;
+  font-weight: 600;
+}
+
+.module-content {
+  padding: 20px;
+}
+
+/* Basic Information */
+#basic-info .user_field {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--neutralDark);
+}
+
+#basic-info .user_field:last-child {
+  border-bottom: none;
+}
+
+#basic-info .field_label {
+  font-size: var(--small-size);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  color: var(--co-1);
+}
+
+#basic-info .field_uneditable {
+  color: var(--textColor);
+}
+
+/* AES (Status Update) */
+.aes-scroll {
+  max-height: 180px;
+  overflow-y: auto;
+  color: var(--textColor);
+  line-height: 1.6;
+}
+
+/* Collection (Awards) */
+.awards-container {
+  padding: 15px;
+}
+
+.awards-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.awards-list .award {
+  width: 50px;
+  height: 50px;
+  background-image: var(--award-image);
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  border: 2px solid var(--neutralDark);
+  transition: all .3s;
+}
+
+.awards-list .award:hover {
+  transform: scale(1.15);
+  border-color: var(--co-1);
+}
+
+/* ==================== COLONNE DROITE ==================== */
+.profile-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Relationship */
+.relationship-module {
+  background: var(--neutral);
+  border: var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.relationship-content {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.relationship-image {
+  width: 200px;
+  height: 200px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 3px solid transparent;
+  background: var(--co-gradient);
+  padding: 3px;
+}
+
+.relationship-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--xs-radius);
+  background: var(--neutralDarker);
+}
+
+.relationship-text {
+  max-height: 120px;
+  overflow-y: auto;
+  text-align: center;
+  color: var(--textColor);
+  line-height: 1.5;
+  padding: 0 10px;
+}
+
+.relationship-status {
+  width: 100%;
+  background: var(--co-gradient);
+  padding: 10px;
+  border-radius: var(--radius);
+  text-align: center;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: var(--small-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.relationship-status .cp {
+  font-size: var(--medium-size);
+}
+
+/* Astrologie */
+.astro-module {
+  background: var(--neutral);
+  border: var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.astro-content {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 15px;
+  align-items: center;
+}
+
+.astro-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--co-1);
+  background: var(--neutralDarker);
+}
+
+.astro-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.astro-signs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.astro-sign {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--small-size);
+  color: var(--textColor);
+}
+
+.astro-sign .symbol {
+  color: var(--co-1);
+  font-weight: 600;
+}
+
+.astro-sign .name {
+  color: var(--co-3);
+  font-style: italic;
+  font-family: var(--font-4);
+}
+
+/* ==================== ÉDITION RAPIDE ==================== */
+.ajax-profil_hover {
+  background: var(--lighter);
+  padding: 2px 5px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.ajax-profil_edit {
+  display: inline-block;
+  margin-left: 5px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity .3s;
+}
+
+.ajax-profil_edit:hover {
+  opacity: 1;
+}
+
+.ajax-profil_edit img,
+.ajax-profil_valid {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.field_editable.invisible {
+  display: none;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 1200px) {
+  .profile-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .profile-left,
+  .profile-right {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+}
