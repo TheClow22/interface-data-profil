@@ -6887,7 +6887,7 @@ html.js .category .forums .fs-panel.is-active{
 }
 
 /* ========================================
-   PROFILS UTILISATEURS - NOUVEAU LAYOUT
+   PROFILS UTILISATEURS V2 - COMPACT & LISIBLE
    ======================================== */
 
 /* Conteneur principal */
@@ -6896,14 +6896,18 @@ html.js .category .forums .fs-panel.is-active{
   margin: 0 auto;
 }
 
-/* ==================== BANDEAU HEADER ==================== */
+/* ==================== BANDEAU HEADER (style Lemon Barlow) ==================== */
 .profile-header {
+  position: relative;
   background: var(--neutral);
   border: var(--border);
   border-radius: var(--radius);
-  padding: 30px 20px;
-  margin-bottom: 25px;
-  position: relative;
+  padding: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
   overflow: hidden;
 }
 
@@ -6913,68 +6917,84 @@ html.js .category .forums .fs-panel.is-active{
   top: 0;
   left: 0;
   width: 100%;
-  height: 4px;
+  height: 3px;
   background: var(--co-gradient);
 }
 
-.profile-header-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
+/* GIF Apparence en cercle */
+.header-gif-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid transparent;
+  background: var(--co-gradient);
+  padding: 3px;
+  margin-bottom: 8px;
 }
 
-/* Pseudo principal */
+.header-gif-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  background: var(--neutralDarker);
+}
+
+/* Pseudo (Matrix + dégradé) */
 .profile-username {
   font-family: 'Matrix', var(--font-3);
-  font-size: var(--xxl-size);
-  line-height: 1.2;
-  color: var(--contrast);
-  text-align: center;
+  font-size: 42px;
+  line-height: 1;
   margin: 0;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background: var(--co-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
 }
 
-/* Stats + Actions (2 lignes pour lisibilité) */
-.profile-meta {
+/* Stats (ligne badges) */
+.header-stats {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-  width: 100%;
-}
-
-.profile-stats {
-  display: flex;
-  gap: 15px;
+  gap: 10px;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 5px;
 }
 
-.stat-item {
+.stat-badge {
   background: var(--neutralDark);
-  padding: 5px 15px;
-  border-radius: var(--radius);
-  font-size: var(--small-size);
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 1px;
   color: var(--textColor);
 }
 
-.profile-actions {
+.stat-badge.online-status {
+  background: var(--co-1);
+  color: white;
+  font-weight: 600;
+}
+
+/* Actions (boutons) */
+.header-actions {
   display: flex;
-  gap: 10px;
+  gap: 8px;
+  margin-top: 5px;
 }
 
 .action-btn {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   background: var(--co-gradient);
   color: white !important;
-  padding: 8px 18px;
-  border-radius: var(--radius);
-  font-size: var(--small-size);
+  padding: 6px 14px;
+  border-radius: 12px;
+  font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 600;
@@ -6984,18 +7004,17 @@ html.js .category .forums .fs-panel.is-active{
 .action-btn:hover {
   background: var(--neutralDarker);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .action-btn .cp {
-  font-size: var(--medium-size);
+  font-size: 12px;
 }
 
 /* ==================== LAYOUT 3 COLONNES ==================== */
 .profile-grid {
   display: grid;
-  grid-template-columns: 220px 1fr 280px;
-  gap: 20px;
+  grid-template-columns: 200px 1fr 260px;
+  gap: 15px;
   align-items: start;
 }
 
@@ -7003,35 +7022,35 @@ html.js .category .forums .fs-panel.is-active{
 .profile-left {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
 }
 
-/* Avatar + Rang */
+/* Avatar + Rang (rectangle, plus d'arche) */
 .profile-avatar-block {
   background: var(--neutral);
   border: var(--border);
   border-radius: var(--radius);
-  padding: 15px;
+  padding: 12px;
   text-align: center;
 }
 
-.avatar-border {
+.avatar-border-rect {
   padding: 2px;
   background: var(--co-gradient);
-  border-radius: 150px 150px var(--radius) var(--radius);
-  margin-bottom: 15px;
+  border-radius: var(--radius);
+  margin-bottom: 10px;
 }
 
-.avatar-wrapper {
+.avatar-wrapper-rect {
   background: var(--neutralDarker);
-  border-radius: 150px 150px var(--radius) var(--radius);
+  border-radius: var(--xs-radius);
   overflow: hidden;
-  width: 190px;
-  height: 300px;
+  width: 176px;
+  height: 280px;
   margin: 0 auto;
 }
 
-.avatar-wrapper img {
+.avatar-wrapper-rect img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -7039,76 +7058,56 @@ html.js .category .forums .fs-panel.is-active{
 
 .profile-rank {
   background: var(--neutralDark);
-  padding: 8px 12px;
+  padding: 6px 10px;
   border-radius: var(--xs-radius);
-  font-size: var(--small-size);
+  font-size: 9px;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 600;
-  color: var(--co-1);
+  color: var(--contrast);
 }
 
-/* Image Apparence */
-.profile-appearance-block {
-  background: var(--neutral);
-  border: var(--border);
-  border-radius: var(--radius);
-  padding: 10px;
-  overflow: hidden;
-}
-
-.profile-appearance-block img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  border-radius: var(--xs-radius);
-}
-
-/* Contacts (4 icônes) */
+/* Contacts (4 icônes horizontales) */
 .profile-contacts {
   background: var(--neutral);
   border: var(--border);
   border-radius: var(--radius);
-  padding: 15px;
-}
-
-.profile-contacts form {
+  padding: 12px;
   display: flex;
   justify-content: space-around;
-  gap: 10px;
+  gap: 8px;
 }
 
-.contact-item a {
+.contact-item-new {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.contact-item-new a {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   background: var(--neutralDark);
   border-radius: 50%;
-  font-size: var(--large-size);
+  font-size: 16px;
   color: var(--co-1) !important;
   transition: all .3s;
 }
 
-.contact-item a:hover {
+.contact-item-new a:hover {
   background: var(--co-gradient);
   color: white !important;
   transform: scale(1.1);
-}
-
-/* Masquer les labels/textes des contacts */
-.contact-item img,
-.contact-item a[href*="privmsg"] span:not(.cp),
-.contact-item a[href*="email"] span:not(.cp) {
-  display: none;
 }
 
 /* ==================== COLONNE CENTRALE ==================== */
 .profile-center {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
 }
 
 /* Modules génériques */
@@ -7124,19 +7123,19 @@ html.js .category .forums .fs-panel.is-active{
 .module-header {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   background: var(--co-gradient);
-  padding: 12px 20px;
+  padding: 8px 15px;
   color: white;
 }
 
 .module-header .cp {
-  font-size: var(--large-size);
+  font-size: 14px;
 }
 
 .module-header h2 {
   font-family: var(--font-3);
-  font-size: var(--medium-size);
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 2px;
   margin: 0;
@@ -7145,24 +7144,28 @@ html.js .category .forums .fs-panel.is-active{
 }
 
 .module-content {
-  padding: 20px;
+  padding: 15px;
+  background: var(--neutralDark); /* Sous-fond pour lisibilité */
 }
 
-/* Basic Information */
+/* Basic Information (hauteur fixe + scroll) */
+.info-module .module-content {
+  height: 280px;
+  overflow-y: auto;
+}
+
 #basic-info .user_field {
   display: grid;
-  grid-template-columns: 150px 1fr;
-  gap: 10px;
-  padding: 8px 0;
-  border-bottom: 1px solid var(--neutralDark);
-}
-
-#basic-info .user_field:last-child {
-  border-bottom: none;
+  grid-template-columns: 120px 1fr;
+  gap: 8px;
+  padding: 6px 10px;
+  margin-bottom: 4px;
+  background: var(--lighter); /* Fond sous les lignes */
+  border-radius: 5px;
 }
 
 #basic-info .field_label {
-  font-size: var(--small-size);
+  font-size: 9px;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 600;
@@ -7171,41 +7174,82 @@ html.js .category .forums .fs-panel.is-active{
 
 #basic-info .field_uneditable {
   color: var(--textColor);
+  font-size: 12px;
 }
 
-/* AES (Status Update) */
-.aes-scroll {
-  max-height: 180px;
+/* Balises stylisées dans les profils */
+.new-profile-container b,
+.new-profile-container strong {
+  color: var(--co-2);
+  font-weight: 600;
+}
+
+.new-profile-container i,
+.new-profile-container em {
+  color: var(--co-1);
+  font-family: var(--font-4);
+  font-style: italic;
+}
+
+.new-profile-container h2 {
+  font-family: var(--font-3);
+  font-size: 16px;
+  text-transform: uppercase;
+  color: var(--contrast);
+  margin: 10px 0;
+}
+
+.new-profile-container h3 {
+  font-family: var(--font-3);
+  font-size: 14px;
+  text-transform: uppercase;
+  color: var(--co-1);
+  margin: 8px 0;
+}
+
+.new-profile-container h4 {
+  font-family: var(--font-3);
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--co-2);
+  margin: 6px 0;
+}
+
+/* AES (Status Update) - hauteur fixe + scroll */
+.aes-module .module-content {
+  height: 200px;
   overflow-y: auto;
   color: var(--textColor);
-  line-height: 1.6;
+  line-height: 1.5;
+  font-size: 12px;
 }
 
-/* Collection (Awards) */
+/* Collection (Awards) - BEAUCOUP PLUS PETIT */
 .awards-container {
-  padding: 15px;
+  padding: 10px;
+  background: var(--neutralDark);
 }
 
 .awards-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 6px;
   justify-content: center;
 }
 
 .awards-list .award {
-  width: 50px;
-  height: 50px;
+  width: 32px;
+  height: 32px;
   background-image: var(--award-image);
   background-size: cover;
   background-position: center;
   border-radius: 50%;
-  border: 2px solid var(--neutralDark);
+  border: 1px solid var(--neutralDark);
   transition: all .3s;
 }
 
 .awards-list .award:hover {
-  transform: scale(1.15);
+  transform: scale(1.2);
   border-color: var(--co-1);
 }
 
@@ -7213,10 +7257,10 @@ html.js .category .forums .fs-panel.is-active{
 .profile-right {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
 }
 
-/* Relationship */
+/* Relationship (hauteur fixe = Basic Info) */
 .relationship-module {
   background: var(--neutral);
   border: var(--border);
@@ -7225,21 +7269,25 @@ html.js .category .forums .fs-panel.is-active{
 }
 
 .relationship-content {
-  padding: 15px;
+  padding: 12px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 12px;
   align-items: center;
+  background: var(--neutralDark);
+  height: 280px;
+  overflow-y: auto;
 }
 
 .relationship-image {
-  width: 200px;
-  height: 200px;
+  width: 180px;
+  height: 180px;
   border-radius: var(--radius);
   overflow: hidden;
   border: 3px solid transparent;
   background: var(--co-gradient);
   padding: 3px;
+  flex-shrink: 0;
 }
 
 .relationship-image img {
@@ -7251,36 +7299,40 @@ html.js .category .forums .fs-panel.is-active{
 }
 
 .relationship-text {
-  max-height: 120px;
-  overflow-y: auto;
-  text-align: center;
+  width: 100%;
+  max-height: none;
+  text-align: justify; /* Texte justifié */
   color: var(--textColor);
   line-height: 1.5;
-  padding: 0 10px;
+  font-size: 11px;
+  padding: 10px;
+  background: var(--lighter); /* Fond pour lisibilité */
+  border-radius: 8px;
 }
 
 .relationship-status {
   width: 100%;
   background: var(--co-gradient);
-  padding: 10px;
-  border-radius: var(--radius);
+  padding: 8px;
+  border-radius: 12px;
   text-align: center;
   color: white;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
-  font-size: var(--small-size);
+  font-size: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 6px;
+  flex-shrink: 0;
 }
 
 .relationship-status .cp {
-  font-size: var(--medium-size);
+  font-size: 12px;
 }
 
-/* Astrologie */
+/* Astrologie (hauteur fixe = AES) */
 .astro-module {
   background: var(--neutral);
   border: var(--border);
@@ -7289,16 +7341,18 @@ html.js .category .forums .fs-panel.is-active{
 }
 
 .astro-content {
-  padding: 20px;
+  padding: 15px;
   display: grid;
-  grid-template-columns: 80px 1fr;
-  gap: 15px;
+  grid-template-columns: 70px 1fr;
+  gap: 12px;
   align-items: center;
+  background: var(--neutralDark);
+  height: 200px;
 }
 
 .astro-image {
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   overflow: hidden;
   border: 3px solid var(--co-1);
@@ -7314,20 +7368,21 @@ html.js .category .forums .fs-panel.is-active{
 .astro-signs {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
 }
 
 .astro-sign {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: var(--small-size);
+  gap: 6px;
+  font-size: 10px;
   color: var(--textColor);
 }
 
 .astro-sign .symbol {
   color: var(--co-1);
   font-weight: 600;
+  font-size: 11px;
 }
 
 .astro-sign .name {
@@ -7336,12 +7391,17 @@ html.js .category .forums .fs-panel.is-active{
   font-family: var(--font-4);
 }
 
-/* ==================== ÉDITION RAPIDE ==================== */
+/* ==================== ÉDITION RAPIDE (inline edit) ==================== */
 .ajax-profil_hover {
   background: var(--lighter);
   padding: 2px 5px;
   border-radius: 3px;
   cursor: pointer;
+  transition: background .3s;
+}
+
+.ajax-profil_hover:hover {
+  background: var(--neutralDark);
 }
 
 .ajax-profil_edit {
@@ -7358,26 +7418,40 @@ html.js .category .forums .fs-panel.is-active{
 
 .ajax-profil_edit img,
 .ajax-profil_valid {
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   cursor: pointer;
+  vertical-align: middle;
 }
 
 .field_editable.invisible {
-  display: none;
+  display: none !important;
+}
+
+.field_editable input,
+.field_editable textarea,
+.field_editable select {
+  width: 100%;
+  padding: 4px;
+  border: 1px solid var(--neutralDark);
+  border-radius: 3px;
+  background: var(--neutralDarker);
+  color: var(--textColor);
+  font-size: 11px;
 }
 
 /* ==================== RESPONSIVE ==================== */
 @media (max-width: 1200px) {
   .profile-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 15px;
   }
   
   .profile-left,
   .profile-right {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
   }
 }
+
