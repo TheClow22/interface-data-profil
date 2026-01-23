@@ -7423,3 +7423,19 @@ vertical-align: middle;
   height: auto !important;
   cursor: pointer !important;
 }
+/* RELATIONSHIP IMAGE - Forcer l'adaptation */
+.relationship-image img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+/* ASTRO IMAGE - Forcer l'adaptation au cercle */
+.astro-image img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  border-radius: 50% !important;
+}
