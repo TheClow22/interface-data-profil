@@ -7313,14 +7313,14 @@ vertical-align: middle;
   cursor: pointer !important;
 }
 
-/* ==================== CORRECTION FORMULAIRES D'ÉDITION V4 - RELATIONSHIP FIXED ==================== */
+/* ==================== RELATIONSHIP IMAGE - VERSION FINALE ==================== */
 
-/* RELATIONSHIP IMAGE - Restauration du style d'origine */
+/* Garder ton style d'origine pour le conteneur */
 .relationship-image {
   width: 210px;
   height: 140px;
   border-radius: var(--radius);
-  overflow: hidden;
+  overflow: hidden; /* ← Ça empêche le débordement */
   border: 3px solid transparent;
   background: var(--co-gradient);
   padding: 3px;
@@ -7328,25 +7328,26 @@ vertical-align: middle;
   position: relative;
 }
 
+/* Forcer l'image à rester dans les limites */
 .relationship-image img {
   width: 100% !important;
   height: 100% !important;
   object-fit: cover !important;
   border-radius: var(--xs-radius) !important;
   background: var(--neutralDarker);
+  max-width: 100% !important; /* ← Empêche le débordement */
+  max-height: 100% !important; /* ← Empêche le débordement */
 }
 
-/* Formulaire d'édition positionné en dehors */
+/* Formulaire d'édition - RELATIF comme avant, pas absolu */
 .relationship-image .field_editable {
-  position: absolute !important;
-  top: calc(100% + 8px) !important;
-  left: 0 !important;
-  width: 250px !important;
-  background: var(--neutralDarker) !important;
+  position: relative !important; /* ← Pas absolute */
+  width: 100% !important;
+  background: rgba(255, 255, 255, 0.1) !important;
   padding: 12px !important;
   border-radius: 8px !important;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4) !important;
-  z-index: 150 !important;
+  margin-top: 8px !important;
+  box-sizing: border-box !important;
 }
 
 .relationship-image .field_editable label {
