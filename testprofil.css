@@ -6803,19 +6803,25 @@ html.js .category .forums .fs-panel.is-active{
   gap: 15px;
 }
 
-/* ==================== FIX AVATAR BRUTAL ==================== */
+/* ==================== AVATAR - VERSION FINALE ==================== */
 .profile-avatar-block {
   background: var(--lighter);
   border: var(--border);
   border-radius: var(--radius);
   padding: 15px;
   text-align: center;
+  width: 230px !important;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .profile-avatar-inner {
   background: var(--neutral);
   border-radius: var(--radius);
   padding: 15px;
+  width: 200px !important;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .avatar-border-rect {
@@ -6825,9 +6831,13 @@ html.js .category .forums .fs-panel.is-active{
   margin-bottom: 10px;
   width: 206px !important;
   height: 326px !important;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: auto !important;
+  margin-right: auto !important;
   overflow: hidden !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
 .avatar-wrapper-rect {
@@ -6836,15 +6846,10 @@ html.js .category .forums .fs-panel.is-active{
   overflow: hidden !important;
   width: 200px !important;
   height: 320px !important;
-  margin: 0 auto !important;
   display: block !important;
   position: relative !important;
   box-sizing: border-box !important;
-}
-
-.avatar-wrapper-rect * {
-  max-width: 100% !important;
-  max-height: 100% !important;
+  flex-shrink: 0 !important;
 }
 
 .avatar-wrapper-rect img {
@@ -6860,12 +6865,22 @@ html.js .category .forums .fs-panel.is-active{
   position: absolute !important;
   top: 0 !important;
   left: 0 !important;
-  right: 0 !important;
-  bottom: 0 !important;
-  margin: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
   border: none !important;
   outline: none !important;
-  box-sizing: border-box !important;
+}
+
+.profile-rank {
+  background: var(--neutralDark);
+  padding: 6px 10px;
+  border-radius: var(--xs-radius);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  color: var(--contrast);
+  margin-top: 10px;
 }
 
 .profile-rank {
