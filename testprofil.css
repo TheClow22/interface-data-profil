@@ -7218,3 +7218,88 @@ margin-left: 4px;
 vertical-align: middle;
 }
 
+/* ==================== CORRECTIONS ÉDITION APPARENCE & ASTRO ==================== */
+
+/* Apparence : positionner le champ éditable sur le GIF */
+.header-gif-circle {
+  position: relative;
+}
+
+.header-gif-circle .profile_field {
+  /* Le champ est là mais invisible jusqu'au survol */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.header-gif-circle .profile_field:hover {
+  opacity: 1;
+}
+
+.header-gif-circle .ajax-profil_edit {
+  /* Icône d'édition visible */
+  opacity: 1 !important;
+  font-size: 20px;
+}
+
+/* Astro : layout grid (image gauche, signes droite) */
+#astro-content-target {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 10px;
+  align-items: center;
+  padding: 12px;
+}
+
+.astro-image {
+  width: 60px;
+  height: 60px;
+}
+
+.astro-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var(--co-3);
+}
+
+.astro-signs {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.astro-sign {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  line-height: 1.3;
+}
+
+.astro-sign .symbol {
+  color: var(--co-2);
+  font-weight: 600;
+  font-size: 10px;
+  flex-shrink: 0;
+}
+
+.astro-sign .name {
+  color: var(--textColorAccent);
+  font-style: italic;
+  font-family: var(--font-4);
+  display: flex;
+  align-items: center;
+}
+
+/* Le champ éditable dans .name */
+.astro-sign .name .profile_field {
+  display: inline-block;
+}
+
+.astro-sign .name .field_uneditable,
+.astro-sign .name .field_editable {
+  display: inline;
+  font-style: italic;
+  font-family: var(--font-4);
+}
