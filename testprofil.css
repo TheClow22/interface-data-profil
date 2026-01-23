@@ -6934,7 +6934,7 @@ html.js .category .forums .fs-panel.is-active{
   height: 60px;
   border-radius: 50%;
   overflow: hidden;
-  border: 2px solid var(--co-gradient);
+  border: 2px solid var(--co-3);
   background: var(--neutralDarker);
 }
 
