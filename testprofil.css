@@ -6836,15 +6836,19 @@ html.js .category .forums .fs-panel.is-active{
   position: relative;
 }
 
-.avatar-wrapper-rect img {
+/* Cibler l'image avec tous ses attributs pourris */
+.avatar-wrapper-rect img[width],
+.avatar-wrapper-rect img[height],
+.avatar-wrapper-rect img[style] {
   position: absolute !important;
-  top: 50% !important;
-  left: 50% !important;
-  transform: translate(-50%, -50%) !important;
-  width: 100% !important;
-  height: 100% !important;
-  max-width: none !important;
-  max-height: none !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 200px !important;
+  height: 320px !important;
+  max-width: 200px !important;
+  max-height: 320px !important;
+  min-width: 200px !important;
+  min-height: 320px !important;
   object-fit: cover !important;
   object-position: center !important;
 }
