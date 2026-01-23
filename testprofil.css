@@ -7252,3 +7252,10 @@ vertical-align: middle;
 .header-gif-circle .ajax-profil_edit img {
   filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
 }
+.header-gif-circle {
+  overflow: visible !important;
+}
+
+.astro-image {
+  overflow: visible !important;
+}
