@@ -6803,7 +6803,7 @@ html.js .category .forums .fs-panel.is-active{
   gap: 15px;
 }
 
-/* Avatar CORRIGÉ (plus de débordement) */
+/* ==================== FIX AVATAR BRUTAL ==================== */
 .profile-avatar-block {
   background: var(--lighter);
   border: var(--border);
@@ -6823,26 +6823,32 @@ html.js .category .forums .fs-panel.is-active{
   background: var(--co-gradient);
   border-radius: var(--radius);
   margin-bottom: 10px;
+  width: 206px !important;
+  height: 326px !important;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden !important;
 }
 
 .avatar-wrapper-rect {
-  background: var(--neutralDarker);
-  border-radius: var(--xs-radius);
-  overflow: hidden;
-  width: 200px;
-  height: 320px;
-  margin: 0 auto;
-  display: block;
-  position: relative;
+  background: var(--neutralDarker) !important;
+  border-radius: var(--xs-radius) !important;
+  overflow: hidden !important;
+  width: 200px !important;
+  height: 320px !important;
+  margin: 0 auto !important;
+  display: block !important;
+  position: relative !important;
+  box-sizing: border-box !important;
 }
 
-/* Cibler l'image avec tous ses attributs pourris */
-.avatar-wrapper-rect img[width],
-.avatar-wrapper-rect img[height],
-.avatar-wrapper-rect img[style] {
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
+.avatar-wrapper-rect * {
+  max-width: 100% !important;
+  max-height: 100% !important;
+}
+
+.avatar-wrapper-rect img {
+  display: block !important;
   width: 200px !important;
   height: 320px !important;
   max-width: 200px !important;
@@ -6851,6 +6857,15 @@ html.js .category .forums .fs-panel.is-active{
   min-height: 320px !important;
   object-fit: cover !important;
   object-position: center !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  margin: auto !important;
+  border: none !important;
+  outline: none !important;
+  box-sizing: border-box !important;
 }
 
 .profile-rank {
