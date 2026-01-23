@@ -6934,7 +6934,7 @@ html.js .category .forums .fs-panel.is-active{
   height: 60px;
   border-radius: 50%;
   overflow: hidden;
-  border: 2px solid var(--co-1);
+  border: 2px solid var(--co-gradient);
   background: var(--neutralDarker);
 }
 
@@ -6954,20 +6954,20 @@ html.js .category .forums .fs-panel.is-active{
   display: flex;
   align-items: center;
   gap: 5px;
-  font-size: 9px;
+  font-size: 12px;
   color: var(--textColor);
   line-height: 1.3;
 }
 
 .astro-sign .symbol {
-  color: var(--co-1);
+  color: var(--co-2);
   font-weight: 600;
   font-size: 10px;
   flex-shrink: 0;
 }
 
 .astro-sign .name {
-  color: var(--co-3);
+  color: var(--textColorAccent);
   font-style: italic;
   font-family: var(--font-4);
 }
