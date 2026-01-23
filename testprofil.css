@@ -5651,29 +5651,6 @@ text-align: center;
 margin: 10px 0 0;
 }
 
-/* Bouton Ã©dition d'un champ de profil */
-.ajax-profil_edit {
-cursor: pointer;
-position: absolute;
-top: 0;
-left: 0px;
-}
-
-/* Bouton Ã©dition d'un champ de profil */
-.ajax-profil_edit {
-cursor: pointer;
-position: absolute;
-top: 0;
-left: -15px;
-}
-
-/* Bouton validation des modifications */
-.ajax-profil_valid {
-cursor: pointer;
-margin-left: 4px;
-vertical-align: middle;
-}
-
 /*** ------------------------------- ***/
 /*** PROFILS SIMPLIFIÃ‰S DES TAGS ---- ***/
 
@@ -7210,4 +7187,26 @@ html.js .category .forums .fs-panel.is-active{
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 15px;
   }
+}
+/* Bouton Ã©dition d'un champ de profil */
+.ajax-profil_edit {
+cursor: pointer;
+position: absolute;
+top: 0;
+left: 0px;
+}
+
+/* Bouton Ã©dition d'un champ de profil */
+.ajax-profil_edit {
+cursor: pointer;
+position: absolute;
+top: 0;
+left: -15px;
+}
+
+/* Bouton validation des modifications */
+.ajax-profil_valid {
+cursor: pointer;
+margin-left: 4px;
+vertical-align: middle;
 }
