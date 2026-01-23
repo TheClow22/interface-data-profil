@@ -6995,6 +6995,7 @@ html.js .category .forums .fs-panel.is-active{
 
 .aes-content .field_uneditable {
   width: 100%;
+  min-height: 200px;
   display: block;
   padding: 12px;
   background: var(--neutralDark);
@@ -7097,6 +7098,7 @@ html.js .category .forums .fs-panel.is-active{
 
 .relationship-text {
   width: 100%;
+  min-height: 120px;
   text-align: justify;
   color: var(--textColor);
   line-height: 1.5;
