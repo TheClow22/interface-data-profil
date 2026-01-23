@@ -6643,7 +6643,7 @@ html.js .category .forums .fs-panel.is-active{
   border-radius: 20%;
   overflow: hidden;
   border: 3px solid transparent;
-  background: var(--co-neutral);
+  background: var(--neutral);
   padding: 3px;
   flex-shrink: 0;
 }
