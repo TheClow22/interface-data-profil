@@ -4236,51 +4236,6 @@ a.specials_links:empty {
 }
 
 /*** ------------------------------- ***/
-/*** EDITION DE PROFIL ------------- ***/
-
-/* Onglets dans la modification de profil */
-#tabs ul {
-	display: flex;
-	justify-content: space-between;
-	margin: 20px 0 10px;
-}
-
-/*onglet*/
-#tabs li {
-	padding: 5px 10px;
-	border: 1px solid transparent;
-	font-size: var(--little-size);
-	white-space: nowrap;
-}
-
-/* Onglet selectionnÃ© */
-#tabs li.activetab {
-	background: var(--neutralDark);
-	border: var(--border);
-	border-radius: 5px;
-}
-
-/* onglet au survol */
-#tabs li:hover {
-	background: var(--neutralDark);
-	border-radius: 5px;
-	border: var(--border);
-}
-
-/* Suppression de l'onglet "amis et ignorÃ©s" */
-div#tabs li:nth-child(5) {
-	display: none;
-}
-
-.profil_preferences dl,
-.profil_editavatar dl {
-	grid-template-columns: 40% auto;
-}
-
-.profil_preferences .italic {
-	font-size: var(--little-size);
-}
-
 /* EDITER SIGNATURE ---*/
 #parent_editor_simple > #smiley-box {
 	float: left;
@@ -7209,4 +7164,55 @@ left: -15px;
 cursor: pointer;
 margin-left: 4px;
 vertical-align: middle;
+}
+/*** EDITION DE PROFIL ------------- ***/
+
+/* Onglets dans la modification de profil */
+#tabs ul {
+	display: flex;
+	justify-content: space-between;
+	margin: 20px 0 10px;
+}
+
+/*onglet*/
+#tabs li {
+	padding: 5px 10px;
+	border: 1px solid transparent;
+	font-size: var(--little-size);
+	white-space: nowrap;
+}
+
+/* Onglet selectionnÃ© */
+#tabs li.activetab {
+	background: var(--neutralDark);
+	border: var(--border);
+	border-radius: 5px;
+}
+
+/* onglet au survol */
+#tabs li:hover {
+	background: var(--neutralDark);
+	border-radius: 5px;
+	border: var(--border);
+}
+
+/* Suppression de l'onglet "amis et ignorÃ©s" */
+div#tabs li:nth-child(5) {
+	display: none;
+}
+
+.profil_preferences dl,
+.profil_editavatar dl {
+	grid-template-columns: 40% auto;
+}
+
+.profil_preferences .italic {
+	font-size: var(--little-size);
+}
+.ajax-profil_parent {
+	position: relative;
+}
+
+.ajax-profil_edit {
+	left: -7px !important;
 }
