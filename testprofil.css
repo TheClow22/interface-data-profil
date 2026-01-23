@@ -6980,7 +6980,7 @@ html.js .category .forums .fs-panel.is-active{
 
 /* Aesthetic */
 .aes-module .module-content {
-  height: 220px;
+  height: 230px;
   overflow-y: auto;
   color: var(--textColor);
   line-height: 1.6;
