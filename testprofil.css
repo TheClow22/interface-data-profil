@@ -7263,95 +7263,150 @@ vertical-align: middle;
 .new-profile-container {
   overflow: visible !important;
 }
-/* ==================== CORRECTION FORMULAIRES D'ÉDITION ==================== */
+/* ==================== CORRECTION FORMULAIRES D'ÉDITION V2 ==================== */
 
-/* CHARTE ASTRALE - Formulaire d'édition de l'image */
-.astro-image .field_editable {
-  position: absolute !important;
-  top: 100% !important;
-  left: 0 !important;
-  width: 300px !important;
-  max-width: 300px !important;
-  background: var(--neutralDarker) !important;
-  padding: 10px !important;
-  border-radius: 8px !important;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
-  z-index: 100 !important;
-  margin-top: 5px !important;
+/* CHARTE ASTRALE - Image éditable */
+.astro-image {
+  position: relative;
+  overflow: visible !important;
 }
 
-.astro-image .field_editable input,
-.astro-image .field_editable textarea {
-  width: 100% !important;
-  max-width: 100% !important;
-  box-sizing: border-box !important;
+.astro-image .field_editable {
+  position: absolute !important;
+  top: calc(100% + 5px) !important;
+  left: 0 !important;
+  width: 280px !important;
+  background: var(--neutralDarker) !important;
+  padding: 12px !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4) !important;
+  z-index: 150 !important;
+}
+
+.astro-image .field_editable label {
+  display: block !important;
   font-size: 11px !important;
+  margin-bottom: 5px !important;
+  color: var(--textColor) !important;
+}
+
+.astro-image .field_editable input[type="text"] {
+  width: 100% !important;
+  box-sizing: border-box !important;
+  padding: 6px 8px !important;
+  font-size: 11px !important;
+  border: 1px solid var(--neutral) !important;
+  border-radius: 4px !important;
+  background: var(--neutralDarker) !important;
+  color: var(--textColor) !important;
+  word-break: break-all !important;
 }
 
 .astro-image .ajax-profil_valid {
   display: block !important;
-  margin: 8px auto 0 !important;
+  margin: 10px auto 0 !important;
+  max-width: 20px !important;
+  height: auto !important;
   cursor: pointer !important;
 }
 
 /* RELATIONSHIP IMAGE - Formulaire d'édition */
+.relationship-image {
+  position: relative;
+  overflow: visible !important;
+}
+
+/* Empêcher l'image de déborder */
+.relationship-image img {
+  max-width: 100% !important;
+  height: auto !important;
+  display: block !important;
+}
+
+.relationship-image .field_uneditable img {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: cover !important;
+  border-radius: 12px !important;
+}
+
 .relationship-image .field_editable {
   position: relative !important;
   width: 100% !important;
-  max-width: 100% !important;
-  background: var(--neutralDarker) !important;
-  padding: 10px !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  padding: 12px !important;
   border-radius: 8px !important;
-  margin-top: 5px !important;
+  margin-top: 8px !important;
 }
 
-.relationship-image .field_editable input,
-.relationship-image .field_editable textarea {
+.relationship-image .field_editable label {
+  display: block !important;
+  font-size: 11px !important;
+  margin-bottom: 5px !important;
+  color: var(--textColor) !important;
+}
+
+.relationship-image .field_editable input[type="text"] {
   width: 100% !important;
-  max-width: 100% !important;
   box-sizing: border-box !important;
-  font-size: 12px !important;
+  padding: 6px 8px !important;
+  font-size: 11px !important;
+  border: 1px solid var(--neutral) !important;
+  border-radius: 4px !important;
+  background: var(--neutralDarker) !important;
+  color: var(--textColor) !important;
   word-break: break-all !important;
 }
 
 .relationship-image .ajax-profil_valid {
   display: block !important;
-  margin: 8px auto 0 !important;
+  margin: 10px auto 0 !important;
+  max-width: 20px !important;
+  height: auto !important;
   cursor: pointer !important;
 }
 
 /* APPARENCE - Formulaire d'édition */
-.header-gif-circle .field_editable {
-  position: absolute !important;
-  top: 100% !important;
-  left: 0 !important;
-  width: 250px !important;
-  background: var(--neutralDarker) !important;
-  padding: 10px !important;
-  border-radius: 8px !important;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
-  z-index: 100 !important;
-  margin-top: 5px !important;
+.header-gif-circle {
+  position: relative;
+  overflow: visible !important;
 }
 
-.header-gif-circle .field_editable input,
-.header-gif-circle .field_editable textarea {
-  width: 100% !important;
-  max-width: 100% !important;
-  box-sizing: border-box !important;
+.header-gif-circle .field_editable {
+  position: absolute !important;
+  top: calc(100% + 5px) !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 260px !important;
+  background: var(--neutralDarker) !important;
+  padding: 12px !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4) !important;
+  z-index: 150 !important;
+}
+
+.header-gif-circle .field_editable label {
+  display: block !important;
   font-size: 11px !important;
+  margin-bottom: 5px !important;
+  color: var(--textColor) !important;
+}
+
+.header-gif-circle .field_editable input[type="text"] {
+  width: 100% !important;
+  box-sizing: border-box !important;
+  padding: 6px 8px !important;
+  font-size: 11px !important;
+  border: 1px solid var(--neutral) !important;
+  border-radius: 4px !important;
+  background: var(--neutralDarker) !important;
+  color: var(--textColor) !important;
 }
 
 .header-gif-circle .ajax-profil_valid {
   display: block !important;
-  margin: 8px auto 0 !important;
+  margin: 10px auto 0 !important;
+  max-width: 20px !important;
+  height: auto !important;
   cursor: pointer !important;
-}
-
-/* Forcer le conteneur parent à ne pas couper */
-.astro-image,
-.relationship-image,
-.header-gif-circle {
-  position: relative !important;
-  overflow: visible !important;
 }
