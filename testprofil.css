@@ -6591,7 +6591,7 @@ html.js .category .forums .fs-panel.is-active{
 }
 
 /* ========================================
-   PROFILS UTILISATEURS V6 - OPTIMISÉ
+   PROFILS UTILISATEURS V5 - FINAL CLEAN
    ======================================== */
 
 .new-profile-container {
@@ -6637,17 +6637,15 @@ html.js .category .forums .fs-panel.is-active{
   justify-content: center;
 }
 
-/* APPARENCE - Carré avec édition inline */
 .header-gif-circle {
   width: 100px;
   height: 100px;
   border-radius: 20%;
-  overflow: visible !important; /* Pour permettre le formulaire de sortir */
+  overflow: hidden;
   border: 3px solid transparent;
   background: var(--neutral);
   padding: 3px;
   flex-shrink: 0;
-  position: relative;
 }
 
 .header-gif-circle img {
@@ -6656,45 +6654,6 @@ html.js .category .forums .fs-panel.is-active{
   object-fit: cover;
   border-radius: 20%;
   background: var(--neutralDarker);
-}
-
-.header-gif-circle .field_editable {
-  position: absolute !important;
-  top: calc(100% + 5px) !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  width: 240px !important;
-  background: var(--neutralDarker) !important;
-  padding: 10px !important;
-  border-radius: 8px !important;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4) !important;
-  z-index: 150 !important;
-}
-
-.header-gif-circle .field_editable label {
-  display: block !important;
-  font-size: 10px !important;
-  margin-bottom: 4px !important;
-  color: var(--textColor) !important;
-}
-
-.header-gif-circle .field_editable input[type="text"] {
-  width: 100% !important;
-  box-sizing: border-box !important;
-  padding: 5px 6px !important;
-  font-size: 10px !important;
-  border: 1px solid var(--neutral) !important;
-  border-radius: 4px !important;
-  background: var(--neutralDarker) !important;
-  color: var(--textColor) !important;
-}
-
-.header-gif-circle .ajax-profil_valid {
-  display: block !important;
-  margin: 8px auto 0 !important;
-  max-width: 18px !important;
-  height: auto !important;
-  cursor: pointer !important;
 }
 
 .profile-username {
@@ -6706,6 +6665,7 @@ html.js .category .forums .fs-panel.is-active{
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  text-shadow: none;
 }
 
 .header-stats {
@@ -6763,31 +6723,32 @@ html.js .category .forums .fs-panel.is-active{
 /* ==================== LAYOUT 3 COLONNES ==================== */
 .profile-grid {
   display: grid;
-  grid-template-columns: 250px 1fr 290px;
+  grid-template-columns: 250px 1fr 290px;  /* ← MODIFIÉ : 230→250 et 310→290 */
   gap: 15px;
   align-items: start;
 }
 
-/* ==================== COLONNE GAUCHE ==================== */
+/* ==================== COLONNE GAUCHE - AVATAR ==================== */
 .profile-left {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-/* Avatar */
 .profile-avatar-block {
   background: var(--lighter);
   border: var(--border);
   border-radius: var(--radius);
   padding: 15px;
   text-align: center;
+  box-sizing: border-box;
 }
 
 .profile-avatar-inner {
   background: var(--neutral);
   border-radius: var(--radius);
   padding: 15px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -6798,7 +6759,9 @@ html.js .category .forums .fs-panel.is-active{
   background: var(--co-gradient);
   border-radius: var(--radius);
   margin-bottom: 10px;
+  box-sizing: border-box;
   overflow: hidden;
+  display: inline-block;
   width: fit-content;
 }
 
@@ -6808,6 +6771,8 @@ html.js .category .forums .fs-panel.is-active{
   overflow: hidden;
   width: 200px;
   height: 320px;
+  display: block;
+  position: relative;
 }
 
 .avatar-wrapper-rect img {
@@ -6815,6 +6780,7 @@ html.js .category .forums .fs-panel.is-active{
   height: 100%;
   object-fit: cover;
   object-position: center;
+  display: block;
 }
 
 .profile-rank {
@@ -6844,6 +6810,13 @@ html.js .category .forums .fs-panel.is-active{
   display: flex;
   justify-content: space-around;
   gap: 8px;
+  width: 100%;
+}
+
+.contact-item-new {
+  flex: 1;
+  display: flex;
+  justify-content: center;
 }
 
 .contact-item-new a {
@@ -6876,6 +6849,7 @@ html.js .category .forums .fs-panel.is-active{
 .astro-module-inner {
   background: var(--neutral);
   border-radius: var(--radius);
+  margin: 0;
 }
 
 .astro-content {
@@ -6885,66 +6859,21 @@ html.js .category .forums .fs-panel.is-active{
   gap: 10px;
   align-items: center;
   background: var(--neutral);
-  overflow: visible !important; /* Pour permettre le formulaire de sortir */
 }
 
 .astro-image {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  overflow: hidden; /* IMPORTANT : garde l'image dans le cercle */
+  overflow: hidden;
   border: 2px solid var(--co-3);
   background: var(--neutralDarker);
-  position: relative;
 }
 
 .astro-image img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  object-position: center !important;
-  border-radius: 50% !important;
-}
-
-.astro-image .field_editable {
-  position: absolute !important;
-  top: calc(100% + 5px) !important;
-  left: 0 !important;
-  width: 200px !important;
-  max-height: 150px !important;
-  overflow-y: auto !important;
-  background: var(--neutralDarker) !important;
-  padding: 10px !important;
-  border-radius: 8px !important;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4) !important;
-  z-index: 150 !important;
-}
-
-.astro-image .field_editable label {
-  display: block !important;
-  font-size: 10px !important;
-  margin-bottom: 4px !important;
-  color: var(--textColor) !important;
-}
-
-.astro-image .field_editable input[type="text"] {
-  width: 100% !important;
-  box-sizing: border-box !important;
-  padding: 5px 6px !important;
-  font-size: 10px !important;
-  border: 1px solid var(--neutral) !important;
-  border-radius: 4px !important;
-  background: var(--neutralDarker) !important;
-  color: var(--textColor) !important;
-  word-break: break-all !important;
-}
-
-.astro-image .ajax-profil_valid {
-  display: block !important;
-  margin: 8px auto 0 !important;
-  max-width: 18px !important;
-  height: auto !important;
-  cursor: pointer !important;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .astro-signs {
@@ -7023,6 +6952,7 @@ html.js .category .forums .fs-panel.is-active{
 .info-module .module-content {
   height: 320px;
   overflow-y: auto;
+  background: var(--neutral);
 }
 
 .new-profile-container #basic-info-target .user_field {
@@ -7052,8 +6982,15 @@ html.js .category .forums .fs-panel.is-active{
 .aes-module .module-content {
   height: 230px;
   overflow-y: auto;
+  color: var(--textColor);
+  line-height: 1;
+  font-size: 13px;
   background: var(--neutral);
   padding: 15px;
+}
+
+#aes-content-target {
+  width: 100%;
 }
 
 .aes-content .field_uneditable {
@@ -7063,15 +7000,15 @@ html.js .category .forums .fs-panel.is-active{
   padding: 12px;
   background: var(--neutralDark);
   border-radius: 8px;
-  line-height: 1.2; /* Interligne serré */
 }
 
 /* Balises stylisées */
 .new-profile-container b,
 .new-profile-container strong {
-  background: var(--co-gradient); 
-  -webkit-background-clip: text; 
-  -webkit-text-fill-color: transparent; 
+	background: var(--co-gradient); 
+	-webkit-background-clip: text; 
+	-webkit-text-fill-color: transparent; 
+	 text-shadow: 0px 0px transparent;
 }
 
 .new-profile-container i,
@@ -7118,6 +7055,7 @@ html.js .category .forums .fs-panel.is-active{
   border: var(--border);
   border-radius: var(--radius);
   overflow: hidden;
+  position: relative;
 }
 
 .relationship-content {
@@ -7140,66 +7078,27 @@ html.js .category .forums .fs-panel.is-active{
 }
 
 .relationship-image {
-  width: 210px;
-  height: 140px;
+  width: 210px;  /* ← RÉDUIT de 200 à 180 */
+  height: 140px;  /* ← RÉDUIT de 200 à 180 */
   border-radius: var(--radius);
-  overflow: hidden; /* IMPORTANT : garde l'image dans le cadre */
+  overflow: hidden;
   border: 3px solid transparent;
   background: var(--co-gradient);
   padding: 3px;
   flex-shrink: 0;
-  position: relative;
 }
 
 .relationship-image img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  object-position: center !important;
-  border-radius: var(--xs-radius) !important;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--xs-radius);
   background: var(--neutralDarker);
-}
-
-.relationship-image .field_editable {
-  position: relative !important;
-  width: 100% !important;
-  background: rgba(255, 255, 255, 0.1) !important;
-  padding: 12px !important;
-  border-radius: 8px !important;
-  margin-top: 8px !important;
-  box-sizing: border-box !important;
-}
-
-.relationship-image .field_editable label {
-  display: block !important;
-  font-size: 11px !important;
-  margin-bottom: 5px !important;
-  color: var(--textColor) !important;
-}
-
-.relationship-image .field_editable input[type="text"] {
-  width: 100% !important;
-  box-sizing: border-box !important;
-  padding: 6px 8px !important;
-  font-size: 11px !important;
-  border: 1px solid var(--neutral) !important;
-  border-radius: 4px !important;
-  background: var(--neutralDarker) !important;
-  color: var(--textColor) !important;
-  word-break: break-all !important;
-}
-
-.relationship-image .ajax-profil_valid {
-  display: block !important;
-  margin: 10px auto 0 !important;
-  max-width: 20px !important;
-  height: auto !important;
-  cursor: pointer !important;
 }
 
 .relationship-text {
   width: 100%;
-  min-height: 120px;
+  min-height: 200px;
   text-align: justify;
   color: var(--textColor);
   line-height: 1.5;
@@ -7238,6 +7137,7 @@ html.js .category .forums .fs-panel.is-active{
 @media (max-width: 1200px) {
   .profile-grid {
     grid-template-columns: 1fr;
+    gap: 15px;
   }
   
   .profile-left,
@@ -7248,51 +7148,278 @@ html.js .category .forums .fs-panel.is-active{
   }
 }
 
-/* ==================== ÉDITION DE PROFIL ==================== */
+/*** EDITION DE PROFIL ------------- ***/
 
+/* Onglets dans la modification de profil */
 #tabs ul {
-  display: flex;
-  justify-content: space-between;
-  margin: 20px 0 10px;
+	display: flex;
+	justify-content: space-between;
+	margin: 20px 0 10px;
 }
 
+/*onglet*/
 #tabs li {
-  padding: 5px 10px;
-  border: 1px solid transparent;
-  font-size: var(--little-size);
-  white-space: nowrap;
+	padding: 5px 10px;
+	border: 1px solid transparent;
+	font-size: var(--little-size);
+	white-space: nowrap;
 }
 
-#tabs li.activetab,
+/* Onglet selectionnÃ© */
+#tabs li.activetab {
+	background: var(--neutralDark);
+	border: var(--border);
+	border-radius: 5px;
+}
+
+/* onglet au survol */
 #tabs li:hover {
-  background: var(--neutralDark);
-  border: var(--border);
-  border-radius: 5px;
+	background: var(--neutralDark);
+	border-radius: 5px;
+	border: var(--border);
 }
 
+/* Suppression de l'onglet "amis et ignorÃ©s" */
 div#tabs li:nth-child(5) {
-  display: none;
+	display: none;
 }
 
 .profil_preferences dl,
 .profil_editavatar dl {
-  grid-template-columns: 40% auto;
+	grid-template-columns: 40% auto;
 }
 
 .profil_preferences .italic {
-  font-size: var(--little-size);
+	font-size: var(--little-size);
+}
+.ajax-profil_parent {
+	position: relative;
 }
 
-/* Boutons d'édition rapide */
 .ajax-profil_edit {
-  cursor: pointer;
+	left: -7px !important;
+}
+/* Bouton Ã©dition d'un champ de profil */
+.ajax-profil_edit {
+cursor: pointer;
+position: absolute;
+top: 0;
+left: 0px;
+}
+
+/* Bouton Ã©dition d'un champ de profil */
+.ajax-profil_edit {
+cursor: pointer;
+position: absolute;
+top: 0;
+left: -15px;
+}
+
+/* Bouton validation des modifications */
+.ajax-profil_valid {
+cursor: pointer;
+margin-left: 4px;
+vertical-align: middle;
+}
+
+/* ==================== APPARENCE ÉDITABLE SUR CERCLE ET ASTRO ==================== */
+
+/* Le conteneur du cercle */
+.header-gif-circle {
+  position: relative !important;
+  overflow: visible !important;
+}
+
+/* Le champ APPARENCE positionné sur le cercle */
+.header-gif-circle .profile_field {
   position: absolute;
   top: 0;
-  left: -15px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  overflow: visible !important;
 }
 
-.ajax-profil_valid {
-  cursor: pointer;
-  margin-left: 4px;
-  vertical-align: middle;
+/* Les icônes d'édition ForumActif bien visibles */
+.header-gif-circle .ajax-profil_edit {
+  display: block !important;
+  position: absolute !important;
+  bottom: -5px !important;
+  right: -5px !important;
+  z-index: 100 !important;
+  opacity: 1 !important;
+}
+
+.header-gif-circle .ajax-profil_edit img {
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+}
+
+/* Astro image éditable */
+.astro-image {
+  overflow: visible !important;
+}
+
+/* Au cas où il y ait un conteneur parent qui coupe */
+.profile-header-left,
+.new-profile-container {
+  overflow: visible !important;
+}
+
+/* ==================== CORRECTION FORMULAIRES D'ÉDITION V3 FINALE ==================== */
+
+/* CHARTE ASTRALE - Image éditable (formulaire plus compact) */
+.astro-image {
+  position: relative;
+  overflow: visible !important;
+}
+
+.astro-image .field_editable {
+  position: absolute !important;
+  top: calc(100% + 5px) !important;
+  left: 0 !important;
+  width: 200px !important;
+  max-height: 50px !important;
+  overflow-y: auto !important;
+  background: var(--neutralDarker) !important;
+  padding: 10px !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4) !important;
+  z-index: 150 !important;
+}
+
+.astro-image .field_editable label {
+  display: block !important;
+  font-size: 10px !important;
+  margin-bottom: 4px !important;
+  color: var(--textColor) !important;
+}
+
+.astro-image .field_editable input[type="text"] {
+  width: 100% !important;
+  box-sizing: border-box !important;
+  padding: 5px 6px !important;
+  font-size: 10px !important;
+  border: 1px solid var(--neutral) !important;
+  border-radius: 4px !important;
+  background: var(--neutralDarker) !important;
+  color: var(--textColor) !important;
+  word-break: break-all !important;
+}
+
+.astro-image .ajax-profil_valid {
+  display: block !important;
+  margin: 8px auto 0 !important;
+  max-width: 18px !important;
+  height: auto !important;
+  cursor: pointer !important;
+}
+
+/* ==================== RELATIONSHIP IMAGE - VERSION FINALE ==================== */
+
+/* Garder ton style d'origine pour le conteneur */
+.relationship-image {
+  width: 210px;
+  height: 140px;
+  border-radius: var(--radius);
+  overflow: hidden; /* ← Ça empêche le débordement */
+  border: 3px solid transparent;
+  background: var(--co-gradient);
+  padding: 3px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+/* Forcer l'image à rester dans les limites */
+.relationship-image img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  border-radius: var(--xs-radius) !important;
+  background: var(--neutralDarker);
+  max-width: 100% !important; /* ← Empêche le débordement */
+  max-height: 100% !important; /* ← Empêche le débordement */
+}
+
+/* Formulaire d'édition - RELATIF comme avant, pas absolu */
+.relationship-image .field_editable {
+  position: relative !important; /* ← Pas absolute */
+  width: 100% !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  padding: 12px !important;
+  border-radius: 8px !important;
+  margin-top: 8px !important;
+  box-sizing: border-box !important;
+}
+
+.relationship-image .field_editable label {
+  display: block !important;
+  font-size: 11px !important;
+  margin-bottom: 5px !important;
+  color: var(--textColor) !important;
+}
+
+.relationship-image .field_editable input[type="text"] {
+  width: 100% !important;
+  box-sizing: border-box !important;
+  padding: 6px 8px !important;
+  font-size: 11px !important;
+  border: 1px solid var(--neutral) !important;
+  border-radius: 4px !important;
+  background: var(--neutralDarker) !important;
+  color: var(--textColor) !important;
+  word-break: break-all !important;
+}
+
+.relationship-image .ajax-profil_valid {
+  display: block !important;
+  margin: 10px auto 0 !important;
+  max-width: 20px !important;
+  height: auto !important;
+  cursor: pointer !important;
+}
+
+/* APPARENCE - Formulaire d'édition */
+.header-gif-circle {
+  position: relative;
+  overflow: visible !important;
+}
+
+.header-gif-circle .field_editable {
+  position: absolute !important;
+  top: calc(100% + 5px) !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 240px !important;
+  background: var(--neutralDarker) !important;
+  padding: 10px !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4) !important;
+  z-index: 150 !important;
+}
+
+.header-gif-circle .field_editable label {
+  display: block !important;
+  font-size: 10px !important;
+  margin-bottom: 4px !important;
+  color: var(--textColor) !important;
+}
+
+.header-gif-circle .field_editable input[type="text"] {
+  width: 100% !important;
+  box-sizing: border-box !important;
+  padding: 5px 6px !important;
+  font-size: 10px !important;
+  border: 1px solid var(--neutral) !important;
+  border-radius: 4px !important;
+  background: var(--neutralDarker) !important;
+  color: var(--textColor) !important;
+}
+
+.header-gif-circle .ajax-profil_valid {
+  display: block !important;
+  margin: 8px auto 0 !important;
+  max-width: 18px !important;
+  height: auto !important;
+  cursor: pointer !important;
 }
