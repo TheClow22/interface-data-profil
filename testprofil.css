@@ -7220,42 +7220,46 @@ margin-left: 4px;
 vertical-align: middle;
 }
 
-/* ==================== CORRECTIONS ÉDITION APPARENCE & ASTRO ==================== */
+/* ==================== APPARENCE ÉDITABLE SUR CERCLE ET ASTRO ==================== */
 
-/* ==================== APPARENCE ÉDITABLE SUR CERCLE ==================== */
-
-/* Le conteneur du cercle doit être positionné */
+/* Le conteneur du cercle */
 .header-gif-circle {
-  position: relative;
+  position: relative !important;
+  overflow: visible !important;
 }
 
 /* Le champ APPARENCE positionné sur le cercle */
-.header-gif-circle .profile_field[id^="field_id"] {
+.header-gif-circle .profile_field {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: 5;
+  overflow: visible !important;
 }
 
 /* Les icônes d'édition ForumActif bien visibles */
 .header-gif-circle .ajax-profil_edit {
+  display: block !important;
   position: absolute !important;
-  top: 50% !important;
-  left: 50% !important;
-  transform: translate(-50%, -50%) !important;
-  z-index: 10 !important;
+  bottom: -5px !important;
+  right: -5px !important;
+  z-index: 100 !important;
   opacity: 1 !important;
 }
 
 .header-gif-circle .ajax-profil_edit img {
   filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
 }
-.header-gif-circle {
+
+/* Astro image éditable */
+.astro-image {
   overflow: visible !important;
 }
 
-.astro-image {
+/* Au cas où il y ait un conteneur parent qui coupe */
+.profile-header-left,
+.new-profile-container {
   overflow: visible !important;
 }
