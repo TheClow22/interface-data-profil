@@ -7004,13 +7004,15 @@ html.js .category .forums .fs-panel.is-active{
 /* Balises stylisées */
 .new-profile-container b,
 .new-profile-container strong {
-  color: var(--co-2);
-  font-weight: 600;
+	background: var(--co-gradient); 
+	-webkit-background-clip: text; 
+	-webkit-text-fill-color: transparent; 
+	 text-shadow: 0px 0px transparent;
 }
 
 .new-profile-container i,
 .new-profile-container em {
-  color: var(--co-1);
+  color: var(--textColorAccent);
   font-family: var(--font-4);
   font-style: italic;
 }
