@@ -7263,9 +7263,10 @@ vertical-align: middle;
 .new-profile-container {
   overflow: visible !important;
 }
-/* ==================== CORRECTION FORMULAIRES D'ÉDITION V2 ==================== */
 
-/* CHARTE ASTRALE - Image éditable */
+/* ==================== CORRECTION FORMULAIRES D'ÉDITION V3 FINALE ==================== */
+
+/* CHARTE ASTRALE - Image éditable (formulaire plus compact) */
 .astro-image {
   position: relative;
   overflow: visible !important;
@@ -7275,9 +7276,11 @@ vertical-align: middle;
   position: absolute !important;
   top: calc(100% + 5px) !important;
   left: 0 !important;
-  width: 280px !important;
+  width: 220px !important;
+  max-height: 180px !important;
+  overflow-y: auto !important;
   background: var(--neutralDarker) !important;
-  padding: 12px !important;
+  padding: 10px !important;
   border-radius: 8px !important;
   box-shadow: 0 4px 12px rgba(0,0,0,0.4) !important;
   z-index: 150 !important;
@@ -7285,16 +7288,16 @@ vertical-align: middle;
 
 .astro-image .field_editable label {
   display: block !important;
-  font-size: 11px !important;
-  margin-bottom: 5px !important;
+  font-size: 10px !important;
+  margin-bottom: 4px !important;
   color: var(--textColor) !important;
 }
 
 .astro-image .field_editable input[type="text"] {
   width: 100% !important;
   box-sizing: border-box !important;
-  padding: 6px 8px !important;
-  font-size: 11px !important;
+  padding: 5px 6px !important;
+  font-size: 10px !important;
   border: 1px solid var(--neutral) !important;
   border-radius: 4px !important;
   background: var(--neutralDarker) !important;
@@ -7304,39 +7307,40 @@ vertical-align: middle;
 
 .astro-image .ajax-profil_valid {
   display: block !important;
-  margin: 10px auto 0 !important;
-  max-width: 20px !important;
+  margin: 8px auto 0 !important;
+  max-width: 18px !important;
   height: auto !important;
   cursor: pointer !important;
 }
 
-/* RELATIONSHIP IMAGE - Formulaire d'édition */
+/* RELATIONSHIP IMAGE - CORRECTION : Empêcher le débordement */
 .relationship-image {
   position: relative;
   overflow: visible !important;
 }
 
-/* Empêcher l'image de déborder */
-.relationship-image img {
-  max-width: 100% !important;
-  height: auto !important;
-  display: block !important;
+/* NE PAS toucher à l'image quand elle n'est PAS en édition */
+.relationship-image .field_uneditable {
+  /* Laisser le style par défaut */
 }
 
 .relationship-image .field_uneditable img {
-  width: 100% !important;
+  /* NE RIEN FORCER - garder le style d'origine */
+  max-width: none !important;
+  width: auto !important;
   height: auto !important;
-  object-fit: cover !important;
-  border-radius: 12px !important;
 }
 
+/* SEULEMENT styler le formulaire d'édition */
 .relationship-image .field_editable {
   position: relative !important;
   width: 100% !important;
+  max-width: 100% !important;
   background: rgba(255, 255, 255, 0.1) !important;
   padding: 12px !important;
   border-radius: 8px !important;
   margin-top: 8px !important;
+  box-sizing: border-box !important;
 }
 
 .relationship-image .field_editable label {
@@ -7377,9 +7381,9 @@ vertical-align: middle;
   top: calc(100% + 5px) !important;
   left: 50% !important;
   transform: translateX(-50%) !important;
-  width: 260px !important;
+  width: 240px !important;
   background: var(--neutralDarker) !important;
-  padding: 12px !important;
+  padding: 10px !important;
   border-radius: 8px !important;
   box-shadow: 0 4px 12px rgba(0,0,0,0.4) !important;
   z-index: 150 !important;
@@ -7387,16 +7391,16 @@ vertical-align: middle;
 
 .header-gif-circle .field_editable label {
   display: block !important;
-  font-size: 11px !important;
-  margin-bottom: 5px !important;
+  font-size: 10px !important;
+  margin-bottom: 4px !important;
   color: var(--textColor) !important;
 }
 
 .header-gif-circle .field_editable input[type="text"] {
   width: 100% !important;
   box-sizing: border-box !important;
-  padding: 6px 8px !important;
-  font-size: 11px !important;
+  padding: 5px 6px !important;
+  font-size: 10px !important;
   border: 1px solid var(--neutral) !important;
   border-radius: 4px !important;
   background: var(--neutralDarker) !important;
@@ -7405,8 +7409,8 @@ vertical-align: middle;
 
 .header-gif-circle .ajax-profil_valid {
   display: block !important;
-  margin: 10px auto 0 !important;
-  max-width: 20px !important;
+  margin: 8px auto 0 !important;
+  max-width: 18px !important;
   height: auto !important;
   cursor: pointer !important;
 }
