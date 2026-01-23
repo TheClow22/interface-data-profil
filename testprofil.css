@@ -7276,8 +7276,8 @@ vertical-align: middle;
   position: absolute !important;
   top: calc(100% + 5px) !important;
   left: 0 !important;
-  width: 220px !important;
-  max-height: 180px !important;
+  width: 200px !important;
+  max-height: 50px !important;
   overflow-y: auto !important;
   background: var(--neutralDarker) !important;
   padding: 10px !important;
@@ -7313,34 +7313,40 @@ vertical-align: middle;
   cursor: pointer !important;
 }
 
-/* RELATIONSHIP IMAGE - CORRECTION : Empêcher le débordement */
+/* ==================== CORRECTION FORMULAIRES D'ÉDITION V4 - RELATIONSHIP FIXED ==================== */
+
+/* RELATIONSHIP IMAGE - Restauration du style d'origine */
 .relationship-image {
+  width: 210px;
+  height: 140px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 3px solid transparent;
+  background: var(--co-gradient);
+  padding: 3px;
+  flex-shrink: 0;
   position: relative;
-  overflow: visible !important;
 }
 
-/* NE PAS toucher à l'image quand elle n'est PAS en édition */
-.relationship-image .field_uneditable {
-  /* Laisser le style par défaut */
-}
-
-.relationship-image .field_uneditable img {
-  /* NE RIEN FORCER - garder le style d'origine */
-  max-width: none !important;
-  width: auto !important;
-  height: auto !important;
-}
-
-/* SEULEMENT styler le formulaire d'édition */
-.relationship-image .field_editable {
-  position: relative !important;
+.relationship-image img {
   width: 100% !important;
-  max-width: 100% !important;
-  background: rgba(255, 255, 255, 0.1) !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  border-radius: var(--xs-radius) !important;
+  background: var(--neutralDarker);
+}
+
+/* Formulaire d'édition positionné en dehors */
+.relationship-image .field_editable {
+  position: absolute !important;
+  top: calc(100% + 8px) !important;
+  left: 0 !important;
+  width: 250px !important;
+  background: var(--neutralDarker) !important;
   padding: 12px !important;
   border-radius: 8px !important;
-  margin-top: 8px !important;
-  box-sizing: border-box !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4) !important;
+  z-index: 150 !important;
 }
 
 .relationship-image .field_editable label {
