@@ -7098,7 +7098,7 @@ html.js .category .forums .fs-panel.is-active{
 
 .relationship-text {
   width: 100%;
-  min-height: 190px;
+  min-height: 200px;
   text-align: justify;
   color: var(--textColor);
   line-height: 1.5;
