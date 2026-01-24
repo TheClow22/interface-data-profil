@@ -7002,6 +7002,17 @@ html.js .category .forums .fs-panel.is-active{
   border-radius: 8px;
 }
 
+.aes-content .field_uneditable img {
+  margin: 0 !important;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.aes-content .field_uneditable * {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 /* Balises stylisées */
 .new-profile-container b,
 .new-profile-container strong {
