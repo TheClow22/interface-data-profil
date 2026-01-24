@@ -7335,3 +7335,18 @@ vertical-align: middle;
   left: auto !important;
   bottom: auto !important;
 }
+/* Forcer le champ éditable AES à rester en place */
+.aes-content .field_editable {
+  position: relative !important;
+  top: 0 !important;
+  margin-top: -200px !important; /* Remonter de la hauteur du min-height */
+}
+
+/* Ou alternative : forcer le conteneur à ne pas scroller automatiquement */
+.aes-module .module-content {
+  scroll-behavior: auto !important;
+}
+
+.aes-content {
+  position: relative !important;
+}
