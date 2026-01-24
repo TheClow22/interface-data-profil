@@ -7271,7 +7271,7 @@ html.js .category .forums .fs-panel.is-active{
 /* Zone texte - TAILLE RÉDUITE */
 .identity-log {
   min-height: 40px;  /* ← RÉDUIT de 60 à 40 */
-  max-height: 60px;  /* ← RÉDUIT de 100 à 70 */
+  max-height: 50px;  /* ← RÉDUIT de 100 à 70 */
   overflow-y: auto;
   background: var(--neutralDarker);
   border: 2px solid var(--co-1);
