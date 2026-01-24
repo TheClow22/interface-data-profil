@@ -7423,19 +7423,16 @@ vertical-align: middle;
   height: auto !important;
   cursor: pointer !important;
 }
-/* RELATIONSHIP IMAGE - Forcer l'adaptation */
-.relationship-image img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
+/* CORRECTION IMAGE ASTRO - Forcer l'image dans le cercle */
+.astro-image {
+  overflow: hidden !important; /* Au lieu de overflow: visible */
+}
+
+.astro-image img {
   object-position: center !important;
 }
 
-/* ASTRO IMAGE - Forcer l'adaptation au cercle */
-.astro-image img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
+/* CORRECTION IMAGE RELATIONSHIP - Centrer l'image */
+.relationship-image img {
   object-position: center !important;
-  border-radius: 50% !important;
 }
