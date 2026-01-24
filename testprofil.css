@@ -7328,3 +7328,10 @@ vertical-align: middle;
   height: 100%;
   z-index: 5;
 }
+/* Déplacer le bouton d'édition de RELATIONSHIP IMAGE */
+.relationship-image .ajax-profil_edit {
+  top: 5px !important;
+  right: 5px !important;
+  left: auto !important;
+  bottom: auto !important;
+}
