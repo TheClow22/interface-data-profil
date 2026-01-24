@@ -7062,7 +7062,7 @@ html.js .category .forums .fs-panel.is-active{
   padding: 0;
   display: flex;
   flex-direction: column;
-  height: 395px;
+  height: 390px;
   background: var(--neutral);
 }
 
