@@ -7339,7 +7339,7 @@ vertical-align: middle;
 .aes-content .field_editable {
   position: relative !important;
   top: 0 !important;
-  margin-top: -400px !important; /* Remonter de la hauteur du min-height */
+  margin-top: -530px !important; /* Remonter de la hauteur du min-height */
 }
 
 /* Ou alternative : forcer le conteneur à ne pas scroller automatiquement */
