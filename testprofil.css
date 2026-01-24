@@ -7347,6 +7347,296 @@ vertical-align: middle;
   scroll-behavior: auto !important;
 }
 
+/* ==================== IDENTITY BLOCK - GAMING UI ==================== */
+
+.identity-module {
+  background: var(--lighter);
+  border: var(--border);
+  border-radius: var(--radius);
+  padding: 12px;
+  overflow: visible;
+  position: relative;
+}
+
+.identity-frame {
+  position: relative;
+  background: var(--neutral);
+  border-radius: 12px;
+  overflow: hidden;
+  
+  /* Bordure dégradée extérieure type gaming */
+  box-shadow: 
+    0 0 0 2px var(--co-1),
+    0 0 0 4px var(--neutralDark),
+    0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* Header gaming */
+.identity-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--co-gradient);
+  padding: 8px 15px;
+  color: white !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.identity-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255,255,255,0.2), 
+    transparent);
+  animation: scan 3s linear infinite;
+}
+
+@keyframes scan {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.identity-header .cp {
+  font-size: 14px;
+  color: white !important;
+  animation: blink 2s ease-in-out infinite;
+}
+
+.identity-header .cp:first-child {
+  animation-delay: 0s;
+}
+
+.identity-header .cp:last-child {
+  animation-delay: 1s;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.identity-header h2 {
+  font-family: var(--font-3);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin: 0;
+  color: white !important;
+  font-weight: 700;
+}
+
+/* Conteneur principal */
+.identity-content {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--neutralDark);
+  position: relative;
+}
+
+/* Zone image - écran de jeu */
+.identity-screen {
+  width: 100%;
+  height: 180px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--neutralDarker);
+  border: 2px solid var(--co-2);
+  box-shadow: 
+    inset 0 2px 8px rgba(0,0,0,0.5),
+    0 0 12px rgba(93, 66, 175, 0.3);
+  position: relative;
+}
+
+.identity-screen::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.1) 2px,
+      rgba(0,0,0,0.1) 4px
+    );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.identity-screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Zone texte - log style terminal */
+.identity-log {
+  min-height: 60px;
+  max-height: 100px;
+  overflow-y: auto;
+  background: var(--neutralDarker);
+  border: 2px solid var(--co-1);
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 11px;
+  line-height: 1.4;
+  color: var(--textColor);
+  position: relative;
+  box-shadow: 
+    inset 0 2px 6px rgba(0,0,0,0.4),
+    0 0 8px rgba(224, 56, 174, 0.2);
+}
+
+.identity-log::before {
+  content: ">";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: var(--co-1);
+  font-weight: bold;
+  animation: cursor-blink 1s step-end infinite;
+}
+
+@keyframes cursor-blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.identity-log .field_uneditable {
+  margin-left: 15px;
+  font-family: 'Courier New', monospace;
+  font-style: italic;
+  color: var(--textColorAccent);
+}
+
+/* Coins décoratifs UI gaming */
+.ui-corner {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+}
+
+.ui-corner::before,
+.ui-corner::after {
+  content: "";
+  position: absolute;
+  background: var(--co-gradient);
+}
+
+/* Top-left */
+.ui-tl {
+  top: -2px;
+  left: -2px;
+}
+.ui-tl::before {
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 2px;
+}
+.ui-tl::after {
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 16px;
+}
+
+/* Top-right */
+.ui-tr {
+  top: -2px;
+  right: -2px;
+}
+.ui-tr::before {
+  top: 0;
+  right: 0;
+  width: 16px;
+  height: 2px;
+}
+.ui-tr::after {
+  top: 0;
+  right: 0;
+  width: 2px;
+  height: 16px;
+}
+
+/* Bottom-left */
+.ui-bl {
+  bottom: -2px;
+  left: -2px;
+}
+.ui-bl::before {
+  bottom: 0;
+  left: 0;
+  width: 16px;
+  height: 2px;
+}
+.ui-bl::after {
+  bottom: 0;
+  left: 0;
+  width: 2px;
+  height: 16px;
+}
+
+/* Bottom-right */
+.ui-br {
+  bottom: -2px;
+  right: -2px;
+}
+.ui-br::before {
+  bottom: 0;
+  right: 0;
+  width: 16px;
+  height: 2px;
+}
+.ui-br::after {
+  bottom: 0;
+  right: 0;
+  width: 2px;
+  height: 16px;
+}
+
+/* ÉDITION - Superposer le champ sur l'image */
+.identity-screen {
+  position: relative !important;
+}
+
+.identity-screen .profile_field {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+}
+
+.identity-screen .field_uneditable {
+  opacity: 0;
+}
+
+.identity-screen .ajax-profil_edit {
+  top: 5px !important;
+  right: 5px !important;
+  left: auto !important;
+  bottom: auto !important;
+  background: rgba(0, 0, 0, 0.5) !important;
+  padding: 4px !important;
+  border-radius: 4px !important;
+}
+
 .aes-content {
   position: relative !important;
 }
