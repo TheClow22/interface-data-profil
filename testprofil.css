@@ -7255,15 +7255,24 @@ vertical-align: middle;
   filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
 }
 
-/* Astro image éditable */
-.astro-image {
+/* Astro - permettre au formulaire de sortir mais garder l'image dedans */
+.astro-content {
   overflow: visible !important;
 }
 
-/* Au cas où il y ait un conteneur parent qui coupe */
-.profile-header-left,
-.new-profile-container {
-  overflow: visible !important;
+.astro-image {
+  overflow: hidden !important; /* Garde l'image dans le cercle */
+}
+
+.astro-image img {
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+/* Relationship image - centrer */
+.relationship-image img {
+  object-fit: cover !important;
+  object-position: center !important;
 }
 
 /* ==================== CORRECTION FORMULAIRES D'ÉDITION V3 FINALE ==================== */
