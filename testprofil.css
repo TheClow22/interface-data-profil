@@ -7300,3 +7300,8 @@ vertical-align: middle;
   height: auto !important;
   cursor: pointer !important;
 }
+
+.astro-image img,
+.relationship-image img {
+  object-position: center !important;
+}
