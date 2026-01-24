@@ -7301,7 +7301,30 @@ vertical-align: middle;
   cursor: pointer !important;
 }
 
-.astro-image img,
-.relationship-image img {
-  object-position: center !important;
+/* ASTRO IMAGE - Superposer le champ sur l'image */
+.astro-image {
+  position: relative !important;
+}
+
+.astro-image .profile_field {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+}
+
+/* RELATIONSHIP IMAGE - Superposer le champ sur l'image */
+.relationship-image {
+  position: relative !important;
+}
+
+.relationship-image .profile_field {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
 }
