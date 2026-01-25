@@ -7656,14 +7656,14 @@ vertical-align: middle;
 }
 
 /* ============================================ */
-/* FICHE IDENTITÉ - CSS CORRIGÉ               */
+/* FICHE IDENTITÉ - CSS CORRIGÉ & REORGANISÉ  */
 /* ============================================ */
 
 /* CONTENEUR PRINCIPAL */
 .identity-card {
   max-width: 850px;
   margin: 20px auto;
-  background: var(--neutral);
+  background: var(--neutralDarker);
   border-radius: var(--radius);
   border: 2px solid var(--co-3);
   box-shadow: 0 0 20px rgba(73, 99, 252, 0.3);
@@ -7791,9 +7791,38 @@ vertical-align: middle;
   }
 }
 
+/* ============ BARRE DE RECHERCHE ============ */
+.ic-search-bar {
+  background: var(--neutral);
+  border: 2px solid var(--neutralDark);
+  border-radius: 25px;
+  padding: 10px 18px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.3s;
+}
+
+.ic-search-bar:hover {
+  border-color: var(--co-1);
+  box-shadow: 0 0 15px rgba(224, 56, 174, 0.2);
+}
+
+.ic-search-bar .cp {
+  font-size: var(--large-size);
+  color: var(--co-3);
+}
+
+.ic-search-text {
+  font-size: var(--small-size);
+  color: var(--textColor);
+  font-style: italic;
+}
+
 /* ============ ONGLET 1 : IDENTITY ============ */
 
-/* LAYOUT DEUX COLONNES - DIMENSIONS CORRIGÉES */
+/* LAYOUT DEUX COLONNES */
 .ic-layout-two-cols {
   display: grid;
   grid-template-columns: 280px 1fr;
@@ -7807,7 +7836,7 @@ vertical-align: middle;
   gap: 12px;
 }
 
-/* IMAGE PRINCIPALE - HAUTEUR RÉDUITE */
+/* IMAGE PRINCIPALE */
 .ic-main-image {
   position: relative;
   border-radius: var(--radius);
@@ -7860,7 +7889,7 @@ vertical-align: middle;
   margin: 3px 0;
 }
 
-/* PETITES IMAGES - TAILLE RÉDUITE */
+/* PETITES IMAGES */
 .ic-small-images {
   display: flex;
   gap: 8px;
@@ -7883,6 +7912,97 @@ vertical-align: middle;
   box-shadow: 0 5px 15px rgba(224, 56, 174, 0.4);
 }
 
+/* MOOD WINDOW - REDESIGN AVEC VARIABLES */
+.ic-mood-window {
+  background: var(--neutral);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 2px solid var(--co-1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.ic-window-header {
+  background: var(--co-gradient);
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  color: white;
+  font-weight: 600;
+}
+
+.ic-window-header .cp {
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.ic-window-header .cp:hover {
+  transform: scale(1.2);
+}
+
+.ic-window-body {
+  padding: 25px;
+  text-align: center;
+  background: var(--neutralDark);
+}
+
+.ic-mood-icon {
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: center;
+}
+
+.ic-mood-icon img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.ic-mood-text {
+  font-family: 'Matrix', monospace;
+  font-size: var(--medium-size);
+  color: var(--co-1);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.ic-window-footer {
+  padding: 12px;
+  text-align: center;
+  background: var(--neutral);
+}
+
+.ic-btn-ok {
+  background: var(--neutralDarker);
+  border: 2px solid var(--co-1);
+  padding: 6px 30px;
+  font-size: var(--small-size);
+  font-weight: 600;
+  color: var(--contrast);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+  animation: pulse 2s infinite;
+}
+
+.ic-btn-ok:hover {
+  background: var(--co-1);
+  color: white;
+  transform: scale(1.05);
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 var(--co-1);
+  }
+  50% {
+    box-shadow: 0 0 0 8px transparent;
+  }
+}
+
 /* COLONNE DROITE */
 .ic-right-col {
   display: flex;
@@ -7890,7 +8010,7 @@ vertical-align: middle;
   gap: 15px;
 }
 
-/* BLOC INFOS GÉNÉRALES */
+/* BLOC INFOS GÉNÉRALES - AVEC CAPPUCCICONS */
 .ic-info-block {
   background: var(--neutral);
   border-radius: var(--radius);
@@ -7899,15 +8019,21 @@ vertical-align: middle;
 }
 
 .ic-info-row {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 25px auto 1fr;
   align-items: center;
+  gap: 10px;
   padding: 8px 0;
   border-bottom: 1px solid var(--neutralDark);
 }
 
 .ic-info-row:last-child {
   border-bottom: none;
+}
+
+.ic-info-row .cp {
+  font-size: var(--large-size);
+  color: var(--co-3);
 }
 
 .ic-label {
@@ -7922,12 +8048,14 @@ vertical-align: middle;
 .ic-value {
   font-size: var(--normal-size);
   color: var(--contrast);
+  justify-self: end;
 }
 
-/* BADGE RACE - TAILLE RÉDUITE */
+/* BADGE RACE */
 .ic-race-badge {
   display: flex;
   align-items: center;
+  justify-self: end;
 }
 
 .ic-race-badge img {
@@ -7941,87 +8069,8 @@ vertical-align: middle;
   transform: scale(1.1) rotate(5deg);
 }
 
-/* MOOD WINDOW */
-.ic-mood-window {
-  background: var(--neutralDark);
-  border-radius: var(--radius);
-  overflow: hidden;
-  border: 2px solid var(--co-1);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-.ic-window-header {
-  background: linear-gradient(135deg, #8b3a8b, #c71ca7);
-  padding: 6px 10px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 10px;
-  color: white;
-  font-weight: 600;
-}
-
-.ic-window-icon {
-  font-size: 14px;
-}
-
-.ic-window-body {
-  padding: 20px;
-  text-align: center;
-  background: linear-gradient(180deg, #ffc0e8, #ffd7f0);
-}
-
-.ic-mood-icon {
-  font-size: 40px;
-  margin-bottom: 10px;
-  animation: bounce 1s infinite alternate;
-}
-
-.ic-mood-text {
-  font-family: 'Matrix', monospace;
-  font-size: var(--medium-size);
-  color: #8b0052;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: bold;
-}
-
-.ic-window-footer {
-  padding: 12px;
-  text-align: center;
-  background: linear-gradient(180deg, #ffd7f0, #ffc0e8);
-}
-
-.ic-btn-ok {
-  background: white;
-  border: 2px solid #8b0052;
-  padding: 6px 30px;
-  font-size: var(--small-size);
-  font-weight: 600;
-  color: #8b0052;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.3s;
-  animation: pulse 2s infinite;
-}
-
-.ic-btn-ok:hover {
-  background: #8b0052;
-  color: white;
-  transform: scale(1.05);
-}
-
-@keyframes pulse {
-  0%, 100% {
-    box-shadow: 0 0 0 0 rgba(199, 28, 167, 0.7);
-  }
-  50% {
-    box-shadow: 0 0 0 10px rgba(199, 28, 167, 0);
-  }
-}
-
-/* SECTION MUSIQUE */
-.ic-music-block {
+/* PRÉFÉRENCES - AVEC CAPPUCCICON HASHTAG */
+.ic-preferences-block {
   background: var(--neutral);
   border-radius: var(--radius);
   padding: 12px;
@@ -8044,24 +8093,6 @@ vertical-align: middle;
 
 .ic-section-title .cp {
   font-size: var(--large-size);
-}
-
-.ic-music-player {
-  margin-bottom: 8px;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.ic-music-player:last-child {
-  margin-bottom: 0;
-}
-
-/* PRÉFÉRENCES */
-.ic-preferences-block {
-  background: var(--neutral);
-  border-radius: var(--radius);
-  padding: 12px;
-  border: 1px solid var(--neutralDark);
 }
 
 .ic-pref-grid {
@@ -8098,6 +8129,81 @@ vertical-align: middle;
   color: var(--contrast);
   display: block;
   text-transform: lowercase;
+}
+
+/* SECTION MUSIQUE - STYLE MIKU NAVIGATOR */
+.ic-music-block {
+  background: var(--neutral);
+  border-radius: var(--radius);
+  padding: 12px;
+  border: 1px solid var(--neutralDark);
+}
+
+.ic-music-header {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.ic-music-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--co-gradient);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-family: var(--font-3);
+  font-size: var(--small-size);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.ic-music-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(224, 56, 174, 0.4);
+}
+
+.ic-music-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ic-music-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  background: var(--neutralDark);
+  border-radius: 8px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.ic-music-item:hover {
+  background: var(--neutralDarker);
+  transform: translateX(5px);
+}
+
+.ic-music-item .cp {
+  font-size: var(--medium-size);
+  color: var(--co-1);
+  flex-shrink: 0;
+}
+
+.ic-music-item a {
+  font-size: var(--small-size);
+  color: var(--contrast) !important;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.ic-music-item:hover a {
+  color: var(--co-1) !important;
 }
 
 /* ============ ONGLET 2 : BACKGROUND ============ */
