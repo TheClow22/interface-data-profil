@@ -7911,7 +7911,7 @@ vertical-align: middle;
   box-shadow: 0 5px 15px rgba(224, 56, 174, 0.4);
 }
 
-/* MOOD WINDOW */
+/* MOOD WINDOW - TOUT EN BLANC FIXE */
 .ic-mood-window {
   background: var(--neutral);
   border-radius: var(--radius);
@@ -7928,7 +7928,7 @@ vertical-align: middle;
   justify-content: space-between;
   font-family: 'Retro Gaming', monospace;
   font-size: 9px;
-  color: var(--textColorAccent);
+  color: #ffffff;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -7936,6 +7936,7 @@ vertical-align: middle;
 
 .ic-window-header .cp {
   font-size: 14px;
+  color: #ffffff;
   cursor: pointer;
   transition: transform 0.2s;
 }
@@ -7965,7 +7966,7 @@ vertical-align: middle;
 .ic-mood-text {
   font-family: 'Retro Gaming', monospace;
   font-size: var(--normal-size);
-  color: var(--textColorAccent);
+  color: #ffffff;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: bold;
@@ -8055,7 +8056,7 @@ vertical-align: middle;
   justify-self: end;
 }
 
-/* BLOC RACE */
+/* BLOC RACE - TITRE EN RETRO GAMING + GRADIENT */
 .ic-race-block {
   background: var(--neutral);
   border-radius: var(--radius);
@@ -8064,6 +8065,7 @@ vertical-align: middle;
 }
 
 .ic-race-block .ic-section-title {
+  font-family: 'Retro Gaming', monospace;
   background: var(--co-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: #fff0;
@@ -8100,7 +8102,7 @@ vertical-align: middle;
   transform: scale(1.1) rotate(5deg);
 }
 
-/* PRÉFÉRENCES */
+/* PRÉFÉRENCES - TITRE EN RETRO GAMING + GRADIENT */
 .ic-preferences-block {
   background: var(--neutral);
   border-radius: var(--radius);
@@ -8109,11 +8111,13 @@ vertical-align: middle;
 }
 
 .ic-section-title {
-  font-family: var(--font-3);
+  font-family: 'Retro Gaming', monospace;
   font-size: var(--medium-size);
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: var(--co-1);
+  background: var(--co-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #fff0;
   margin-bottom: 12px;
   padding-bottom: 8px;
   border-bottom: 2px solid var(--co-1);
@@ -8183,8 +8187,8 @@ vertical-align: middle;
   color: white;
   padding: 8px 20px;
   border-radius: 20px;
-  font-family: var(--font-3);
-  font-size: var(--small-size);
+  font-family: 'Retro Gaming', monospace;
+  font-size: 9px;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 600;
@@ -8328,7 +8332,7 @@ vertical-align: middle;
 
 .ic-family-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmin(250px, 1fr));
   gap: 12px;
 }
 
