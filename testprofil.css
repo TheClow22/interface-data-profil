@@ -7073,8 +7073,7 @@ html.js .category .forums .fs-panel.is-active{
   padding: 0;
   display: flex;
   flex-direction: column;
-  min-height: 390px; /* ← min-height au lieu de height */
-  max-height: none; /* ← permettre l'extension */
+  height: 390px;
   background: var(--neutral);
 }
 
@@ -7110,8 +7109,8 @@ html.js .category .forums .fs-panel.is-active{
 
 .relationship-text {
   width: 100%;
-  min-height: 170px; /* ← C'EST BON */
-  height: auto; /* ← AJOUTE cette ligne pour permettre l'extension */
+  min-height: 170px;
+  max-height: none; /* ← Pas de limite de hauteur */
   text-align: justify;
   color: var(--textColor);
   line-height: 1.5;
@@ -7119,6 +7118,8 @@ html.js .category .forums .fs-panel.is-active{
   padding: 12px;
   background: var(--neutralDark);
   border-radius: 8px;
+  overflow-wrap: break-word; /* ← Forcer les mots longs à se couper */
+  word-break: break-word; /* ← Idem */
 }
 
 .relationship-status-sticky {
