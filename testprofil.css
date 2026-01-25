@@ -7663,7 +7663,7 @@ vertical-align: middle;
 .identity-card {
   max-width: 850px;
   margin: 20px auto;
-  background: var(--neutral);
+  background: var(--lighter);
   border-radius: var(--radius);
   border: 2px solid var(--co-3);
   box-shadow: 0 0 20px rgba(73, 99, 252, 0.3);
