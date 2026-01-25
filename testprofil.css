@@ -8046,7 +8046,9 @@ vertical-align: middle;
   font-size: var(--small-size);
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: var(--co-2);
+  background: var(--co-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #fff0;
   font-weight: 600;
 }
 
@@ -8081,7 +8083,7 @@ vertical-align: middle;
 .ic-race-quote {
   font-family: 'Retro Gaming', monospace;
   font-size: var(--small-size);
-  color: var(--co-3);
+  color: #ffffff;
   font-style: italic;
   text-transform: uppercase;
 }
