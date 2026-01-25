@@ -7656,14 +7656,14 @@ vertical-align: middle;
 }
 
 /* ============================================ */
-/* FICHE IDENTITÉ - CSS CORRIGÉ & REORGANISÉ  */
+/* FICHE IDENTITÉ - CSS FINAL CORRIGÉ         */
 /* ============================================ */
 
 /* CONTENEUR PRINCIPAL */
 .identity-card {
   max-width: 850px;
   margin: 20px auto;
-  background: var(--lighter);
+  background: var(--neutralDarker);
   border-radius: var(--radius);
   border: 2px solid var(--co-3);
   box-shadow: 0 0 20px rgba(73, 99, 252, 0.3);
@@ -7764,7 +7764,7 @@ vertical-align: middle;
   border-bottom: 2px solid var(--co-1);
 }
 
-/* CONTENU */
+/* CONTENU - FOND LIGHTER */
 .ic-content {
   padding: 20px;
   background: var(--lighter);
@@ -7794,7 +7794,7 @@ vertical-align: middle;
 /* ============ BARRE DE RECHERCHE ============ */
 .ic-search-bar {
   background: var(--neutralDark);
-  border: 2px solid var(--neutralDarker);
+  border: 2px solid var(--neutralDark);
   border-radius: 25px;
   padding: 10px 18px;
   margin-bottom: 20px;
@@ -7815,6 +7815,7 @@ vertical-align: middle;
 }
 
 .ic-search-text {
+  font-family: 'Retro Gaming', monospace;
   font-size: var(--small-size);
   color: var(--textColor);
   font-style: italic;
@@ -7857,7 +7858,7 @@ vertical-align: middle;
   transform: scale(1.05);
 }
 
-/* BANNIÈRE PSEUDO */
+/* BANNIÈRE PSEUDO - POLICE RETRO GAMING */
 .ic-pseudo-banner {
   position: absolute;
   bottom: 15px;
@@ -7880,7 +7881,7 @@ vertical-align: middle;
 }
 
 .ic-pseudo {
-  font-family: 'Glamour', var(--font-2);
+  font-family: 'Retro Gaming', 'Glamour', var(--font-2);
   font-size: var(--title-size);
   color: white;
   text-transform: uppercase;
@@ -7912,7 +7913,7 @@ vertical-align: middle;
   box-shadow: 0 5px 15px rgba(224, 56, 174, 0.4);
 }
 
-/* MOOD WINDOW - REDESIGN AVEC VARIABLES */
+/* MOOD WINDOW - AVEC TRANSPARENCE CO-1 & RETRO GAMING */
 .ic-mood-window {
   background: var(--neutral);
   border-radius: var(--radius);
@@ -7927,9 +7928,12 @@ vertical-align: middle;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 11px;
+  font-family: 'Retro Gaming', monospace;
+  font-size: 9px;
   color: white;
   font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .ic-window-header .cp {
@@ -7945,7 +7949,8 @@ vertical-align: middle;
 .ic-window-body {
   padding: 25px;
   text-align: center;
-  background: var(--neutralDark);
+  background: var(--co-1);
+  background: rgba(224, 56, 174, 0.15);
 }
 
 .ic-mood-icon {
@@ -7955,15 +7960,15 @@ vertical-align: middle;
 }
 
 .ic-mood-icon img {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   object-fit: contain;
 }
 
 .ic-mood-text {
-  font-family: 'Matrix', monospace;
-  font-size: var(--medium-size);
-  color: var(--co-1);
+  font-family: 'Retro Gaming', monospace;
+  font-size: var(--normal-size);
+  color: var(--textColorAccent);
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: bold;
@@ -7972,20 +7977,23 @@ vertical-align: middle;
 .ic-window-footer {
   padding: 12px;
   text-align: center;
-  background: var(--neutral);
+  background: var(--co-1);
+  background: rgba(224, 56, 174, 0.15);
 }
 
 .ic-btn-ok {
   background: var(--neutralDarker);
   border: 2px solid var(--co-1);
   padding: 6px 30px;
-  font-size: var(--small-size);
+  font-family: 'Retro Gaming', monospace;
+  font-size: 9px;
   font-weight: 600;
   color: var(--contrast);
   border-radius: 5px;
   cursor: pointer;
   transition: all 0.3s;
   animation: pulse 2s infinite;
+  text-transform: uppercase;
 }
 
 .ic-btn-ok:hover {
@@ -8051,11 +8059,32 @@ vertical-align: middle;
   justify-self: end;
 }
 
-/* BADGE RACE */
+/* BLOC RACE SÉPARÉ */
+.ic-race-block {
+  background: var(--neutral);
+  border-radius: var(--radius);
+  padding: 12px;
+  border: 1px solid var(--neutralDark);
+}
+
+.ic-race-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.ic-race-quote {
+  font-family: 'Retro Gaming', monospace;
+  font-size: var(--small-size);
+  color: var(--co-1);
+  font-style: italic;
+  text-transform: uppercase;
+}
+
 .ic-race-badge {
   display: flex;
   align-items: center;
-  justify-self: end;
 }
 
 .ic-race-badge img {
@@ -8069,7 +8098,7 @@ vertical-align: middle;
   transform: scale(1.1) rotate(5deg);
 }
 
-/* PRÉFÉRENCES - AVEC CAPPUCCICON HASHTAG */
+/* PRÉFÉRENCES */
 .ic-preferences-block {
   background: var(--neutral);
   border-radius: var(--radius);
@@ -8228,7 +8257,7 @@ vertical-align: middle;
   filter: blur(3px);
 }
 
-/* SECTIONS */
+/* SECTIONS AVEC BATTERY ICON */
 .ic-section {
   background: var(--neutral);
   border-radius: var(--radius);
@@ -8237,6 +8266,33 @@ vertical-align: middle;
   border: 1px solid var(--neutralDark);
   position: relative;
   z-index: 1;
+}
+
+.ic-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.ic-section-header .cp-battery {
+  font-size: var(--large-size);
+  color: var(--co-3);
+}
+
+.ic-section-title {
+  font-family: 'Retro Gaming', monospace;
+  font-size: var(--medium-size);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--co-1);
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--co-1);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-grow: 1;
+  margin-bottom: 0;
 }
 
 .ic-text-content {
