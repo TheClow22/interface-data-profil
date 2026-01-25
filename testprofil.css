@@ -7110,6 +7110,8 @@ html.js .category .forums .fs-panel.is-active{
 .relationship-text {
   width: 100%;
   min-height: 170px;
+  max-height: 250px; /* ← Limite la hauteur max */
+  overflow-y: auto; /* ← Scroll interne si le texte dépasse */
   text-align: justify;
   color: var(--textColor);
   line-height: 1.5;
@@ -7119,8 +7121,8 @@ html.js .category .forums .fs-panel.is-active{
   border-radius: 8px;
   overflow-wrap: break-word;
   word-break: break-word;
-  white-space: normal; /* ← Forcer le retour à la ligne */
-  box-sizing: border-box; /* ← S'assurer que le padding est inclus */
+  white-space: normal;
+  box-sizing: border-box;
 }
 
 .relationship-status-sticky {
