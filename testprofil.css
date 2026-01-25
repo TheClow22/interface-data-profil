@@ -7663,7 +7663,7 @@ vertical-align: middle;
 .identity-card {
   max-width: 850px;
   margin: 20px auto;
-  background: var(--neutralDarker);
+  background: var(--neutral);
   border-radius: var(--radius);
   border: 2px solid var(--co-3);
   box-shadow: 0 0 20px rgba(73, 99, 252, 0.3);
@@ -7793,8 +7793,8 @@ vertical-align: middle;
 
 /* ============ BARRE DE RECHERCHE ============ */
 .ic-search-bar {
-  background: var(--neutral);
-  border: 2px solid var(--neutralDark);
+  background: var(--neutralDark);
+  border: 2px solid var(--neutralDarker);
   border-radius: 25px;
   padding: 10px 18px;
   margin-bottom: 20px;
