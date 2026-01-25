@@ -7144,6 +7144,25 @@ html.js .category .forums .fs-panel.is-active{
   color: white !important;
 }
 
+/* Permettre au module Relationship de s'adapter au contenu */
+.profile_module.relationships {
+  height: auto !important;
+  min-height: auto !important;
+}
+
+/* S'assurer que le contenu des champs peut s'étendre */
+.profile_module.relationships .user_field {
+  height: auto !important;
+  overflow: visible !important;
+}
+
+.profile_module.relationships .field_content {
+  height: auto !important;
+  overflow: visible !important;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
 /* ==================== IDENTITY BLOCK - GAMING UI (V2 CORRIGÉE) ==================== */
 
 .identity-module {
