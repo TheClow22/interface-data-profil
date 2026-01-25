@@ -8020,7 +8020,7 @@ vertical-align: middle;
   background: var(--neutral);
   border-radius: var(--radius);
   padding: 12px;
-  border: 1px solid var(--neutralDark);
+  border: 1px solid var(--co-3);
 }
 
 .ic-info-row {
@@ -8061,7 +8061,7 @@ vertical-align: middle;
   background: var(--neutral);
   border-radius: var(--radius);
   padding: 12px;
-  border: 1px solid var(--neutralDark);
+  border: 1px solid var(--co-3);
 }
 
 .ic-race-block .ic-section-title {
@@ -8107,7 +8107,7 @@ vertical-align: middle;
   background: var(--neutral);
   border-radius: var(--radius);
   padding: 12px;
-  border: 1px solid var(--neutralDark);
+  border: 1px solid var(--co-3);
 }
 
 .ic-section-title {
@@ -8171,7 +8171,7 @@ vertical-align: middle;
   background: var(--neutral);
   border-radius: var(--radius);
   padding: 12px;
-  border: 1px solid var(--neutralDark);
+  border: 1px solid var(--co-3);
 }
 
 .ic-music-header {
@@ -8269,7 +8269,7 @@ vertical-align: middle;
   border-radius: var(--radius);
   padding: 15px;
   margin-bottom: 15px;
-  border: 1px solid var(--neutralDark);
+  border: 1px solid var(--co-3);
   position: relative;
   z-index: 1;
 }
@@ -8332,7 +8332,7 @@ vertical-align: middle;
 
 .ic-family-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmin(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 12px;
 }
 
