@@ -8083,7 +8083,7 @@ vertical-align: middle;
 .ic-race-quote {
   font-family: 'Retro Gaming', monospace;
   font-size: var(--small-size);
-  color: #ffffff;
+  color: var(--textColorAccent);
   font-style: italic;
   text-transform: uppercase;
 }
