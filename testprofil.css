@@ -8632,6 +8632,47 @@ vertical-align: middle;
   padding: 25px;
   background: var(--lighter);
   position: relative;
+  max-height: 650px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Scrollbar custom */
+.rp-content::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+}
+
+.rp-content::-webkit-scrollbar-track-piece {
+  background-color: var(--neutralDarker);
+}
+
+.rp-content::-webkit-scrollbar-thumb {
+  background: var(--co-gradient);
+}
+
+/* Firefox */
+@supports not selector(::-webkit-scrollbar) {
+  .rp-content {
+    scrollbar-width: thin;
+    scrollbar-color: var(--co-gradient) var(--neutralDarker);
+  }
+}
+
+/* Boutons décoratifs */
+.rp-nav-btn.rp-nav-deco {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.rp-nav-btn.rp-nav-deco:hover {
+  transform: none;
+  border-color: transparent;
+}
+
+.rp-nav-btn.rp-nav-deco .rp-nav-text {
+  color: var(--textColor);
 }
 
 .rp-tab {
@@ -9101,4 +9142,3 @@ vertical-align: middle;
     grid-template-columns: 1fr;
   }
 }
-
