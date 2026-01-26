@@ -7114,7 +7114,7 @@ html.js .category .forums .fs-panel.is-active{
   overflow-y: auto; /* ← Scroll interne si le texte dépasse */
   text-align: justify;
   color: var(--textColor);
-  line-height: 1.5;
+  line-height: 1.2;
   font-size: 11px;
   padding: 12px;
   background: var(--neutralDark);
