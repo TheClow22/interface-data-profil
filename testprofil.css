@@ -8520,7 +8520,7 @@ vertical-align: middle;
 /* CONTENEUR PRINCIPAL : SIDEBAR + CONTENU */
 .rp-main {
   display: grid;
-  grid-template-columns: 150px 1fr;
+  grid-template-columns: 120px 1fr;
   min-height: 600px;
 }
 
@@ -8531,74 +8531,62 @@ vertical-align: middle;
 .rp-sidebar {
   background: var(--neutral);
   border-right: 2px solid var(--neutralDark);
-  padding: 20px 10px;
+  padding: 15px 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
 }
 
 .rp-sidebar-header {
   text-align: center;
-  margin-bottom: 10px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--neutralDark);
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--co-1);
+  width: 100%;
 }
 
 .rp-sidebar-title {
-  font-family: 'Retro Gaming', var(--font-3);
-  font-size: var(--normal-size);
+  font-family: 'Matrix', monospace;
+  font-size: 9px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: var(--textColorAccent);
-  margin-bottom: 5px;
+  background: var(--co-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 3px;
+  font-weight: bold;
 }
 
-.rp-sidebar-subtitle {
-  font-size: 9px;
+.rp-sidebar-deco {
+  font-size: 8px;
   color: var(--co-1);
-  letter-spacing: 2px;
-}
-
-.rp-sidebar-nav-label {
-  font-family: var(--font-3);
-  font-size: 9px;
-  text-transform: uppercase;
   letter-spacing: 1px;
-  color: var(--co-2);
-  margin-bottom: 5px;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-weight: 600;
-}
-
-.rp-sidebar-nav-label .cp {
-  font-size: var(--small-size);
 }
 
 .rp-nav-container {
   background: var(--neutralDark);
-  border-radius: var(--radius);
-  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--co-3);
+  padding: 8px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
   width: 100%;
 }
 
 .rp-nav-btn {
   width: 100%;
   background: var(--neutral);
-  border: 2px solid transparent;
-  border-radius: 10px;
-  padding: 8px 5px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 6px 4px;
   cursor: pointer;
   transition: all 0.3s;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5px;
+  gap: 4px;
 }
 
 .rp-nav-btn:hover {
@@ -8610,24 +8598,24 @@ vertical-align: middle;
 .rp-nav-btn.active {
   border-color: var(--co-1);
   background: var(--neutralDarker);
-  box-shadow: 0 0 10px rgba(224, 56, 174, 0.3);
+  box-shadow: 0 0 8px rgba(224, 56, 174, 0.3);
 }
 
 .rp-nav-icon {
-  width: 35px;
-  height: 35px;
+  width: 28px;
+  height: 28px;
   object-fit: contain;
 }
 
 .rp-nav-text {
   font-family: 'Retro Gaming', var(--font-3);
-  font-size: 8px;
+  font-size: 7px;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.3px;
   color: var(--textColor);
   text-align: center;
   transition: all 0.3s;
-  line-height: 1.2;
+  line-height: 1.1;
 }
 
 .rp-nav-btn:hover .rp-nav-text,
@@ -8733,7 +8721,7 @@ vertical-align: middle;
 
 .speech-bubble {
   position: relative;
-  background: rgba(224, 56, 174, 0.15);
+  background: var(--neutralDark);
   border-radius: 15px;
   padding: 15px;
   border: 2px solid var(--co-1);
@@ -8761,7 +8749,7 @@ vertical-align: middle;
   height: 0;
   border-style: solid;
   border-width: 6px 10px 6px 0;
-  border-color: transparent rgba(224, 56, 174, 0.15) transparent transparent;
+  border-color: transparent var(--neutralDark) transparent transparent;
 }
 
 .speech-bubble p {
@@ -8966,8 +8954,8 @@ vertical-align: middle;
 /* ============================================ */
 
 .bag-inventory {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-direction: column;
   gap: 15px;
 }
 
