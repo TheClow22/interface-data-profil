@@ -7948,7 +7948,7 @@ vertical-align: middle;
 .ic-window-body {
   padding: 25px;
   text-align: center;
-  background: rgba(224, 56, 174, 0.15);
+  background: var(--neutralDark);
 }
 
 .ic-mood-icon {
@@ -7966,7 +7966,7 @@ vertical-align: middle;
 .ic-mood-text {
   font-family: 'Retro Gaming', monospace;
   font-size: var(--normal-size);
-  color: #ffffff;
+  color: var(--textColorAccent);
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: bold;
@@ -7975,7 +7975,7 @@ vertical-align: middle;
 .ic-window-footer {
   padding: 12px;
   text-align: center;
-  background: rgba(224, 56, 174, 0.15);
+  background: var(--neutralDark);
 }
 
 .ic-btn-ok {
