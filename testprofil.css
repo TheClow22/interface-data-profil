@@ -7863,21 +7863,21 @@ vertical-align: middle;
   left: 50%;
   transform: translateX(-50%);
   background: var(--co-gradient);
-  padding: 10px 20px;
-  border-radius: 15px;
+  padding: 6px 20px; /* Réduit de 10px à 6px en haut/bas */
+  border-radius: 12px;
   text-align: center;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
   max-width: 90%;
 }
-
 .ic-quote,
 .ic-quote-end {
-  font-size: 9px;
+  font-size: 9px; /* Garde la taille actuelle */
   color: rgba(255, 255, 255, 0.9);
   text-transform: lowercase;
   font-style: italic;
+  line-height: 1.1; /* Réduit juste l'espacement entre les lignes */
+  display: block; /* Pour mieux contrôler l'espacement */
 }
-
 .ic-pseudo {
   font-family: 'Retro Gaming', 'Glamour', var(--font-2);
   font-size: var(--title-size);
@@ -7885,7 +7885,8 @@ vertical-align: middle;
   text-transform: uppercase;
   letter-spacing: 2px;
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-  margin: 3px 0;
+  margin: 2px 0; /* Réduit de 3px à 2px */
+  line-height: 0.9; /* Compresse légèrement */
 }
 
 /* PETITES IMAGES */
