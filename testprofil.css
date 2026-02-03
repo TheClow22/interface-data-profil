@@ -9215,6 +9215,10 @@ vertical-align: middle;
   .closet-banner {
     grid-template-columns: 1fr;
   }
+ .bag-inventory {
+    grid-template-columns: 1fr;
+  }
+}	
 
 /* ========================================
    CONSOMMATIONS - SYSTÈME D'ONGLETS & CARTES
@@ -9821,7 +9825,3 @@ vertical-align: middle;
     order: 2;
   }
 }	
-  .bag-inventory {
-    grid-template-columns: 1fr;
-  }
-}
