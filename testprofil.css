@@ -9910,7 +9910,7 @@ vertical-align: middle;
    dans le CSS principal des consommations */
 
 /* ========================================
-   ONGLET DROGUES - CARTES FLIP 3D
+   ONGLET DROGUES - FLIP IMAGE UNIQUEMENT
    ======================================== */
 
 .drug-grid {
@@ -9920,14 +9920,36 @@ vertical-align: middle;
   margin-top: 20px;
 }
 
-/* CARTE DROGUE AVEC FLIP 3D */
+/* CARTE DROGUE - Layout fixe */
 .drug-card {
   width: 100%;
-  height: 400px;
+  background: var(--neutralDark);
+  border: 2px solid var(--neutral);
+  border-radius: var(--radius);
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.drug-card:hover {
+  box-shadow: 0 8px 20px rgba(224, 56, 174, 0.3);
+  animation: glow 2s ease-in-out infinite;
+}
+
+.drug-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 20px;
+  height: 360px;
+}
+
+/* IMAGE AVEC FLIP 3D */
+.drug-img-flip {
+  width: 300px;
+  height: 360px;
   perspective: 1500px;
 }
 
-.drug-card-inner {
+.drug-img-inner {
   position: relative;
   width: 100%;
   height: 100%;
@@ -9935,13 +9957,13 @@ vertical-align: middle;
   transform-style: preserve-3d;
 }
 
-.drug-card:hover .drug-card-inner {
+.drug-img-flip:hover .drug-img-inner {
   transform: rotateY(180deg);
 }
 
-/* FACE AVANT & ARRIÈRE */
-.drug-card-front,
-.drug-card-back {
+/* FACE AVANT & ARRIÈRE DE L'IMAGE */
+.drug-img-front,
+.drug-img-back {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -9950,62 +9972,55 @@ vertical-align: middle;
   overflow: hidden;
 }
 
-/* FACE AVANT */
-.drug-card-front {
-  background: var(--neutralDark);
-  border: 2px solid var(--neutral);
-  transition: all 0.3s ease;
-}
-
-.drug-card:hover .drug-card-front {
-  box-shadow: 0 8px 20px rgba(224, 56, 174, 0.3);
-}
-
-.drug-front-layout {
-  display: grid;
-  grid-template-columns: 300px 1fr;
-  gap: 20px;
-  height: 100%;
-  padding: 20px;
-}
-
-/* IMAGE DE LA DROGUE */
-.drug-img {
-  width: 300px;
-  height: 360px;
-  border-radius: var(--radius);
-  overflow: hidden;
+.drug-img-front {
   background: var(--neutral);
-  position: relative;
 }
 
-.drug-img::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom, transparent 60%, var(--neutralDarker));
-  pointer-events: none;
-}
-
-.drug-img img {
+.drug-img-front img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.5s ease;
 }
 
-.drug-card:hover .drug-img img {
+.drug-img-flip:hover .drug-img-front img {
   transform: scale(1.1);
 }
 
-/* INFOS DE LA DROGUE */
+/* FACE ARRIÈRE - Effets */
+.drug-img-back {
+  background: var(--neutralDarker);
+  border: 2px solid var(--co-1);
+  transform: rotateY(180deg);
+  overflow-y: auto;
+  padding: 15px;
+}
+
+.drug-effects blockquote {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0 0 15px 0;
+}
+
+.drug-effects b3 {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.drug-effects p {
+  margin: 5px 0;
+  font-size: var(--small-size);
+  line-height: 1.5;
+  color: var(--textColorAccent);
+}
+
+/* INFOS DE LA DROGUE (partie fixe) */
 .drug-info {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 12px;
   padding: 10px 20px 10px 0;
 }
 
@@ -10017,10 +10032,7 @@ vertical-align: middle;
   margin: 0;
   padding-bottom: 8px;
   border-bottom: 2px solid var(--co-1);
-  background: var(--co-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--textColorAccent);
 }
 
 /* BADGES TYPE & INTENSITÉ */
@@ -10031,7 +10043,7 @@ vertical-align: middle;
   margin: 5px 0;
 }
 
-.drug-badges bg1,
+.drug-badges bg3,
 .drug-badges bg2 {
   display: inline-flex;
   align-items: center;
@@ -10042,9 +10054,10 @@ vertical-align: middle;
   font-size: 11px;
 }
 
-/* DESCRIPTION */
+/* DESCRIPTION AVEC SCROLL */
 .drug-desc {
   flex-grow: 1;
+  max-height: 200px;
   overflow-y: auto;
   padding-right: 8px;
   text-align: justify;
@@ -10052,6 +10065,8 @@ vertical-align: middle;
   line-height: 1.6;
   color: var(--textColor);
 }
+
+/* La scrollbar utilisera automatiquement le style global du forum (2px, thin) */
 
 /* HINT HOVER */
 .drug-hover-hint {
@@ -10092,46 +10107,13 @@ vertical-align: middle;
   }
 }
 
-/* FACE ARRIÈRE */
-.drug-card-back {
-  background: var(--neutralDarker);
-  border: 2px solid var(--co-1);
-  transform: rotateY(180deg);
-  box-shadow: 0 0 30px rgba(224, 56, 174, 0.4);
-}
-
-.drug-back-content {
-  padding: 30px;
-  height: 100%;
-  overflow-y: auto;
-  text-align: justify;
-}
-
-.drug-back-title {
-  font-family: var(--font-3);
-  font-size: var(--large-size);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--co-1);
-  margin: 20px 0 10px 0;
-  padding-bottom: 8px;
-  border-bottom: 1px solid var(--co-1);
-}
-
-.drug-back-title:first-child {
-  margin-top: 0;
-}
-
-.drug-back-content p {
-  margin: 10px 0;
-  font-size: var(--normal-size);
-  line-height: 1.6;
-  color: var(--textColorAccent);
-}
-
-.drug-back-content min4 {
-  display: inline-block;
-  margin-right: 5px;
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(224, 56, 174, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(224, 56, 174, 0.6), 0 0 30px rgba(73, 99, 252, 0.4);
+  }
 }
 
 /* ========================================
