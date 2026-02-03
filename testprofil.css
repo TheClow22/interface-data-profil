@@ -9789,3 +9789,368 @@ vertical-align: middle;
     order: 2;
   }
 }
+
+/* ========================================
+   TABAC & DROGUES - SYSTÈME D'ONGLETS & CARTES
+   ======================================== */
+
+/* CONTENEUR PRINCIPAL DES ONGLETS */
+.tabac-tabs {
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* NAVIGATION DES ONGLETS */
+.tabac-tabs-nav {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 30px;
+  padding: 0 10px;
+}
+
+.tabac-tab-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: var(--neutral);
+  border: 2px solid var(--neutralDark);
+  border-radius: var(--radius);
+  color: var(--textColor);
+  font-family: var(--font-3);
+  font-size: var(--normal-size);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.tabac-tab-btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: var(--co-gradient);
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s ease;
+  z-index: 0;
+}
+
+.tabac-tab-btn:hover::before {
+  width: 300%;
+  height: 300%;
+  opacity: 0.2;
+}
+
+.tabac-tab-btn:hover {
+  border-color: var(--co-1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(224, 56, 174, 0.2);
+}
+
+.tabac-tab-btn.active {
+  background: var(--co-gradient);
+  border-color: transparent;
+  color: white;
+  box-shadow: 0 4px 12px rgba(224, 56, 174, 0.3);
+}
+
+.tabac-tab-btn.active::before {
+  display: none;
+}
+
+.tabac-tab-btn span.cp {
+  position: relative;
+  z-index: 1;
+  font-size: var(--medium-size);
+  transition: transform 0.3s ease;
+}
+
+.tabac-tab-btn:hover span.cp {
+  transform: scale(1.2) rotate(5deg);
+}
+
+.tabac-tab-btn.active span.cp {
+  animation: bounce 0.6s ease;
+}
+
+/* CONTENU DES ONGLETS */
+.tabac-tab-content {
+  display: none;
+  animation: fadeIn 0.5s ease;
+}
+
+.tabac-tab-content.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================================
+   ONGLET CIGARETTES - MÊME STYLE QUE SODAS/SNACKS
+   ======================================== */
+
+/* On réutilise .conso-grid et .conso-card qui sont déjà définis 
+   dans le CSS principal des consommations */
+
+/* ========================================
+   ONGLET DROGUES - CARTES FLIP 3D
+   ======================================== */
+
+.drug-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+/* CARTE DROGUE AVEC FLIP 3D */
+.drug-card {
+  width: 100%;
+  height: 400px;
+  perspective: 1500px;
+}
+
+.drug-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.drug-card:hover .drug-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* FACE AVANT & ARRIÈRE */
+.drug-card-front,
+.drug-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+/* FACE AVANT */
+.drug-card-front {
+  background: var(--neutralDark);
+  border: 2px solid var(--neutral);
+  transition: all 0.3s ease;
+}
+
+.drug-card:hover .drug-card-front {
+  box-shadow: 0 8px 20px rgba(224, 56, 174, 0.3);
+}
+
+.drug-front-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 20px;
+  height: 100%;
+  padding: 20px;
+}
+
+/* IMAGE DE LA DROGUE */
+.drug-img {
+  width: 300px;
+  height: 360px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--neutral);
+  position: relative;
+}
+
+.drug-img::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent 60%, var(--neutralDarker));
+  pointer-events: none;
+}
+
+.drug-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.drug-card:hover .drug-img img {
+  transform: scale(1.1);
+}
+
+/* INFOS DE LA DROGUE */
+.drug-info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 10px 20px 10px 0;
+}
+
+.drug-title {
+  font-family: var(--font-3);
+  font-size: var(--title-size);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--co-1);
+  background: var(--co-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* BADGES TYPE & INTENSITÉ */
+.drug-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 5px 0;
+}
+
+.drug-badges bg1,
+.drug-badges bg2 {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.drug-badges .cp {
+  font-size: 11px;
+}
+
+/* DESCRIPTION */
+.drug-desc {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-right: 8px;
+  text-align: justify;
+  font-size: var(--normal-size);
+  line-height: 1.6;
+  color: var(--textColor);
+}
+
+/* HINT HOVER */
+.drug-hover-hint {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: var(--neutral);
+  border-radius: var(--radius);
+  font-size: var(--small-size);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--co-2);
+  justify-content: center;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.drug-hover-hint .cp {
+  font-size: var(--medium-size);
+  animation: rotate 3s linear infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* FACE ARRIÈRE */
+.drug-card-back {
+  background: var(--neutralDarker);
+  border: 2px solid var(--co-1);
+  transform: rotateY(180deg);
+  box-shadow: 0 0 30px rgba(224, 56, 174, 0.4);
+}
+
+.drug-back-content {
+  padding: 30px;
+  height: 100%;
+  overflow-y: auto;
+  text-align: justify;
+}
+
+.drug-back-title {
+  font-family: var(--font-3);
+  font-size: var(--large-size);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--co-1);
+  margin: 20px 0 10px 0;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--co-1);
+}
+
+.drug-back-title:first-child {
+  margin-top: 0;
+}
+
+.drug-back-content p {
+  margin: 10px 0;
+  font-size: var(--normal-size);
+  line-height: 1.6;
+  color: var(--textColorAccent);
+}
+
+.drug-back-content min4 {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 768px) {
+  .drug-front-layout {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .drug-img {
+    width: 100%;
+    height: 250px;
+  }
+  
+  .drug-card {
+    height: auto;
+    min-height: 500px;
+  }
+}
