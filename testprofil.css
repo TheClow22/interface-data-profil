@@ -9444,24 +9444,7 @@ vertical-align: middle;
   color: var(--textColor);
 }
 
-/* Scrollbar personnalisée pour les descriptions */
-.conso-card-desc::-webkit-scrollbar {
-  width: 4px;
-}
-
-.conso-card-desc::-webkit-scrollbar-track {
-  background: var(--neutral);
-  border-radius: 10px;
-}
-
-.conso-card-desc::-webkit-scrollbar-thumb {
-  background: var(--co-gradient);
-  border-radius: 10px;
-}
-
-.conso-card-desc::-webkit-scrollbar-thumb:hover {
-  background: var(--co-1);
-}
+/* La scrollbar utilisera automatiquement le style global du forum (2px, thin) */
 
 /* ========================================
    ACCORDÉON MENUS PAR LIEU
