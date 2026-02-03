@@ -9216,6 +9216,611 @@ vertical-align: middle;
     grid-template-columns: 1fr;
   }
 
+/* ========================================
+   CONSOMMATIONS - SYSTÈME D'ONGLETS & CARTES
+   ======================================== */
+
+/* CONTENEUR PRINCIPAL DES ONGLETS */
+.conso-tabs {
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* NAVIGATION DES ONGLETS */
+.conso-tabs-nav {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 30px;
+  padding: 0 10px;
+}
+
+.conso-tab-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: var(--neutral);
+  border: 2px solid var(--neutralDark);
+  border-radius: var(--radius);
+  color: var(--textColor);
+  font-family: var(--font-3);
+  font-size: var(--normal-size);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.conso-tab-btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: var(--co-gradient);
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s ease;
+  z-index: 0;
+}
+
+.conso-tab-btn:hover::before {
+  width: 300%;
+  height: 300%;
+  opacity: 0.2;
+}
+
+.conso-tab-btn:hover {
+  border-color: var(--co-1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(224, 56, 174, 0.2);
+}
+
+.conso-tab-btn.active {
+  background: var(--co-gradient);
+  border-color: transparent;
+  color: white;
+  box-shadow: 0 4px 12px rgba(224, 56, 174, 0.3);
+}
+
+.conso-tab-btn.active::before {
+  display: none;
+}
+
+.conso-tab-btn span.cp {
+  position: relative;
+  z-index: 1;
+  font-size: var(--medium-size);
+  transition: transform 0.3s ease;
+}
+
+.conso-tab-btn:hover span.cp {
+  transform: scale(1.2) rotate(5deg);
+}
+
+.conso-tab-btn.active span.cp {
+  animation: bounce 0.6s ease;
+}
+
+/* CONTENU DES ONGLETS */
+.conso-tab-content {
+  display: none;
+  animation: fadeIn 0.5s ease;
+}
+
+.conso-tab-content.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================================
+   GRILLE DE CARTES (SODAS & SNACKS)
+   ======================================== */
+
+.conso-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* CARTE PRODUIT */
+.conso-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--neutralDark);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.conso-card::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: var(--co-gradient);
+  border-radius: var(--radius);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.conso-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.conso-card:hover::before {
+  opacity: 1;
+}
+
+/* IMAGE DU PRODUIT */
+.conso-card-img {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: var(--neutral);
+}
+
+.conso-card-img::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent 60%, var(--neutralDark));
+  pointer-events: none;
+}
+
+.conso-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.conso-card:hover .conso-card-img img {
+  transform: scale(1.1);
+}
+
+/* CONTENU DE LA CARTE */
+.conso-card-content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-grow: 1;
+}
+
+/* TITRE DU PRODUIT */
+.conso-card-title {
+  font-family: var(--font-3);
+  font-size: var(--large-size);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--co-1);
+  background: var(--co-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+}
+
+.conso-card-title::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--co-3);
+  transition: width 0.4s ease;
+}
+
+.conso-card:hover .conso-card-title::after {
+  width: 100%;
+}
+
+/* DESCRIPTION AVEC SCROLL */
+.conso-card-desc {
+  flex-grow: 1;
+  max-height: 180px;
+  overflow-y: auto;
+  padding-right: 8px;
+  text-align: justify;
+  font-size: var(--normal-size);
+  line-height: 1.6;
+  color: var(--textColor);
+}
+
+/* Scrollbar personnalisée pour les descriptions */
+.conso-card-desc::-webkit-scrollbar {
+  width: 4px;
+}
+
+.conso-card-desc::-webkit-scrollbar-track {
+  background: var(--neutral);
+  border-radius: 10px;
+}
+
+.conso-card-desc::-webkit-scrollbar-thumb {
+  background: var(--co-gradient);
+  border-radius: 10px;
+}
+
+.conso-card-desc::-webkit-scrollbar-thumb:hover {
+  background: var(--co-1);
+}
+
+/* ========================================
+   ACCORDÉON MENUS PAR LIEU
+   ======================================== */
+
+.menu-accordion {
+  margin-bottom: 20px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 2px solid var(--neutral);
+  transition: all 0.3s ease;
+}
+
+.menu-accordion:hover {
+  border-color: var(--co-1);
+}
+
+/* BOUTON D'ACCORDÉON */
+.menu-accordion-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: var(--neutralDark);
+  border: none;
+  color: var(--contrast);
+  font-family: var(--font-3);
+  font-size: var(--large-size);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-accordion-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--co-gradient);
+  transition: left 0.4s ease;
+  z-index: 0;
+}
+
+.menu-accordion-btn:hover::before {
+  left: 0;
+}
+
+.menu-accordion-btn:hover {
+  color: white;
+}
+
+.menu-accordion-btn > * {
+  position: relative;
+  z-index: 1;
+}
+
+.menu-accordion-btn span.cp {
+  font-size: var(--title-size);
+  margin-right: 12px;
+}
+
+.menu-accordion-icon {
+  font-size: var(--medium-size);
+  transition: transform 0.3s ease;
+}
+
+.menu-accordion.active .menu-accordion-icon {
+  transform: rotate(180deg);
+}
+
+/* CONTENU DE L'ACCORDÉON */
+.menu-accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  background: var(--neutral);
+  transition: max-height 0.5s ease, padding 0.5s ease;
+  padding: 0 20px;
+}
+
+.menu-accordion.active .menu-accordion-content {
+  max-height: 5000px;
+  padding: 20px;
+}
+
+/* ========================================
+   ITEMS DE MENU (ALTERNANCE GAUCHE/DROITE)
+   ======================================== */
+
+.menu-item {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 20px;
+  align-items: start;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: var(--neutralDark);
+  border-radius: var(--radius);
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.menu-item::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: var(--co-gradient);
+  border-radius: var(--radius);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.menu-item:hover {
+  transform: translateX(5px);
+}
+
+.menu-item:hover::before {
+  opacity: 1;
+}
+
+/* IMAGE À GAUCHE (par défaut) */
+.menu-item-left {
+  grid-template-columns: 200px 1fr;
+}
+
+/* IMAGE À DROITE */
+.menu-item-right {
+  grid-template-columns: 1fr 200px;
+}
+
+.menu-item-right .menu-item-img {
+  order: 2;
+}
+
+.menu-item-right .menu-item-content {
+  order: 1;
+}
+
+/* IMAGE DU MENU */
+.menu-item-img {
+  width: 200px;
+  height: 200px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--neutral);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.menu-item-img::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--co-1) 0%, transparent 50%, var(--co-3) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  mix-blend-mode: overlay;
+}
+
+.menu-item:hover .menu-item-img::after {
+  opacity: 0.3;
+}
+
+.menu-item-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.menu-item:hover .menu-item-img img {
+  transform: scale(1.15) rotate(2deg);
+}
+
+/* CONTENU DU MENU */
+.menu-item-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* TITRE DU PLAT/COCKTAIL */
+.menu-item-title {
+  font-family: var(--font-3);
+  font-size: var(--large-size);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+  color: var(--contrast);
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.menu-item-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background: var(--co-gradient);
+  transition: width 0.4s ease;
+}
+
+.menu-item:hover .menu-item-title::after {
+  width: 100%;
+}
+
+/* TAGS/BADGES D'INDICATEURS */
+.menu-item-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 5px 0;
+}
+
+.menu-item-tags bg1,
+.menu-item-tags bg2,
+.menu-item-tags bg3 {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.menu-item-tags .cp {
+  font-size: 11px;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* INGRÉDIENTS */
+.menu-item-ingredients {
+  font-size: var(--small-size);
+  color: var(--textColor);
+  line-height: 1.5;
+  padding: 8px 12px;
+  background: var(--neutral);
+  border-radius: 8px;
+  border-left: 3px solid var(--co-2);
+}
+
+/* DESCRIPTION */
+.menu-item-desc {
+  font-size: var(--normal-size);
+  color: var(--textColor);
+  line-height: 1.6;
+  text-align: justify;
+}
+
+/* ========================================
+   ANIMATIONS MAGIQUES
+   ======================================== */
+
+/* Animation de scintillement pour les titres */
+@keyframes sparkle {
+  0%, 100% {
+    text-shadow: 0 0 5px rgba(224, 56, 174, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 15px rgba(224, 56, 174, 0.8), 0 0 25px rgba(73, 99, 252, 0.6);
+  }
+}
+
+.sub-2 {
+  animation: sparkle 3s ease-in-out infinite;
+}
+
+/* Animation de flottement pour les cartes */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Animation de lueur pour les bordures */
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(224, 56, 174, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(224, 56, 174, 0.6), 0 0 30px rgba(73, 99, 252, 0.4);
+  }
+}
+
+.conso-card:hover,
+.menu-item:hover {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* ========================================
+   RESPONSIVE (si besoin d'ajustements)
+   ======================================== */
+
+@media (max-width: 768px) {
+  .conso-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .conso-tabs-nav {
+    flex-direction: column;
+  }
+  
+  .menu-item,
+  .menu-item-left,
+  .menu-item-right {
+    grid-template-columns: 1fr;
+  }
+  
+  .menu-item-img {
+    width: 100%;
+    height: 250px;
+  }
+  
+  .menu-item-right .menu-item-img {
+    order: 1;
+  }
+  
+  .menu-item-right .menu-item-content {
+    order: 2;
+  }
+}	
   .bag-inventory {
     grid-template-columns: 1fr;
   }
