@@ -9355,6 +9355,7 @@ vertical-align: middle;
   border: 2px solid transparent;
 }
 
+/* Bordure gradient au hover - CONSERVÉE */
 .conso-card::before {
   content: "";
   position: absolute;
@@ -9382,7 +9383,7 @@ vertical-align: middle;
 .conso-card-img {
   position: relative;
   width: 100%;
-  height: 200px;
+  height: 280px;
   overflow: hidden;
   background: var(--neutral);
 }
@@ -9745,7 +9746,7 @@ vertical-align: middle;
 /* DESCRIPTION */
 .menu-item-desc {
   font-size: var(--normal-size);
-  color: var(--textColor);
+  color: var(--textColorAccent);
   line-height: 1.6;
   text-align: justify;
 }
@@ -9764,9 +9765,7 @@ vertical-align: middle;
   }
 }
 
-.sub-2 {
-  animation: sparkle 3s ease-in-out infinite;
-}
+/* Animation désactivée pour .sub-2 */
 
 /* Animation de flottement pour les cartes */
 @keyframes float {
@@ -9824,4 +9823,5 @@ vertical-align: middle;
   .menu-item-right .menu-item-content {
     order: 2;
   }
-}	
+}
+
