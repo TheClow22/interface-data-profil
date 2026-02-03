@@ -9352,31 +9352,13 @@ vertical-align: middle;
   border-radius: var(--radius);
   overflow: hidden;
   transition: all 0.3s ease;
-  border: 2px solid transparent;
-}
-
-/* Bordure gradient au hover - CONSERVÉE */
-.conso-card::before {
-  content: "";
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: var(--co-gradient);
-  border-radius: var(--radius);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: -1;
+  border: 2px solid var(--neutral);
 }
 
 .conso-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-}
-
-.conso-card:hover::before {
-  opacity: 1;
+  border-color: var(--co-1);
 }
 
 /* IMAGE DU PRODUIT */
@@ -9824,4 +9806,3 @@ vertical-align: middle;
     order: 2;
   }
 }
-
