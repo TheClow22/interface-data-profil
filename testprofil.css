@@ -10136,3 +10136,345 @@ vertical-align: middle;
     min-height: 500px;
   }
 }
+
+/* ========================================
+   RÉPERTOIRE PERSONNAGES - CARTES TAROT
+   ======================================== */
+
+/* SYSTÈME D'ONGLETS */
+.char-tabs {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.char-tabs-nav {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 30px;
+  padding: 0 10px;
+}
+
+.char-tab-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: var(--neutral);
+  border: 2px solid var(--neutralDark);
+  border-radius: var(--radius);
+  color: var(--textColor);
+  font-family: var(--font-3);
+  font-size: var(--normal-size);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.char-tab-btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: var(--co-gradient);
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s ease;
+  z-index: 0;
+}
+
+.char-tab-btn:hover::before {
+  width: 300%;
+  height: 300%;
+  opacity: 0.2;
+}
+
+.char-tab-btn:hover {
+  border-color: var(--co-1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(224, 56, 174, 0.2);
+}
+
+.char-tab-btn.active {
+  background: var(--co-gradient);
+  border-color: transparent;
+  color: white;
+  box-shadow: 0 4px 12px rgba(224, 56, 174, 0.3);
+}
+
+.char-tab-btn.active::before {
+  display: none;
+}
+
+.char-tab-btn span.cp {
+  position: relative;
+  z-index: 1;
+  font-size: var(--medium-size);
+  transition: transform 0.3s ease;
+}
+
+.char-tab-btn:hover span.cp {
+  transform: scale(1.2) rotate(5deg);
+}
+
+.char-tab-btn.active span.cp {
+  animation: bounce 0.6s ease;
+}
+
+/* CONTENU DES ONGLETS */
+.char-tab-content {
+  display: none;
+  animation: fadeIn 0.5s ease;
+}
+
+.char-tab-content.active {
+  display: block;
+}
+
+/* GRILLE DE CARTES */
+.char-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-top: 20px;
+}
+
+/* CARTE PERSONNAGE - STYLE TAROT */
+.char-card {
+  position: relative;
+  width: 100%;
+  height: 580px;
+  perspective: 1500px;
+}
+
+.char-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: var(--neutralDark);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: all 0.5s ease;
+  border: 3px solid var(--neutral);
+}
+
+/* BORDURE ANIMÉE QUI PULSE */
+.char-card-inner::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  background: var(--co-gradient);
+  border-radius: var(--radius);
+  opacity: 0;
+  transition: all 0.5s ease;
+  z-index: 0;
+  animation: pulse-border 3s ease-in-out infinite;
+}
+
+@keyframes pulse-border {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.char-card:hover .char-card-inner::before {
+  opacity: 1;
+  animation: pulse-border 1.5s ease-in-out infinite;
+}
+
+.char-card:hover .char-card-inner {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(224, 56, 174, 0.4);
+  border-color: transparent;
+}
+
+/* IMAGE - FORMAT TAROT */
+.char-img {
+  position: relative;
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+  background: var(--neutral);
+  z-index: 1;
+}
+
+.char-img::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(to bottom, transparent, var(--neutralDark));
+  pointer-events: none;
+  z-index: 2;
+}
+
+.char-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+  filter: brightness(0.95);
+}
+
+.char-card:hover .char-img img {
+  transform: scale(1.08);
+  filter: brightness(1.05);
+}
+
+/* PARTICULES SCINTILLANTES AU SURVOL */
+.char-card::after {
+  content: "✦";
+  position: absolute;
+  top: 20%;
+  right: 15%;
+  font-size: 20px;
+  color: var(--co-1);
+  opacity: 0;
+  animation: sparkle-float 3s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.char-card:hover::after {
+  opacity: 1;
+}
+
+@keyframes sparkle-float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-15px) rotate(180deg);
+    opacity: 1;
+  }
+  75% {
+    opacity: 0.8;
+  }
+}
+
+/* INFORMATIONS DU PERSONNAGE */
+.char-info {
+  position: relative;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 1;
+  background: var(--neutralDark);
+}
+
+/* NOM + SIGNE ASTRO */
+.char-name {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 0;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--co-1);
+  font-family: var(--font-3);
+  font-size: var(--large-size);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.2;
+}
+
+.char-name .cp {
+  flex-shrink: 0;
+  font-size: var(--title-size);
+  transition: transform 0.3s ease;
+}
+
+.char-card:hover .char-name .cp {
+  transform: scale(1.2) rotate(360deg);
+}
+
+/* DÉTAILS (âge, race, orientation) */
+.char-details {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.char-details p {
+  margin: 0;
+  font-size: var(--small-size);
+  line-height: 1.4;
+  color: var(--textColor);
+}
+
+.char-details time {
+  display: inline-block;
+  min-width: 100px;
+}
+
+/* TAGS / MOTS-CLÉS */
+.char-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 5px;
+}
+
+.char-tags bg3 {
+  font-size: 9px;
+  padding: 4px 8px;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+/* EFFET RÉVÉLATION AU CHARGEMENT */
+.char-card {
+  opacity: 0;
+  animation: reveal-card 0.6s ease forwards;
+}
+
+.char-card:nth-child(1) { animation-delay: 0.1s; }
+.char-card:nth-child(2) { animation-delay: 0.2s; }
+.char-card:nth-child(3) { animation-delay: 0.3s; }
+.char-card:nth-child(4) { animation-delay: 0.4s; }
+.char-card:nth-child(5) { animation-delay: 0.5s; }
+.char-card:nth-child(6) { animation-delay: 0.6s; }
+.char-card:nth-child(7) { animation-delay: 0.7s; }
+.char-card:nth-child(8) { animation-delay: 0.8s; }
+.char-card:nth-child(9) { animation-delay: 0.9s; }
+.char-card:nth-child(10) { animation-delay: 1s; }
+.char-card:nth-child(11) { animation-delay: 1.1s; }
+.char-card:nth-child(12) { animation-delay: 1.2s; }
+.char-card:nth-child(13) { animation-delay: 1.3s; }
+
+@keyframes reveal-card {
+  from {
+    opacity: 0;
+    transform: translateY(30px) rotateX(-15deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateX(0);
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .char-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .char-card {
+    height: auto;
+  }
+}
