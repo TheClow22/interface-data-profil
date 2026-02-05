@@ -10263,7 +10263,7 @@ vertical-align: middle;
   border: 3px solid var(--neutral);
 }
 
-/* BORDURE ANIMÉE QUI PULSE */
+/* BORDURE FIXE */
 .char-card-inner::before {
   content: "";
   position: absolute;
@@ -10273,21 +10273,10 @@ vertical-align: middle;
   opacity: 0;
   transition: all 0.5s ease;
   z-index: 0;
-  animation: pulse-border 3s ease-in-out infinite;
-}
-
-@keyframes pulse-border {
-  0%, 100% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 0.3;
-  }
 }
 
 .char-card:hover .char-card-inner::before {
-  opacity: 1;
-  animation: pulse-border 1.5s ease-in-out infinite;
+  opacity: 0.5;
 }
 
 .char-card:hover .char-card-inner {
@@ -10375,7 +10364,11 @@ vertical-align: middle;
   gap: 12px;
   z-index: 1;
   background: var(--neutralDark);
+  max-height: 230px;
+  overflow-y: auto;
 }
+
+/* La scrollbar utilisera automatiquement le style global du forum (2px, thin) */
 
 /* NOM + SIGNE ASTRO */
 .char-name {
@@ -10422,19 +10415,37 @@ vertical-align: middle;
   min-width: 100px;
 }
 
-/* TAGS / MOTS-CLÉS */
+/* TAGS / MOTS-CLÉS - STYLE HASHTAG + ENCADRÉ */
 .char-tags {
   display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 5px;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 8px;
+  padding: 12px;
+  background: var(--neutral);
+  border-left: 3px solid var(--co-3);
+  border-radius: 8px;
 }
 
 .char-tags bg3 {
-  font-size: 9px;
-  padding: 4px 8px;
-  line-height: 1.2;
-  white-space: nowrap;
+  display: block;
+  font-size: var(--small-size);
+  padding: 0;
+  margin: 0;
+  line-height: 1.4;
+  background: transparent;
+  border-radius: 0;
+  color: var(--textColor);
+  text-transform: none;
+  letter-spacing: 0;
+  white-space: normal;
+}
+
+.char-tags bg3::before {
+  content: "# ";
+  color: var(--co-3);
+  font-weight: 700;
+  margin-right: 3px;
 }
 
 /* EFFET RÉVÉLATION AU CHARGEMENT */
