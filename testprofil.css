@@ -10426,13 +10426,14 @@ vertical-align: middle;
 .char-tags {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 3px;
   margin-top: 8px;
   padding: 12px;
   background: var(--neutral);
   border-left: 3px solid var(--co-3);
   border-radius: 8px;
-  text-align: justify;
+  text-align: left;
+  align-items: flex-start;
 }
 
 .char-tags bg3 {
@@ -10440,20 +10441,22 @@ vertical-align: middle;
   font-size: var(--small-size);
   padding: 0;
   margin: 0;
-  line-height: 1.4;
+  line-height: 1.5;
   background: transparent;
   border-radius: 0;
   color: var(--textColor);
   text-transform: uppercase;
-  letter-spacing: 0;
+  letter-spacing: 0.3px;
   white-space: normal;
+  text-align: left;
+  width: 100%;
 }
 
 .char-tags bg3::before {
   content: "#";
   color: var(--co-3);
   font-weight: 700;
-  margin-right: 5px;
+  margin-right: 4px;
 }
 
 /* EFFET RÉVÉLATION AU CHARGEMENT */
