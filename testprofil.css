@@ -10426,9 +10426,9 @@ vertical-align: middle;
 .char-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 12px;
-  margin-top: 8px;
-  padding: 10px 12px;
+  gap: 4px 2px;
+  margin-top: 2px;
+  padding: 5px 6px;
   background: var(--neutral);
   border-left: 3px solid var(--co-3);
   border-radius: 8px;
