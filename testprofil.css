@@ -10437,28 +10437,20 @@ vertical-align: middle;
 }
 
 .char-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
+  display: inline;
   font-size: var(--small-size);
-  color: var(--textColor);
+  color: var(--textColorAccent);
   text-transform: lowercase;
   letter-spacing: 0.3px;
   white-space: nowrap;
 }
 
-.char-tag::after {
-  content: "";
-  display: inline-block;
-  font-family: var(--font-ic);
+/* Séparateur Cappuccicon entre les tags */
+.char-tags .cp {
   font-size: 10px;
   color: var(--co-1);
   animation: magic-sparkle 2.5s ease-in-out infinite;
-}
-
-/* Séparateur Cappuccicon - étoiles scintillantes */
-.char-tag:not(:last-child)::after {
-  content: "\eb77"; /* cp-stars */
+  margin: 0 4px;
 }
 
 /* Animation magique du séparateur */
@@ -10473,13 +10465,8 @@ vertical-align: middle;
   }
 }
 
-/* Variante : dernier tag sans séparateur */
-.char-tag:last-child::after {
-  display: none;
-}
-
 /* Effet au survol de la carte entière */
-.char-card:hover .char-tag::after {
+.char-card:hover .char-tags .cp {
   color: var(--co-3);
   animation-duration: 1.5s;
 }
