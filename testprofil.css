@@ -10250,6 +10250,7 @@ vertical-align: middle;
   width: 100%;
   height: 580px;
   perspective: 1500px;
+  min-width: 0; 
 }
 
 .char-card-inner {
@@ -10261,6 +10262,7 @@ vertical-align: middle;
   overflow: hidden;
   transition: all 0.5s ease;
   border: 3px solid var(--neutral);
+  box-sizing: border-box;
 }
 
 /* BORDURE FIXE */
@@ -10366,6 +10368,7 @@ vertical-align: middle;
   background: var(--neutralDark);
   max-height: 230px;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 /* La scrollbar utilisera automatiquement le style global du forum (2px, thin) */
@@ -10434,6 +10437,8 @@ vertical-align: middle;
   border-radius: 8px;
   line-height: 1.6;
   align-items: center;
+  word-wrap: break-word; /* ✅ AJOUTER CETTE LIGNE */
+  overflow-wrap: break-word; /* ✅ AJOUTER CETTE LIGNE */
 }
 
 .char-tag {
@@ -10442,7 +10447,8 @@ vertical-align: middle;
   color: var(--textColorAccent);
   text-transform: lowercase;
   letter-spacing: 0.3px;
-  white-space: nowrap;
+  word-break: break-word;
+  max-width: 100%;	
 }
 
 /* Séparateur Cappuccicon entre les tags */
